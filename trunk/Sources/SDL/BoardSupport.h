@@ -67,6 +67,7 @@
 #define TFC_SENSOR_7		!((GPIOC_PDIR&TFC_SENSOR_7_PIN)>0)
 #define TFC_SENSOR_8		!((GPIOC_PDIR&TFC_SENSOR_8_PIN)>0)
 
+void 	EstadoLed(int,int);
 void    TFC_InitGPIO();
 void    TFC_SetBatteryLED_Level(uint8_t BattLevel);
 uint8_t TFC_GetDIP_Switch();
