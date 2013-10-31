@@ -89,17 +89,26 @@ if(LineScanImageReady==1)
 *  Description          : Esta funcion lee el ADC que se encuentra conectado a la Bateria, 
 *  						  de acuerdo a su valor, prende una serie de LEDs 
 ********************************************************************************************/
+int h=0;
 void VoltajeBateria()
 {
 int bateria = BatSenseADC_Value,nivel=1;
-TERMINAL_PRINTF("Bat:%d\r\n",bateria);
 
-if(bateria<80) 	 	 nivel=1;
-else if(bateria<110) nivel=2;
-else if(bateria<125) nivel=3;
-else				 nivel=4;
+if(bateria>=131)		nivel=4;	//Mayor de 8.4 volts
+else if(bateria>=119)	nivel=3;	//Mayor de 
+else if(bateria>=119)	nivel=2;	//Mayor de 7.6 volts 
+else if(bateria>=119)	nivel=1;	//Mayor de 
+else if(bateria>=99)	nivel=0;	//Mayor de 6.7 volts
+else if(bateria>=92) 	nivel=0;	//Mayor de 6.2 volts
+else if(bateria>=85) 	nivel=0;	//Mayor de 5.7 volts
+else if(bateria>=77) 	nivel=0;	//Mayor de 5.2 volts
+else					nivel=0;	//Menor de 5.2 volts
 
-TFC_SetBatteryLED_Level(nivel);
+TERMINAL_PRINTF("Bat:%d  Nivel:%d  h:%d\r\n",bateria,nivel,h);
+
+TFC_SetBatteryLED_Level(h);
+h++;
+if(h==7) h=0;
 }
 /*
 	 Valores Medidos

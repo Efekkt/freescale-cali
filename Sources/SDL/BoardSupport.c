@@ -6,6 +6,12 @@
 
 #include "..\TFC.h"
 
+#define LED1	8
+#define LED2	9
+#define LED3	10
+#define LED4	11
+#define BIT_POSITION(x)	1<<(x)
+
 //Set I/O for H-BRIDGE enables, switches and LEDs
 void TFC_InitGPIO()
 {
@@ -55,6 +61,53 @@ TFC_HBRIDGE_DISABLE;
 void TFC_SetBatteryLED_Level(uint8_t BattLevel)
 {
 switch(BattLevel)
+	{	
+	case 0:
+		EstadoLed(LED1,0);
+		EstadoLed(LED2,0);
+		EstadoLed(LED3,0);
+		EstadoLed(LED4,0);
+		break;
+	case 1:
+		EstadoLed(LED1,1);
+		EstadoLed(LED2,0);
+		EstadoLed(LED3,0);
+		EstadoLed(LED4,0);
+		break;	
+	case 2:
+		EstadoLed(LED1,1);
+		EstadoLed(LED2,1);
+		EstadoLed(LED3,0);
+		EstadoLed(LED4,0);
+		break;	
+	case 3:
+		EstadoLed(LED1,0);
+		EstadoLed(LED2,1);
+		EstadoLed(LED3,1);
+		EstadoLed(LED4,0);
+		break;	
+	case 4:
+		EstadoLed(LED1,0);
+		EstadoLed(LED2,0);
+		EstadoLed(LED3,1);
+		EstadoLed(LED4,1);
+		break;	
+	case 5:
+		EstadoLed(LED1,0);
+		EstadoLed(LED2,0);
+		EstadoLed(LED3,0);
+		EstadoLed(LED4,1);
+		break;	
+	case 6:
+		EstadoLed(LED1,1);
+		EstadoLed(LED2,1);
+		EstadoLed(LED3,1);
+		EstadoLed(LED4,1);
+		break;
+	}
+
+/*
+switch(BattLevel)
 	{
 	default:
 	case 0:
@@ -75,6 +128,16 @@ switch(BattLevel)
 	case 4:
 		GPIOB_PSOR = 0x0F<<8;
 		break;	
+	}
+*/
+}
+
+void EstadoLed(int pin, int estado)
+{
+if(pin<32)
+	{
+	if(estado==1) GPIOB_PSOR=BIT_POSITION(pin);
+	else if(estado==0) GPIOB_PCOR=BIT_POSITION(pin);
 	}
 }
 
