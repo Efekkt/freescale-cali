@@ -2,21 +2,18 @@ Sources/main.o: ../Sources/main.c \
  C:/Freescale/CW\ MCU\ v10.4/MCU/ARM_GCC_Support/ewl/EWL_C/include/lib_ewl.prefix \
  C:/Freescale/CW\ MCU\ v10.4/MCU/ARM_GCC_Support/ewl/EWL_C/include/common.prefix \
  C:/Freescale/CW\ MCU\ v10.4/MCU/ARM_GCC_Support/ewl/EWL_C/include/ewl_c_version.h \
- C:/Users/Cesar/Desktop/Freescale\ Cup\ 2013/Aplicaciones/CALI_TFC_MKL25Z128/Project_Headers/TFC\TFC.h \
- C:/Freescale/CW\ MCU\ v10.4/MCU/ARM_GCC_Support/ewl/EWL_C/include/stdint.h \
+ ../Sources/TFC.h \
+ C:/Freescale/CW\ MCU\ v10.4/MCU/ARM_GCC_Support/ewl/EWL_C/include/stdio.h \
  C:/Freescale/CW\ MCU\ v10.4/MCU/ARM_GCC_Support/ewl/EWL_C/include/ansi_parms.h \
  C:/Freescale/CW\ MCU\ v10.4/MCU/ARM_GCC_Support/ewl/EWL_C/include/ewlGlobals.h \
  C:/Freescale/CW\ MCU\ v10.4/MCU/ARM_GCC_Support/ewl/EWL_C/include/arm/ansi_prefix.ARM.h \
  C:/Freescale/CW\ MCU\ v10.4/MCU/ARM_GCC_Support/ewl/EWL_C/include/os_enum.h \
- C:/Freescale/CW\ MCU\ v10.4/MCU/ARM_GCC_Support/ewl/EWL_C/include/cstdint \
- C:/Freescale/CW\ MCU\ v10.4/MCU/ARM_GCC_Support/ewl/EWL_C/include/limits_api.h \
- C:/Freescale/CW\ MCU\ v10.4/MCU/ARM_GCC_Support/ewl/EWL_C/include/ewl_lib_ext1.h \
- C:/Freescale/CW\ MCU\ v10.4/MCU/ARM_GCC_Support/ewl/EWL_C/include/stdio.h \
  C:/Freescale/CW\ MCU\ v10.4/MCU/ARM_GCC_Support/ewl/EWL_C/include/cstdio \
  C:/Freescale/CW\ MCU\ v10.4/MCU/ARM_GCC_Support/ewl/EWL_C/include/cstddef \
  C:/Freescale/CW\ MCU\ v10.4/MCU/ARM_GCC_Support/ewl/EWL_C/include/null.h \
  C:/Freescale/CW\ MCU\ v10.4/MCU/ARM_GCC_Support/ewl/EWL_C/include/size_t.h \
  C:/Freescale/CW\ MCU\ v10.4/MCU/ARM_GCC_Support/ewl/EWL_C/include/wchar_t.h \
+ C:/Freescale/CW\ MCU\ v10.4/MCU/ARM_GCC_Support/ewl/EWL_C/include/ewl_lib_ext1.h \
  C:/Freescale/CW\ MCU\ v10.4/MCU/ARM_GCC_Support/ewl/EWL_C/include/ewl_rsize_t.h \
  C:/Freescale/CW\ MCU\ v10.4/MCU/ARM_GCC_Support/ewl/EWL_C/include/eof.h \
  C:/Freescale/CW\ MCU\ v10.4/MCU/ARM_GCC_Support/ewl/EWL_C/include/va_list.h \
@@ -28,30 +25,24 @@ Sources/main.o: ../Sources/main.c \
  C:/Freescale/CW\ MCU\ v10.4/MCU/ARM_GCC_Support/ewl/EWL_C/include/string.h \
  C:/Freescale/CW\ MCU\ v10.4/MCU/ARM_GCC_Support/ewl/EWL_C/include/cstring \
  C:/Freescale/CW\ MCU\ v10.4/MCU/ARM_GCC_Support/ewl/EWL_C/include/string_api.h \
- C:/Users/Cesar/Desktop/Freescale\ Cup\ 2013/Aplicaciones/CALI_TFC_MKL25Z128/Project_Headers/Derivative.h \
- C:/Users/Cesar/Desktop/Freescale\ Cup\ 2013/Aplicaciones/CALI_TFC_MKL25Z128/Project_Headers/MKL25Z4.h \
- C:/Users/Cesar/Desktop/Freescale\ Cup\ 2013/Aplicaciones/CALI_TFC_MKL25Z128/Project_Headers/TFC\ARM_SysTick.h \
- C:/Users/Cesar/Desktop/Freescale\ Cup\ 2013/Aplicaciones/CALI_TFC_MKL25Z128/Project_Headers/TFC\CrystalClock.h \
- C:/Users/Cesar/Desktop/Freescale\ Cup\ 2013/Aplicaciones/CALI_TFC_MKL25Z128/Project_Headers/TFC\TFC_Config.h \
- C:/Users/Cesar/Desktop/Freescale\ Cup\ 2013/Aplicaciones/CALI_TFC_MKL25Z128/Project_Headers/TFC\TFC_Types.h \
- C:/Users/Cesar/Desktop/Freescale\ Cup\ 2013/Aplicaciones/CALI_TFC_MKL25Z128/Project_Headers/TFC\TFC_arm_cm0.h \
- C:/Users/Cesar/Desktop/Freescale\ Cup\ 2013/Aplicaciones/CALI_TFC_MKL25Z128/Project_Headers/TFC\TFC_BoardSupport.h \
- C:/Users/Cesar/Desktop/Freescale\ Cup\ 2013/Aplicaciones/CALI_TFC_MKL25Z128/Project_Headers/TFC\TFC_Servo.h \
- C:/Users/Cesar/Desktop/Freescale\ Cup\ 2013/Aplicaciones/CALI_TFC_MKL25Z128/Project_Headers/TFC\TFC_Motor.h \
- C:/Users/Cesar/Desktop/Freescale\ Cup\ 2013/Aplicaciones/CALI_TFC_MKL25Z128/Project_Headers/TFC\TFC_ADC.h \
- C:/Users/Cesar/Desktop/Freescale\ Cup\ 2013/Aplicaciones/CALI_TFC_MKL25Z128/Project_Headers/TFC\TFC_Potentiometer.h \
- C:/Users/Cesar/Desktop/Freescale\ Cup\ 2013/Aplicaciones/CALI_TFC_MKL25Z128/Project_Headers/TFC\TFC_LineScanCamera.h \
- C:/Users/Cesar/Desktop/Freescale\ Cup\ 2013/Aplicaciones/CALI_TFC_MKL25Z128/Project_Headers/TFC\TFC_Queue.h \
- C:/Users/Cesar/Desktop/Freescale\ Cup\ 2013/Aplicaciones/CALI_TFC_MKL25Z128/Project_Headers/TFC\TFC_UART.h \
- C:/Users/Cesar/Desktop/Freescale\ Cup\ 2013/Aplicaciones/CALI_TFC_MKL25Z128/Project_Headers/TFC\TFC_Terminal.h \
- C:/Users/Cesar/Desktop/Freescale\ Cup\ 2013/Aplicaciones/CALI_TFC_MKL25Z128/Project_Headers/TFC\TFC_Led_RGB.h \
- C:/Users/Cesar/Desktop/Freescale\ Cup\ 2013/Aplicaciones/CALI_TFC_MKL25Z128/Project_Headers/TFC\TFC_I2C.h \
- C:/Users/Cesar/Desktop/Freescale\ Cup\ 2013/Aplicaciones/CALI_TFC_MKL25Z128/Project_Headers/TFC\TFC_MMA8451.h \
- C:/Users/Cesar/Desktop/Freescale\ Cup\ 2013/Aplicaciones/CALI_TFC_MKL25Z128/Project_Headers/TFC\TFC_Tasks.h \
- C:/Users/Cesar/Desktop/Freescale\ Cup\ 2013/Aplicaciones/CALI_TFC_MKL25Z128/Project_Headers/TFC\Coeficientes.h \
+ C:/Freescale/CW\ MCU\ v10.4/MCU/ARM_GCC_Support/ewl/EWL_C/include/stdint.h \
+ C:/Freescale/CW\ MCU\ v10.4/MCU/ARM_GCC_Support/ewl/EWL_C/include/cstdint \
+ C:/Freescale/CW\ MCU\ v10.4/MCU/ARM_GCC_Support/ewl/EWL_C/include/limits_api.h \
+ C:/Users/Cesar/Desktop/Freescale\ Cup\ 2013/Aplicaciones/GoogleCode/freescale-cali/Project_Headers/derivative.h \
+ C:/Users/Cesar/Desktop/Freescale\ Cup\ 2013/Aplicaciones/GoogleCode/freescale-cali/Project_Headers/MKL25Z4.h \
+ ../Sources/MCL\arm_cm0.h ../Sources/MCL\ARM_SysTick.h \
+ ../Sources/MCL\..\TFC.h ../Sources/MCL\CrystalClock.h \
+ ../Sources/SDL\ADC.h ../Sources/SDL\..\TFC.h \
+ ../Sources/SDL\BoardSupport.h ../Sources/SDL\Motor.h \
+ ../Sources/SDL\Potentiometer.h ../Sources/SDL\Servo.h \
+ ../Sources/SDL\Led_RGB.h ../Sources/SDL\I2C.h ../Sources/SDL\MMA8451.h \
+ ../Sources/SDL\LineScanCamera.h ../Sources/Config.h \
+ ../Sources/SDL\Queue.h ../Sources/SDL\UART.h ../Sources/SDL\Terminal.h \
+ ../Sources/SDL\..\Config.h ../Sources/SDL\UART.h \
+ ../Sources/APP\Coeficientes.h ../Sources/APP\Tasks.h \
  ../Sources/Scheduler\gsc_sch_core\gsc_sch_core_intf.h \
- C:/Users/Cesar/Desktop/Freescale\ Cup\ 2013/Aplicaciones/CALI_TFC_MKL25Z128/Project_Headers/stdtypedef.h \
- C:/Users/Cesar/Desktop/Freescale\ Cup\ 2013/Aplicaciones/CALI_TFC_MKL25Z128/Project_Headers/derivative.h
+ C:/Users/Cesar/Desktop/Freescale\ Cup\ 2013/Aplicaciones/GoogleCode/freescale-cali/Project_Headers/stdtypedef.h \
+ C:/Users/Cesar/Desktop/Freescale\ Cup\ 2013/Aplicaciones/GoogleCode/freescale-cali/Project_Headers/derivative.h
 
 C:/Freescale/CW\ MCU\ v10.4/MCU/ARM_GCC_Support/ewl/EWL_C/include/lib_ewl.prefix:
 
@@ -59,9 +50,9 @@ C:/Freescale/CW\ MCU\ v10.4/MCU/ARM_GCC_Support/ewl/EWL_C/include/common.prefix:
 
 C:/Freescale/CW\ MCU\ v10.4/MCU/ARM_GCC_Support/ewl/EWL_C/include/ewl_c_version.h:
 
-C:/Users/Cesar/Desktop/Freescale\ Cup\ 2013/Aplicaciones/CALI_TFC_MKL25Z128/Project_Headers/TFC\TFC.h:
+../Sources/TFC.h:
 
-C:/Freescale/CW\ MCU\ v10.4/MCU/ARM_GCC_Support/ewl/EWL_C/include/stdint.h:
+C:/Freescale/CW\ MCU\ v10.4/MCU/ARM_GCC_Support/ewl/EWL_C/include/stdio.h:
 
 C:/Freescale/CW\ MCU\ v10.4/MCU/ARM_GCC_Support/ewl/EWL_C/include/ansi_parms.h:
 
@@ -70,14 +61,6 @@ C:/Freescale/CW\ MCU\ v10.4/MCU/ARM_GCC_Support/ewl/EWL_C/include/ewlGlobals.h:
 C:/Freescale/CW\ MCU\ v10.4/MCU/ARM_GCC_Support/ewl/EWL_C/include/arm/ansi_prefix.ARM.h:
 
 C:/Freescale/CW\ MCU\ v10.4/MCU/ARM_GCC_Support/ewl/EWL_C/include/os_enum.h:
-
-C:/Freescale/CW\ MCU\ v10.4/MCU/ARM_GCC_Support/ewl/EWL_C/include/cstdint:
-
-C:/Freescale/CW\ MCU\ v10.4/MCU/ARM_GCC_Support/ewl/EWL_C/include/limits_api.h:
-
-C:/Freescale/CW\ MCU\ v10.4/MCU/ARM_GCC_Support/ewl/EWL_C/include/ewl_lib_ext1.h:
-
-C:/Freescale/CW\ MCU\ v10.4/MCU/ARM_GCC_Support/ewl/EWL_C/include/stdio.h:
 
 C:/Freescale/CW\ MCU\ v10.4/MCU/ARM_GCC_Support/ewl/EWL_C/include/cstdio:
 
@@ -88,6 +71,8 @@ C:/Freescale/CW\ MCU\ v10.4/MCU/ARM_GCC_Support/ewl/EWL_C/include/null.h:
 C:/Freescale/CW\ MCU\ v10.4/MCU/ARM_GCC_Support/ewl/EWL_C/include/size_t.h:
 
 C:/Freescale/CW\ MCU\ v10.4/MCU/ARM_GCC_Support/ewl/EWL_C/include/wchar_t.h:
+
+C:/Freescale/CW\ MCU\ v10.4/MCU/ARM_GCC_Support/ewl/EWL_C/include/ewl_lib_ext1.h:
 
 C:/Freescale/CW\ MCU\ v10.4/MCU/ARM_GCC_Support/ewl/EWL_C/include/ewl_rsize_t.h:
 
@@ -111,50 +96,62 @@ C:/Freescale/CW\ MCU\ v10.4/MCU/ARM_GCC_Support/ewl/EWL_C/include/cstring:
 
 C:/Freescale/CW\ MCU\ v10.4/MCU/ARM_GCC_Support/ewl/EWL_C/include/string_api.h:
 
-C:/Users/Cesar/Desktop/Freescale\ Cup\ 2013/Aplicaciones/CALI_TFC_MKL25Z128/Project_Headers/Derivative.h:
+C:/Freescale/CW\ MCU\ v10.4/MCU/ARM_GCC_Support/ewl/EWL_C/include/stdint.h:
 
-C:/Users/Cesar/Desktop/Freescale\ Cup\ 2013/Aplicaciones/CALI_TFC_MKL25Z128/Project_Headers/MKL25Z4.h:
+C:/Freescale/CW\ MCU\ v10.4/MCU/ARM_GCC_Support/ewl/EWL_C/include/cstdint:
 
-C:/Users/Cesar/Desktop/Freescale\ Cup\ 2013/Aplicaciones/CALI_TFC_MKL25Z128/Project_Headers/TFC\ARM_SysTick.h:
+C:/Freescale/CW\ MCU\ v10.4/MCU/ARM_GCC_Support/ewl/EWL_C/include/limits_api.h:
 
-C:/Users/Cesar/Desktop/Freescale\ Cup\ 2013/Aplicaciones/CALI_TFC_MKL25Z128/Project_Headers/TFC\CrystalClock.h:
+C:/Users/Cesar/Desktop/Freescale\ Cup\ 2013/Aplicaciones/GoogleCode/freescale-cali/Project_Headers/derivative.h:
 
-C:/Users/Cesar/Desktop/Freescale\ Cup\ 2013/Aplicaciones/CALI_TFC_MKL25Z128/Project_Headers/TFC\TFC_Config.h:
+C:/Users/Cesar/Desktop/Freescale\ Cup\ 2013/Aplicaciones/GoogleCode/freescale-cali/Project_Headers/MKL25Z4.h:
 
-C:/Users/Cesar/Desktop/Freescale\ Cup\ 2013/Aplicaciones/CALI_TFC_MKL25Z128/Project_Headers/TFC\TFC_Types.h:
+../Sources/MCL\arm_cm0.h:
 
-C:/Users/Cesar/Desktop/Freescale\ Cup\ 2013/Aplicaciones/CALI_TFC_MKL25Z128/Project_Headers/TFC\TFC_arm_cm0.h:
+../Sources/MCL\ARM_SysTick.h:
 
-C:/Users/Cesar/Desktop/Freescale\ Cup\ 2013/Aplicaciones/CALI_TFC_MKL25Z128/Project_Headers/TFC\TFC_BoardSupport.h:
+../Sources/MCL\..\TFC.h:
 
-C:/Users/Cesar/Desktop/Freescale\ Cup\ 2013/Aplicaciones/CALI_TFC_MKL25Z128/Project_Headers/TFC\TFC_Servo.h:
+../Sources/MCL\CrystalClock.h:
 
-C:/Users/Cesar/Desktop/Freescale\ Cup\ 2013/Aplicaciones/CALI_TFC_MKL25Z128/Project_Headers/TFC\TFC_Motor.h:
+../Sources/SDL\ADC.h:
 
-C:/Users/Cesar/Desktop/Freescale\ Cup\ 2013/Aplicaciones/CALI_TFC_MKL25Z128/Project_Headers/TFC\TFC_ADC.h:
+../Sources/SDL\..\TFC.h:
 
-C:/Users/Cesar/Desktop/Freescale\ Cup\ 2013/Aplicaciones/CALI_TFC_MKL25Z128/Project_Headers/TFC\TFC_Potentiometer.h:
+../Sources/SDL\BoardSupport.h:
 
-C:/Users/Cesar/Desktop/Freescale\ Cup\ 2013/Aplicaciones/CALI_TFC_MKL25Z128/Project_Headers/TFC\TFC_LineScanCamera.h:
+../Sources/SDL\Motor.h:
 
-C:/Users/Cesar/Desktop/Freescale\ Cup\ 2013/Aplicaciones/CALI_TFC_MKL25Z128/Project_Headers/TFC\TFC_Queue.h:
+../Sources/SDL\Potentiometer.h:
 
-C:/Users/Cesar/Desktop/Freescale\ Cup\ 2013/Aplicaciones/CALI_TFC_MKL25Z128/Project_Headers/TFC\TFC_UART.h:
+../Sources/SDL\Servo.h:
 
-C:/Users/Cesar/Desktop/Freescale\ Cup\ 2013/Aplicaciones/CALI_TFC_MKL25Z128/Project_Headers/TFC\TFC_Terminal.h:
+../Sources/SDL\Led_RGB.h:
 
-C:/Users/Cesar/Desktop/Freescale\ Cup\ 2013/Aplicaciones/CALI_TFC_MKL25Z128/Project_Headers/TFC\TFC_Led_RGB.h:
+../Sources/SDL\I2C.h:
 
-C:/Users/Cesar/Desktop/Freescale\ Cup\ 2013/Aplicaciones/CALI_TFC_MKL25Z128/Project_Headers/TFC\TFC_I2C.h:
+../Sources/SDL\MMA8451.h:
 
-C:/Users/Cesar/Desktop/Freescale\ Cup\ 2013/Aplicaciones/CALI_TFC_MKL25Z128/Project_Headers/TFC\TFC_MMA8451.h:
+../Sources/SDL\LineScanCamera.h:
 
-C:/Users/Cesar/Desktop/Freescale\ Cup\ 2013/Aplicaciones/CALI_TFC_MKL25Z128/Project_Headers/TFC\TFC_Tasks.h:
+../Sources/Config.h:
 
-C:/Users/Cesar/Desktop/Freescale\ Cup\ 2013/Aplicaciones/CALI_TFC_MKL25Z128/Project_Headers/TFC\Coeficientes.h:
+../Sources/SDL\Queue.h:
+
+../Sources/SDL\UART.h:
+
+../Sources/SDL\Terminal.h:
+
+../Sources/SDL\..\Config.h:
+
+../Sources/SDL\UART.h:
+
+../Sources/APP\Coeficientes.h:
+
+../Sources/APP\Tasks.h:
 
 ../Sources/Scheduler\gsc_sch_core\gsc_sch_core_intf.h:
 
-C:/Users/Cesar/Desktop/Freescale\ Cup\ 2013/Aplicaciones/CALI_TFC_MKL25Z128/Project_Headers/stdtypedef.h:
+C:/Users/Cesar/Desktop/Freescale\ Cup\ 2013/Aplicaciones/GoogleCode/freescale-cali/Project_Headers/stdtypedef.h:
 
-C:/Users/Cesar/Desktop/Freescale\ Cup\ 2013/Aplicaciones/CALI_TFC_MKL25Z128/Project_Headers/derivative.h:
+C:/Users/Cesar/Desktop/Freescale\ Cup\ 2013/Aplicaciones/GoogleCode/freescale-cali/Project_Headers/derivative.h:
