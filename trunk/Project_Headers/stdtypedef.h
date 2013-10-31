@@ -1,42 +1,19 @@
-/*============================================================================*/
-/*                     AZOR - EMBEDDED SYSTEMS SOFTWARE                       */
-/*============================================================================*/
-/*                        OBJECT SPECIFICATION                                */
-/*============================================================================*
-* name:            stdtypedef.h
-* version:         3.0
-* created_by:      MDRR
-* date_created:    July 30 2013
-*=============================================================================*/
-/* DESCRIPTION : Header file for basic types definitions                      */
-/*============================================================================*/
-/* FUNCTION COMMENT : Defines basic data types to be used by project.         */
-/*                                                                            */
-/*============================================================================*/
-/*                               OBJECT HISTORY                               */
-/*============================================================================*/
-/*  REVISION |   DATE      |                               |      AUTHOR      */
-/*----------------------------------------------------------------------------*/
-/*  1.0      | 17/may/2010 |                               | C                */
-/* Initial version for the Smart Car Race 2010 contest using Freescale        */
-/* Bolero micro.                                                              */
-/*----------------------------------------------------------------------------*/
-/*  2.0      | 28/dec/2012 |                               | MDRR             */
-/* Revision of typedefs, added new types. Bitfield order changed to match     */
-/* Power PC architecture, boolean macro added, boolean enum aded              */
-/*----------------------------------------------------------------------------*/
-/*  3.0      | 30/jul/2013 |                               | MDRR             */
-/* Modify the included header for the selected microcontroller.               */
-/*============================================================================*/
-#ifndef STDTYPEDEF_H                             /* To avoid double inclusion */
+/*
+ * Freescale Cup Mexico 2013
+ * Equipo: CALI
+ * 
+ * Descripcion: Header file for basic types definitions.
+ * 				Defines basic data types to be used by project.
+ * 
+ */
+
+#ifndef STDTYPEDEF_H
 #define STDTYPEDEF_H
 
 /* Register definitions for selected microcontroller */
 #include "derivative.h"
 
-
 /* Basic Scalar types */
-
 typedef unsigned char     T_UBYTE;
 typedef unsigned short    T_UWORD;
 typedef unsigned long     T_ULONG;
@@ -203,5 +180,4 @@ typedef enum
 #define FAR_FCT                         /* far function definition */
 #define INLINE_FCT                      /* inline function definition */ 
 
-
-#endif /* #ifndef STDTYPEDEF_H    #define STDTYPEDEF_H */
+#endif

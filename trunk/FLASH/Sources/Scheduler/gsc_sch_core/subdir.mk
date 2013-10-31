@@ -44,7 +44,7 @@ OBJS_OS_FORMAT += \
 # Each subdirectory must supply rules for building sources it contributes
 Sources/Scheduler/gsc_sch_core/gsc_sch_core.o: ../Sources/Scheduler/gsc_sch_core/gsc_sch_core.c
 	@echo 'Building file: $<'
-	@echo 'Executing target #22 $<'
+	@echo 'Executing target #6 $<'
 	@echo 'Invoking: ARM Ltd Windows GCC C Compiler'
 	"$(ARMSourceryDirEnv)/arm-none-eabi-gcc" "$<" @"Sources/Scheduler/gsc_sch_core/gsc_sch_core.args" -MMD -MP -MF"$(@:%.o=%.d)" -o"Sources/Scheduler/gsc_sch_core/gsc_sch_core.o"
 	@echo 'Finished building: $<'
@@ -52,7 +52,7 @@ Sources/Scheduler/gsc_sch_core/gsc_sch_core.o: ../Sources/Scheduler/gsc_sch_core
 
 Sources/Scheduler/gsc_sch_core/gsc_sch_core_cfg.o: ../Sources/Scheduler/gsc_sch_core/gsc_sch_core_cfg.c
 	@echo 'Building file: $<'
-	@echo 'Executing target #23 $<'
+	@echo 'Executing target #7 $<'
 	@echo 'Invoking: ARM Ltd Windows GCC C Compiler'
 	"$(ARMSourceryDirEnv)/arm-none-eabi-gcc" "$<" @"Sources/Scheduler/gsc_sch_core/gsc_sch_core_cfg.args" -MMD -MP -MF"$(@:%.o=%.d)" -o"Sources/Scheduler/gsc_sch_core/gsc_sch_core_cfg.o"
 	@echo 'Finished building: $<'
@@ -60,7 +60,7 @@ Sources/Scheduler/gsc_sch_core/gsc_sch_core_cfg.o: ../Sources/Scheduler/gsc_sch_
 
 Sources/Scheduler/gsc_sch_core/gsc_sch_core_tick_isr.o: ../Sources/Scheduler/gsc_sch_core/gsc_sch_core_tick_isr.c
 	@echo 'Building file: $<'
-	@echo 'Executing target #24 $<'
+	@echo 'Executing target #8 $<'
 	@echo 'Invoking: ARM Ltd Windows GCC C Compiler'
 	"$(ARMSourceryDirEnv)/arm-none-eabi-gcc" "$<" @"Sources/Scheduler/gsc_sch_core/gsc_sch_core_tick_isr.args" -MMD -MP -MF"$(@:%.o=%.d)" -o"Sources/Scheduler/gsc_sch_core/gsc_sch_core_tick_isr.o"
 	@echo 'Finished building: $<'

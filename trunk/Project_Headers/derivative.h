@@ -1,5 +1,8 @@
 /*
- * Note: This file is recreated by the project wizard whenever the MCU is
+ * Freescale Cup Mexico 2013
+ * Equipo: CALI
+ * 
+ * Nota: This file is recreated by the project wizard whenever the MCU is
  *       changed and should not be edited by hand
  */
 
