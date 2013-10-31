@@ -41,6 +41,7 @@ GREEN_ON;
 int pos=63;
 void DetectarLinea()
 {
+//int j,ancho=10;
 int i,suma,minimo=0;
 for(i=15 ; i<=112 ; i++)
 	{
@@ -54,7 +55,6 @@ for(i=15 ; i<=112 ; i++)
 		pos=i;
 		}
 	}
-return;
 }
 
 
@@ -108,6 +108,11 @@ TFC_SetBatteryLED_Level(nivel);
 	 79	 	5.10v
 	 119	7.68v
 	 131	8.45v
+	 
+	 99		>6.7v
+	 92		6.2v
+	 85		5.7v
+	 77		5.2v
 */
 
 
@@ -117,19 +122,19 @@ TFC_SetBatteryLED_Level(nivel);
 ********************************************************************************************/
 void Pruebas()
 {
-short indice_vector;
-//short a,b;
+int indice_vector,p;
+float a,b;
 if(LineScanImageReady==1)
-	{		
-	LineScanImageReady=0;					 										 		
+	{
+	LineScanImageReady=0;
 	
 	DetectarLinea(); //Se obtiene pos con valores de 15 a 112
-	pos-=15; //Se ajusta pos a valores de 0 a 97
+	p=pos-15; //Se ajusta pos a valores de 0 a 97
 	
-	TERMINAL_PRINTF("*%d ",pos+15);
+	TERMINAL_PRINTF("*Pos:%d ",p);
 	
 	//Si 0==0000 && 97==1000 then Se tienen aumentos de 1000/97=10.30927835, representa el indice del vector
-	indice_vector=((int)(1000.0/97.0))*pos;
+	indice_vector=(int)((1000.0/97.0)*p);
 	
 	/*
 	Para el vector de 'servomotor', los rangos son [0.000,1.000], X es algun punto, PuntoMedio=0.500
@@ -137,26 +142,22 @@ if(LineScanImageReady==1)
 	else derecha: Val=PM-X
 	*/
 	
-	TERMINAL_PRINTF("%d (%d)",indice_vector,servomotor[indice_vector]);
+	TERMINAL_PRINTF("Indice:%d  Servomotor:[%d]",indice_vector,servomotor[indice_vector]);
 	
-	if(servomotor[indice_vector]<=0.5)
-		{
-		TFC_SetServo(0,((servomotor[indice_vector]/1000.0)-0.5)*2);
-		TERMINAL_PRINTF(" : %d\n\r",(int)(((servomotor[indice_vector]/1000.0)-0.5)*2));
-		}
-	else
-		{
-		TFC_SetServo(0,((servomotor[indice_vector]/1000.0)-0.5)*2);
-		TERMINAL_PRINTF(" . %d\n\r",(int)(((servomotor[indice_vector]/1000.0)-0.5)*2));
-		}
-	
+	TFC_SetServo(0,((servomotor[indice_vector]/1000.0)-0.5)*2);
+	TERMINAL_PRINTF(" : %d\n\r",(int)(((servomotor[indice_vector]/1000.0)-0.5)*1000));
+			
 	if(TFC_PUSH_BUTTON_0_PRESSED) TFC_HBRIDGE_ENABLE;
 	if(TFC_PUSH_BUTTON_1_PRESSED) TFC_HBRIDGE_DISABLE;
-	//a=motor_izquierdo[indice_vector];
-	//b=motor_derecho[indice_vector];
 	
-	//TFC_SetMotorPWM(a/1000.0,b/1000.0);
-	TFC_SetMotorPWM(TFC_ReadPot1(),TFC_ReadPot1());
+	a=motor_izquierdo[indice_vector]/1000.0;
+	b=motor_derecho[indice_vector]/1000.0;	
+	
+	if(a>TFC_ReadPot1()) a=TFC_ReadPot1();
+	if(b>TFC_ReadPot1()) b=TFC_ReadPot1();
+	
+	TFC_SetMotorPWM(a,b);
+	//TFC_SetMotorPWM(TFC_ReadPot1(),TFC_ReadPot1());
 	}
 }
 

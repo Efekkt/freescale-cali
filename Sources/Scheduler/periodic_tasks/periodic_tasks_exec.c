@@ -42,8 +42,8 @@ void periodic_tasks_exec_20tks(void)
 //SeguirLineaCamara();
 if(TFC_GetDIP_Switch()&0x01)
 	Pruebas();
-else
-	SeguirLineaCamara();
+//else
+	//SeguirLineaCamara();
 }
  
  /**************************************************************
@@ -68,7 +68,8 @@ void periodic_tasks_exec_100tks(void)
 //Opcion1();
 //Opcion2();
 //Opcion3();
-//Opcion4();
+if(TFC_GetDIP_Switch()&0x01)
+	Opcion4();
 }
  
  /**************************************************************
