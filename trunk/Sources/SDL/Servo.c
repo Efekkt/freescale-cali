@@ -11,13 +11,31 @@
 #define FTM1_OVERFLOW_FREQUENCY 	50 //Desired Frequency of PWM Signal - Here 50Hz => 20ms period
 
 //Use these to dial in servo steering to your particular servo
-#define SERVO_MIN_DUTY_CYCLE    	(float)(.0011*FTM1_OVERFLOW_FREQUENCY)  //The number here should be be *pulse width* in seconds to move servo to its left limit
-#define SERVO_MAX_DUTY_CYCLE   		(float)(.0019*FTM1_OVERFLOW_FREQUENCY)  //The number here should be be *pulse width* in seconds to move servo to its Right limit
+#define SERVO_MIN_DUTY_CYCLE    	(float)(.0010*FTM1_OVERFLOW_FREQUENCY)  //The number here should be be *pulse width* in seconds to move servo to its left limit
+#define SERVO_MAX_DUTY_CYCLE   		(float)(.0020*FTM1_OVERFLOW_FREQUENCY)  //The number here should be be *pulse width* in seconds to move servo to its Right limit
 /**********************************************************************************************/
 
 //Position is -1.0 to 1.0.	Use SERVO_X_MIN_DUTY_CYCLE and SERVO_MAX_DUTY_CYCLE to calibrate the extremes
+//#define Centro			0.0823
+#define Centro			0.0145
+#define LimIzquierda   -0.7800
+#define LimDerecha		0.5600
 void TFC_SetServo(uint8_t ServoNumber, float Position)
 {
+//El centro es 0.0823
+if(Position<-1) Position=-1;
+else if(Position>1) Position=1;
+
+//TERMINAL_PRINTF("P1: %d  ",(int)(Position*1000.0));
+
+if(Position==0)
+	Position=Centro;
+else if(Position<0)	
+	Position=-(LimIzquierda-Centro)*Position+Centro;	
+else if(Position>0)
+	Position=(LimDerecha-Centro)*Position+Centro;
+
+//TERMINAL_PRINTF("Position: %d\n\r",(int)(Position*1000.0));
 TFC_SetServoDutyCycle(ServoNumber,(((Position + 1.0)/2)*(SERVO_MAX_DUTY_CYCLE - SERVO_MIN_DUTY_CYCLE))+SERVO_MIN_DUTY_CYCLE);
 }
 

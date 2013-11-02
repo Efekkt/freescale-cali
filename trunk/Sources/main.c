@@ -5,7 +5,7 @@
  */
 
 #include "TFC.h"
-#include "Scheduler\gsc_sch_core\gsc_sch_core_intf.h"
+#include "Scheduler\Core\Core_Intf.h"
 
 volatile unsigned int sys_tick_counter = 0;
 
