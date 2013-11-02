@@ -58,6 +58,19 @@ TFC_SetBatteryLED_Level(0);
 TFC_HBRIDGE_DISABLE;
 }
 
+/***************************************************************
+	 Valores Medidos
+	 ADC	Voltaje
+	 68	 	4.39v
+	 79	 	5.10v
+	 119	7.68v
+	 131	8.45v
+	 
+	 99		>6.7v
+	 92		6.2v
+	 85		5.7v
+	 77		5.2v
+ ****************************************************************/
 void TFC_SetBatteryLED_Level(uint8_t BattLevel)
 {
 switch(BattLevel)
@@ -81,55 +94,24 @@ switch(BattLevel)
 		EstadoLed(LED4,0);
 		break;	
 	case 3:
-		EstadoLed(LED1,0);
+		EstadoLed(LED1,1);
 		EstadoLed(LED2,1);
 		EstadoLed(LED3,1);
 		EstadoLed(LED4,0);
 		break;	
 	case 4:
-		EstadoLed(LED1,0);
-		EstadoLed(LED2,0);
-		EstadoLed(LED3,1);
-		EstadoLed(LED4,1);
-		break;	
-	case 5:
-		EstadoLed(LED1,0);
-		EstadoLed(LED2,0);
-		EstadoLed(LED3,0);
-		EstadoLed(LED4,1);
-		break;	
-	case 6:
 		EstadoLed(LED1,1);
 		EstadoLed(LED2,1);
 		EstadoLed(LED3,1);
 		EstadoLed(LED4,1);
-		break;
+		break;	
+	case 5:
+		EstadoLed(LED1,1);
+		EstadoLed(LED2,0);
+		EstadoLed(LED3,0);
+		EstadoLed(LED4,1);
+		break;			
 	}
-
-/*
-switch(BattLevel)
-	{
-	default:
-	case 0:
-		GPIOB_PCOR = 0xF<<8;
-		break;
-	case 1:
-		GPIOB_PSOR = 0x01<<8;
-		GPIOB_PCOR = ~(0x01<<8) & (0xF<<8);
-		break;	
-	case 2:
-		GPIOB_PSOR = 0x03<<8;
-		GPIOB_PCOR = ~(0x03<<8) & (0xF<<8) ;
-		break;	
-	case 3:
-		GPIOB_PSOR = 0x07<<8;
-		GPIOB_PCOR = ~(0x07<<8) & (0xF<<8);
-		break;	
-	case 4:
-		GPIOB_PSOR = 0x0F<<8;
-		break;	
-	}
-*/
 }
 
 void EstadoLed(int pin, int estado)

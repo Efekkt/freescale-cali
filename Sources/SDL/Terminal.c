@@ -54,8 +54,7 @@ void TerminalBootMsg()
 {
 TERMINAL_PRINTF("\r\n\r\n"); 
 TERMINAL_PRINTF("***********************************\r\n"); 
-TERMINAL_PRINTF("FRDM-TFC\r\n");
-TERMINAL_PRINTF("Copyright (C) <2013>\r\n");
+TERMINAL_PRINTF("Freescale Cup Mexico 2013\r\n");
 TERMINAL_PRINTF("Equipo: CALI\r\n"); 
 TERMINAL_PRINTF("***********************************\r\n\r\n>"); 
 }

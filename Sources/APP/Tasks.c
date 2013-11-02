@@ -42,6 +42,7 @@ int pos=63;
 void DetectarLinea()
 {
 //int j,ancho=10;
+int rango=40;
 int i,suma,minimo=0;
 for(i=15 ; i<=112 ; i++)
 	{
@@ -51,8 +52,11 @@ for(i=15 ; i<=112 ; i++)
 		suma=0;
 	if(suma>minimo && suma>70)
 		{
-		minimo=suma;
-		pos=i;
+		if(i>=(pos-rango) && i<=(pos+rango))
+			{
+			minimo=suma;
+			pos=i;
+			}
 		}
 	}
 }
@@ -72,9 +76,8 @@ if(LineScanImageReady==1)
 	if(TFC_PUSH_BUTTON_1_PRESSED) TFC_HBRIDGE_DISABLE;	
 	
 	DetectarLinea();
-	
-	//TFC_SetServo(0,(float)((pos/63.5)-1.0));
-	TFC_SetServo(0,(float)(((pos-15)/48.5)-1.0));		
+	TFC_SetServo(0,(float)((pos/63.5)-1.0));
+	//TFC_SetServo(0,(float)(((pos-15)/48.5)-1.0));		
 	
 	if(pos>44 && pos<83)
 		TFC_SetMotorPWM(TFC_ReadPot1(),TFC_ReadPot1());
@@ -89,40 +92,23 @@ if(LineScanImageReady==1)
 *  Description          : Esta funcion lee el ADC que se encuentra conectado a la Bateria, 
 *  						  de acuerdo a su valor, prende una serie de LEDs 
 ********************************************************************************************/
-int h=0;
 void VoltajeBateria()
 {
 int bateria = BatSenseADC_Value,nivel=1;
 
-if(bateria>=131)		nivel=4;	//Mayor de 8.4 volts
-else if(bateria>=119)	nivel=3;	//Mayor de 
-else if(bateria>=119)	nivel=2;	//Mayor de 7.6 volts 
-else if(bateria>=119)	nivel=1;	//Mayor de 
+if(bateria>=125)		nivel=4;	//Mayor de 8.0 volts
+else if(bateria>=121)	nivel=3;	//Mayor de 7.8 volts
+else if(bateria>=117)	nivel=2;	//Mayor de 7.6 volts 
+else if(bateria>=114)	nivel=1;	//Mayor de 7.4 volts
 else if(bateria>=99)	nivel=0;	//Mayor de 6.7 volts
-else if(bateria>=92) 	nivel=0;	//Mayor de 6.2 volts
-else if(bateria>=85) 	nivel=0;	//Mayor de 5.7 volts
-else if(bateria>=77) 	nivel=0;	//Mayor de 5.2 volts
-else					nivel=0;	//Menor de 5.2 volts
+//else if(bateria>=92) 	nivel=0;	//Mayor de 6.2 volts
+//else if(bateria>=85) 	nivel=0;	//Mayor de 5.7 volts
+//else if(bateria>=77) 	nivel=0;	//Mayor de 5.2 volts
+else					nivel=5;	//Menor de 5.2 volts
 
-TERMINAL_PRINTF("Bat:%d  Nivel:%d  h:%d\r\n",bateria,nivel,h);
-
-TFC_SetBatteryLED_Level(h);
-h++;
-if(h==7) h=0;
+//TERMINAL_PRINTF("Bat:%d  Nivel:%d\r\n",bateria,nivel);
+TFC_SetBatteryLED_Level(nivel);
 }
-/*
-	 Valores Medidos
-	 ADC	Voltaje
-	 68	 	4.39v
-	 79	 	5.10v
-	 119	7.68v
-	 131	8.45v
-	 
-	 99		>6.7v
-	 92		6.2v
-	 85		5.7v
-	 77		5.2v
-*/
 
 
 /*******************************************************************************************
@@ -140,7 +126,7 @@ if(LineScanImageReady==1)
 	DetectarLinea(); //Se obtiene pos con valores de 15 a 112
 	p=pos-15; //Se ajusta pos a valores de 0 a 97
 	
-	TERMINAL_PRINTF("*Pos:%d ",p);
+	//TERMINAL_PRINTF("*Pos:%d ",p);
 	
 	//Si 0==0000 && 97==1000 then Se tienen aumentos de 1000/97=10.30927835, representa el indice del vector
 	indice_vector=(int)((1000.0/97.0)*p);
@@ -151,10 +137,10 @@ if(LineScanImageReady==1)
 	else derecha: Val=PM-X
 	*/
 	
-	TERMINAL_PRINTF("Indice:%d  Servomotor:[%d]",indice_vector,servomotor[indice_vector]);
+	//TERMINAL_PRINTF("Indice:%d  Servomotor:[%d]",indice_vector,servomotor[indice_vector]);
 	
 	TFC_SetServo(0,((servomotor[indice_vector]/1000.0)-0.5)*2);
-	TERMINAL_PRINTF(" : %d\n\r",(int)(((servomotor[indice_vector]/1000.0)-0.5)*1000));
+	//TERMINAL_PRINTF(" : %d\n\r",(int)(((servomotor[indice_vector]/1000.0)-0.5)*1000));
 			
 	if(TFC_PUSH_BUTTON_0_PRESSED) TFC_HBRIDGE_ENABLE;
 	if(TFC_PUSH_BUTTON_1_PRESSED) TFC_HBRIDGE_DISABLE;
@@ -209,13 +195,11 @@ else
 void Opcion2()
 {
 //Every 20 mSeconds, update the Servos
-TFC_SetServo(0,TFC_ReadPot0());
-TFC_SetServo(1,TFC_ReadPot1());
-
-//Every 125 mSeconds cambiar patron de LEDs
-t++;
-if(t>4)	t=0;
-TFC_SetBatteryLED_Level(t);
+float x;
+x=TFC_ReadPot0();
+TFC_SetServo(0,x);
+//TFC_SetServo(1,TFC_ReadPot1());
+///TERMINAL_PRINTF("Servomotor: %d\n\r",(int)(x*10000.0));
 
 //Make sure motors are off
 TFC_SetMotorPWM(0,0);
@@ -248,29 +232,14 @@ void Opcion4()
 //Labview Application				
 int i;
 if(LineScanImageReady==1)
-	{
-	//TFC_Ticker[0] = 0;
+	{	
 	LineScanImageReady=0;					 										 		
-	if(TFC_PUSH_BUTTON_0_PRESSED)	
-		{
-		TFC_HBRIDGE_ENABLE;
-		TFC_BAT_LED0_ON;
-		TERMINAL_PRINTF("BotA\r\n");
-		}
-	if(TFC_PUSH_BUTTON_1_PRESSED)	
-		{
-		TFC_HBRIDGE_DISABLE;
-		TFC_BAT_LED3_ON;
-		TERMINAL_PRINTF("BotB\r\n");
-		}									
+	if(TFC_PUSH_BUTTON_0_PRESSED) TFC_HBRIDGE_ENABLE;
+	if(TFC_PUSH_BUTTON_1_PRESSED) TFC_HBRIDGE_DISABLE;
 
 	DetectarLinea();
-	TFC_SetServo(0,(float)(((pos-15)/48.5)-1.0));
-	TFC_SetMotorPWM(TFC_ReadPot1(),TFC_ReadPot1());
-	
-	if(t==0) t=3;
-	else t--;
-	TFC_SetBatteryLED_Level(t);
+	TFC_SetServo(0,(float)((pos/63.5)-1.0));	
+	TFC_SetMotorPWM(TFC_ReadPot1(),TFC_ReadPot1());	
 	
 	TERMINAL_PRINTF("\r\n");
 	TERMINAL_PRINTF("L:");	

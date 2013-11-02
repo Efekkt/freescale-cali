@@ -37,7 +37,7 @@ OBJS_OS_FORMAT += \
 # Each subdirectory must supply rules for building sources it contributes
 Sources/APP/Coeficientes.o: ../Sources/APP/Coeficientes.c
 	@echo 'Building file: $<'
-	@echo 'Executing target #25 $<'
+	@echo 'Executing target #24 $<'
 	@echo 'Invoking: ARM Ltd Windows GCC C Compiler'
 	"$(ARMSourceryDirEnv)/arm-none-eabi-gcc" "$<" @"Sources/APP/Coeficientes.args" -MMD -MP -MF"$(@:%.o=%.d)" -o"Sources/APP/Coeficientes.o"
 	@echo 'Finished building: $<'
@@ -45,7 +45,7 @@ Sources/APP/Coeficientes.o: ../Sources/APP/Coeficientes.c
 
 Sources/APP/Tasks.o: ../Sources/APP/Tasks.c
 	@echo 'Building file: $<'
-	@echo 'Executing target #26 $<'
+	@echo 'Executing target #25 $<'
 	@echo 'Invoking: ARM Ltd Windows GCC C Compiler'
 	"$(ARMSourceryDirEnv)/arm-none-eabi-gcc" "$<" @"Sources/APP/Tasks.args" -MMD -MP -MF"$(@:%.o=%.d)" -o"Sources/APP/Tasks.o"
 	@echo 'Finished building: $<'

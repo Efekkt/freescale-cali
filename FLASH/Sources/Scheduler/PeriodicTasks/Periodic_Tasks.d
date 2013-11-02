@@ -1,8 +1,11 @@
-Sources/main.o: ../Sources/main.c \
+Sources/Scheduler/PeriodicTasks/Periodic_Tasks.o: \
+ ../Sources/Scheduler/PeriodicTasks/Periodic_Tasks.c \
  C:/Freescale/CW\ MCU\ v10.4/MCU/ARM_GCC_Support/ewl/EWL_C/include/lib_ewl.prefix \
  C:/Freescale/CW\ MCU\ v10.4/MCU/ARM_GCC_Support/ewl/EWL_C/include/common.prefix \
  C:/Freescale/CW\ MCU\ v10.4/MCU/ARM_GCC_Support/ewl/EWL_C/include/ewl_c_version.h \
- ../Sources/TFC.h \
+ ../Sources/Scheduler/PeriodicTasks/Periodic_Tasks.h \
+ ../Sources/Scheduler/PeriodicTasks/Periodic_Tasks_Modules.h \
+ ../Sources/Scheduler/PeriodicTasks/..\..\TFC.h \
  C:/Freescale/CW\ MCU\ v10.4/MCU/ARM_GCC_Support/ewl/EWL_C/include/stdio.h \
  C:/Freescale/CW\ MCU\ v10.4/MCU/ARM_GCC_Support/ewl/EWL_C/include/ansi_parms.h \
  C:/Freescale/CW\ MCU\ v10.4/MCU/ARM_GCC_Support/ewl/EWL_C/include/ewlGlobals.h \
@@ -30,17 +33,28 @@ Sources/main.o: ../Sources/main.c \
  C:/Freescale/CW\ MCU\ v10.4/MCU/ARM_GCC_Support/ewl/EWL_C/include/limits_api.h \
  C:/Users/Cesar/Desktop/Freescale\ Cup\ 2013/Aplicaciones/GoogleCode/freescale-cali/Project_Headers/derivative.h \
  C:/Users/Cesar/Desktop/Freescale\ Cup\ 2013/Aplicaciones/GoogleCode/freescale-cali/Project_Headers/MKL25Z4.h \
- ../Sources/MCL\arm_cm0.h ../Sources/MCL\ARM_SysTick.h \
- ../Sources/MCL\..\TFC.h ../Sources/MCL\CrystalClock.h \
- ../Sources/SDL\ADC.h ../Sources/SDL\..\TFC.h \
- ../Sources/SDL\BoardSupport.h ../Sources/SDL\Motor.h \
- ../Sources/SDL\Potentiometer.h ../Sources/SDL\Servo.h \
- ../Sources/SDL\Led_RGB.h ../Sources/SDL\I2C.h ../Sources/SDL\MMA8451.h \
- ../Sources/SDL\LineScanCamera.h ../Sources/Config.h \
- ../Sources/SDL\Queue.h ../Sources/SDL\UART.h ../Sources/SDL\Terminal.h \
- ../Sources/SDL\..\Config.h ../Sources/SDL\UART.h \
- ../Sources/APP\Coeficientes.h ../Sources/APP\Tasks.h \
- ../Sources/Scheduler\Core\Core_Intf.h
+ ../Sources/Scheduler/PeriodicTasks/..\..\MCL\arm_cm0.h \
+ ../Sources/Scheduler/PeriodicTasks/..\..\MCL\ARM_SysTick.h \
+ ../Sources/Scheduler/PeriodicTasks/..\..\MCL\..\TFC.h \
+ ../Sources/Scheduler/PeriodicTasks/..\..\MCL\CrystalClock.h \
+ ../Sources/Scheduler/PeriodicTasks/..\..\SDL\ADC.h \
+ ../Sources/Scheduler/PeriodicTasks/..\..\SDL\..\TFC.h \
+ ../Sources/Scheduler/PeriodicTasks/..\..\SDL\BoardSupport.h \
+ ../Sources/Scheduler/PeriodicTasks/..\..\SDL\Motor.h \
+ ../Sources/Scheduler/PeriodicTasks/..\..\SDL\Potentiometer.h \
+ ../Sources/Scheduler/PeriodicTasks/..\..\SDL\Servo.h \
+ ../Sources/Scheduler/PeriodicTasks/..\..\SDL\Led_RGB.h \
+ ../Sources/Scheduler/PeriodicTasks/..\..\SDL\I2C.h \
+ ../Sources/Scheduler/PeriodicTasks/..\..\SDL\MMA8451.h \
+ ../Sources/Scheduler/PeriodicTasks/..\..\SDL\LineScanCamera.h \
+ ../Sources/Scheduler/PeriodicTasks/..\..\Config.h \
+ ../Sources/Scheduler/PeriodicTasks/..\..\SDL\Queue.h \
+ ../Sources/Scheduler/PeriodicTasks/..\..\SDL\UART.h \
+ ../Sources/Scheduler/PeriodicTasks/..\..\SDL\Terminal.h \
+ ../Sources/Scheduler/PeriodicTasks/..\..\SDL\..\Config.h \
+ ../Sources/Scheduler/PeriodicTasks/..\..\SDL\UART.h \
+ ../Sources/Scheduler/PeriodicTasks/..\..\APP\Coeficientes.h \
+ ../Sources/Scheduler/PeriodicTasks/..\..\APP\Tasks.h
 
 C:/Freescale/CW\ MCU\ v10.4/MCU/ARM_GCC_Support/ewl/EWL_C/include/lib_ewl.prefix:
 
@@ -48,7 +62,11 @@ C:/Freescale/CW\ MCU\ v10.4/MCU/ARM_GCC_Support/ewl/EWL_C/include/common.prefix:
 
 C:/Freescale/CW\ MCU\ v10.4/MCU/ARM_GCC_Support/ewl/EWL_C/include/ewl_c_version.h:
 
-../Sources/TFC.h:
+../Sources/Scheduler/PeriodicTasks/Periodic_Tasks.h:
+
+../Sources/Scheduler/PeriodicTasks/Periodic_Tasks_Modules.h:
+
+../Sources/Scheduler/PeriodicTasks/..\..\TFC.h:
 
 C:/Freescale/CW\ MCU\ v10.4/MCU/ARM_GCC_Support/ewl/EWL_C/include/stdio.h:
 
@@ -104,48 +122,46 @@ C:/Users/Cesar/Desktop/Freescale\ Cup\ 2013/Aplicaciones/GoogleCode/freescale-ca
 
 C:/Users/Cesar/Desktop/Freescale\ Cup\ 2013/Aplicaciones/GoogleCode/freescale-cali/Project_Headers/MKL25Z4.h:
 
-../Sources/MCL\arm_cm0.h:
+../Sources/Scheduler/PeriodicTasks/..\..\MCL\arm_cm0.h:
 
-../Sources/MCL\ARM_SysTick.h:
+../Sources/Scheduler/PeriodicTasks/..\..\MCL\ARM_SysTick.h:
 
-../Sources/MCL\..\TFC.h:
+../Sources/Scheduler/PeriodicTasks/..\..\MCL\..\TFC.h:
 
-../Sources/MCL\CrystalClock.h:
+../Sources/Scheduler/PeriodicTasks/..\..\MCL\CrystalClock.h:
 
-../Sources/SDL\ADC.h:
+../Sources/Scheduler/PeriodicTasks/..\..\SDL\ADC.h:
 
-../Sources/SDL\..\TFC.h:
+../Sources/Scheduler/PeriodicTasks/..\..\SDL\..\TFC.h:
 
-../Sources/SDL\BoardSupport.h:
+../Sources/Scheduler/PeriodicTasks/..\..\SDL\BoardSupport.h:
 
-../Sources/SDL\Motor.h:
+../Sources/Scheduler/PeriodicTasks/..\..\SDL\Motor.h:
 
-../Sources/SDL\Potentiometer.h:
+../Sources/Scheduler/PeriodicTasks/..\..\SDL\Potentiometer.h:
 
-../Sources/SDL\Servo.h:
+../Sources/Scheduler/PeriodicTasks/..\..\SDL\Servo.h:
 
-../Sources/SDL\Led_RGB.h:
+../Sources/Scheduler/PeriodicTasks/..\..\SDL\Led_RGB.h:
 
-../Sources/SDL\I2C.h:
+../Sources/Scheduler/PeriodicTasks/..\..\SDL\I2C.h:
 
-../Sources/SDL\MMA8451.h:
+../Sources/Scheduler/PeriodicTasks/..\..\SDL\MMA8451.h:
 
-../Sources/SDL\LineScanCamera.h:
+../Sources/Scheduler/PeriodicTasks/..\..\SDL\LineScanCamera.h:
 
-../Sources/Config.h:
+../Sources/Scheduler/PeriodicTasks/..\..\Config.h:
 
-../Sources/SDL\Queue.h:
+../Sources/Scheduler/PeriodicTasks/..\..\SDL\Queue.h:
 
-../Sources/SDL\UART.h:
+../Sources/Scheduler/PeriodicTasks/..\..\SDL\UART.h:
 
-../Sources/SDL\Terminal.h:
+../Sources/Scheduler/PeriodicTasks/..\..\SDL\Terminal.h:
 
-../Sources/SDL\..\Config.h:
+../Sources/Scheduler/PeriodicTasks/..\..\SDL\..\Config.h:
 
-../Sources/SDL\UART.h:
+../Sources/Scheduler/PeriodicTasks/..\..\SDL\UART.h:
 
-../Sources/APP\Coeficientes.h:
+../Sources/Scheduler/PeriodicTasks/..\..\APP\Coeficientes.h:
 
-../Sources/APP\Tasks.h:
-
-../Sources/Scheduler\Core\Core_Intf.h:
+../Sources/Scheduler/PeriodicTasks/..\..\APP\Tasks.h:
