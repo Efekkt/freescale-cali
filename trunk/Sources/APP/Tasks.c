@@ -42,7 +42,7 @@ int pos=63;
 void DetectarLinea()
 {
 //int j,ancho=10;
-int rango=40;
+int rango=60;
 int i,suma,minimo=0;
 for(i=15 ; i<=112 ; i++)
 	{
@@ -123,25 +123,23 @@ if(LineScanImageReady==1)
 	{
 	LineScanImageReady=0;
 	
-	DetectarLinea(); //Se obtiene pos con valores de 15 a 112
-	p=pos-15; //Se ajusta pos a valores de 0 a 97
+	DetectarLinea(); //Se obtiene pos con valores de [15-112]
+	p=pos-15; //Se ajusta pos a valores de [0-97]
 	
-	//TERMINAL_PRINTF("*Pos:%d ",p);
+	////TERMINAL_PRINTF("*Pos:%d ",p);
 	
-	//Si 0==0000 && 97==1000 then Se tienen aumentos de 1000/97=10.30927835, representa el indice del vector
+	/* Si [0==0000 && 97==1000] then Se tienen aumentos de [1000/97=10.30927835], representa el indice del vector */
 	indice_vector=(int)((1000.0/97.0)*p);
 	
-	/*
-	Para el vector de 'servomotor', los rangos son [0.000,1.000], X es algun punto, PuntoMedio=0.500
+	/*	Para el vector de 'servomotor', los rangos son [0.000,1.000], X es algun punto, PuntoMedio=0.500
 	Si X es menor a PM then izquierda: Val=X-PM
-	else derecha: Val=PM-X
-	*/
+	else derecha: Val=PM-X	*/
 	
-	//TERMINAL_PRINTF("Indice:%d  Servomotor:[%d]",indice_vector,servomotor[indice_vector]);
+	////TERMINAL_PRINTF("Indice:%d  Servomotor:[%d]",indice_vector,servomotor[indice_vector]);
 	
-	TFC_SetServo(0,((servomotor[indice_vector]/1000.0)-0.5)*2);
-	//TERMINAL_PRINTF(" : %d\n\r",(int)(((servomotor[indice_vector]/1000.0)-0.5)*1000));
-			
+	TFC_SetServo(0,servomotor[indice_vector]/1000.0);
+	////TERMINAL_PRINTF(" : %d\n\r",(int)(((servomotor[indice_vector]/1000.0)-0.5)*1000));
+	
 	if(TFC_PUSH_BUTTON_0_PRESSED) TFC_HBRIDGE_ENABLE;
 	if(TFC_PUSH_BUTTON_1_PRESSED) TFC_HBRIDGE_DISABLE;
 	
@@ -151,8 +149,7 @@ if(LineScanImageReady==1)
 	if(a>TFC_ReadPot1()) a=TFC_ReadPot1();
 	if(b>TFC_ReadPot1()) b=TFC_ReadPot1();
 	
-	TFC_SetMotorPWM(a,b);
-	//TFC_SetMotorPWM(TFC_ReadPot1(),TFC_ReadPot1());
+	TFC_SetMotorPWM(a,b);	
 	}
 }
 
@@ -160,15 +157,15 @@ if(LineScanImageReady==1)
 /* Funcion sin usar */
 void SeguirLineaQRD1114()
 {
-if(!TFC_SENSOR_1 && !TFC_SENSOR_2 && !TFC_SENSOR_3 && !TFC_SENSOR_4 && !TFC_SENSOR_5 && !TFC_SENSOR_6 && TFC_SENSOR_7)	
-	TFC_SetServo(0,-0.8);			
+if(TFC_SENSOR_1 && TFC_SENSOR_2 && TFC_SENSOR_3 && TFC_SENSOR_4 && TFC_SENSOR_5 && TFC_SENSOR_6 && TFC_SENSOR_7)	
+	TFC_SetServo(0,0);			
 }
 
 
 /* Tests the switches and LEDs */
 void Opcion1()
 {
-if(TFC_PUSH_BUTTON_0_PRESSED)	
+if(TFC_PUSH_BUTTON_0_PRESSED)
 	TFC_BAT_LED0_ON;									
 else
 	TFC_BAT_LED0_OFF;
@@ -198,31 +195,11 @@ void Opcion2()
 float x;
 x=TFC_ReadPot0();
 TFC_SetServo(0,x);
-//TFC_SetServo(1,TFC_ReadPot1());
-///TERMINAL_PRINTF("Servomotor: %d\n\r",(int)(x*10000.0));
+////TERMINAL_PRINTF("Servomotor: %d\n\r",(int)(x*10000.0));
 
 //Make sure motors are off
 TFC_SetMotorPWM(0,0);
 TFC_HBRIDGE_DISABLE;
-}
-
-
-void Opcion3()
-{
-//Demo Mode 2 will use the Pots to make the motors move
-TFC_HBRIDGE_ENABLE;
-TFC_SetMotorPWM(TFC_ReadPot0(),TFC_ReadPot1());
-
-//Let's put a pattern on the LEDs
-//if(TFC_Ticker[1] >= 125)
-	
-	//TFC_Ticker[1] = 0;
-	t++;
-	if(t>4)
-		{
-		t=0;
-		}
-	TFC_SetBatteryLED_Level(t);
 }
 
 

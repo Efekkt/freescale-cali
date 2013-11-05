@@ -1,4 +1,4 @@
-Sources/MCL/arm_cm0.o: ../Sources/MCL/arm_cm0.c \
+Sources/mcl/arm_cm0.o: ../Sources/mcl/arm_cm0.c \
  C:/Freescale/CW\ MCU\ v10.4/MCU/ARM_GCC_Support/ewl/EWL_C/include/lib_ewl.prefix \
  C:/Freescale/CW\ MCU\ v10.4/MCU/ARM_GCC_Support/ewl/EWL_C/include/common.prefix \
  C:/Freescale/CW\ MCU\ v10.4/MCU/ARM_GCC_Support/ewl/EWL_C/include/ewl_c_version.h \
@@ -12,7 +12,7 @@ Sources/MCL/arm_cm0.o: ../Sources/MCL/arm_cm0.c \
  C:/Freescale/CW\ MCU\ v10.4/MCU/ARM_GCC_Support/ewl/EWL_C/include/cstdint \
  C:/Freescale/CW\ MCU\ v10.4/MCU/ARM_GCC_Support/ewl/EWL_C/include/limits_api.h \
  C:/Freescale/CW\ MCU\ v10.4/MCU/ARM_GCC_Support/ewl/EWL_C/include/ewl_lib_ext1.h \
- ../Sources/MCL/arm_cm0.h
+ ../Sources/mcl/arm_cm0.h
 
 C:/Freescale/CW\ MCU\ v10.4/MCU/ARM_GCC_Support/ewl/EWL_C/include/lib_ewl.prefix:
 
@@ -40,4 +40,4 @@ C:/Freescale/CW\ MCU\ v10.4/MCU/ARM_GCC_Support/ewl/EWL_C/include/limits_api.h:
 
 C:/Freescale/CW\ MCU\ v10.4/MCU/ARM_GCC_Support/ewl/EWL_C/include/ewl_lib_ext1.h:
 
-../Sources/MCL/arm_cm0.h:
+../Sources/mcl/arm_cm0.h:

@@ -15,7 +15,6 @@ void VoltajeBateria();
 void SeguirLineaQRD1114();
 void Opcion1(void);
 void Opcion2(void);
-void Opcion3(void);
 void Opcion4(void);
 
 void Pruebas();
