@@ -44,7 +44,7 @@ OBJS_OS_FORMAT += \
 # Each subdirectory must supply rules for building sources it contributes
 Sources/Scheduler/Core/Core.o: ../Sources/Scheduler/Core/Core.c
 	@echo 'Building file: $<'
-	@echo 'Executing target #6 $<'
+	@echo 'Executing target #9 $<'
 	@echo 'Invoking: ARM Ltd Windows GCC C Compiler'
 	"$(ARMSourceryDirEnv)/arm-none-eabi-gcc" "$<" @"Sources/Scheduler/Core/Core.args" -MMD -MP -MF"$(@:%.o=%.d)" -o"Sources/Scheduler/Core/Core.o"
 	@echo 'Finished building: $<'
@@ -52,7 +52,7 @@ Sources/Scheduler/Core/Core.o: ../Sources/Scheduler/Core/Core.c
 
 Sources/Scheduler/Core/Core_Config.o: ../Sources/Scheduler/Core/Core_Config.c
 	@echo 'Building file: $<'
-	@echo 'Executing target #7 $<'
+	@echo 'Executing target #10 $<'
 	@echo 'Invoking: ARM Ltd Windows GCC C Compiler'
 	"$(ARMSourceryDirEnv)/arm-none-eabi-gcc" "$<" @"Sources/Scheduler/Core/Core_Config.args" -MMD -MP -MF"$(@:%.o=%.d)" -o"Sources/Scheduler/Core/Core_Config.o"
 	@echo 'Finished building: $<'
@@ -60,7 +60,7 @@ Sources/Scheduler/Core/Core_Config.o: ../Sources/Scheduler/Core/Core_Config.c
 
 Sources/Scheduler/Core/Core_Tick_ISR.o: ../Sources/Scheduler/Core/Core_Tick_ISR.c
 	@echo 'Building file: $<'
-	@echo 'Executing target #8 $<'
+	@echo 'Executing target #11 $<'
 	@echo 'Invoking: ARM Ltd Windows GCC C Compiler'
 	"$(ARMSourceryDirEnv)/arm-none-eabi-gcc" "$<" @"Sources/Scheduler/Core/Core_Tick_ISR.args" -MMD -MP -MF"$(@:%.o=%.d)" -o"Sources/Scheduler/Core/Core_Tick_ISR.o"
 	@echo 'Finished building: $<'

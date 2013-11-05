@@ -60,10 +60,10 @@ OBJS_OS_FORMAT :=
 # Every subdirectory with source files must be described here
 SUBDIRS := \
 Sources \
+Sources/mcl \
 Sources/Scheduler/PeriodicTasks \
 Sources/Scheduler/Core \
 Sources/SDL \
-Sources/MCL \
 Sources/APP \
 Project_Settings/Startup_Code \
 

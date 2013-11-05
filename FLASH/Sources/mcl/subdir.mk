@@ -6,63 +6,63 @@
 
 # Add inputs and outputs from these tool invocations to the build variables 
 C_SRCS_QUOTED += \
-"../Sources/MCL/ARM_SysTick.c" \
-"../Sources/MCL/CrystalClock.c" \
-"../Sources/MCL/arm_cm0.c" \
+"../Sources/mcl/ARM_SysTick.c" \
+"../Sources/mcl/CrystalClock.c" \
+"../Sources/mcl/arm_cm0.c" \
 
 C_SRCS += \
-../Sources/MCL/ARM_SysTick.c \
-../Sources/MCL/CrystalClock.c \
-../Sources/MCL/arm_cm0.c \
+../Sources/mcl/ARM_SysTick.c \
+../Sources/mcl/CrystalClock.c \
+../Sources/mcl/arm_cm0.c \
 
 OBJS += \
-./Sources/MCL/ARM_SysTick.o \
-./Sources/MCL/CrystalClock.o \
-./Sources/MCL/arm_cm0.o \
+./Sources/mcl/ARM_SysTick.o \
+./Sources/mcl/CrystalClock.o \
+./Sources/mcl/arm_cm0.o \
 
 C_DEPS += \
-./Sources/MCL/ARM_SysTick.d \
-./Sources/MCL/CrystalClock.d \
-./Sources/MCL/arm_cm0.d \
+./Sources/mcl/ARM_SysTick.d \
+./Sources/mcl/CrystalClock.d \
+./Sources/mcl/arm_cm0.d \
 
 OBJS_QUOTED += \
-"./Sources/MCL/ARM_SysTick.o" \
-"./Sources/MCL/CrystalClock.o" \
-"./Sources/MCL/arm_cm0.o" \
+"./Sources/mcl/ARM_SysTick.o" \
+"./Sources/mcl/CrystalClock.o" \
+"./Sources/mcl/arm_cm0.o" \
 
 C_DEPS_QUOTED += \
-"./Sources/MCL/ARM_SysTick.d" \
-"./Sources/MCL/CrystalClock.d" \
-"./Sources/MCL/arm_cm0.d" \
+"./Sources/mcl/ARM_SysTick.d" \
+"./Sources/mcl/CrystalClock.d" \
+"./Sources/mcl/arm_cm0.d" \
 
 OBJS_OS_FORMAT += \
-./Sources/MCL/ARM_SysTick.o \
-./Sources/MCL/CrystalClock.o \
-./Sources/MCL/arm_cm0.o \
+./Sources/mcl/ARM_SysTick.o \
+./Sources/mcl/CrystalClock.o \
+./Sources/mcl/arm_cm0.o \
 
 
 # Each subdirectory must supply rules for building sources it contributes
-Sources/MCL/ARM_SysTick.o: ../Sources/MCL/ARM_SysTick.c
+Sources/mcl/ARM_SysTick.o: ../Sources/mcl/ARM_SysTick.c
 	@echo 'Building file: $<'
-	@echo 'Executing target #21 $<'
+	@echo 'Executing target #4 $<'
 	@echo 'Invoking: ARM Ltd Windows GCC C Compiler'
-	"$(ARMSourceryDirEnv)/arm-none-eabi-gcc" "$<" @"Sources/MCL/ARM_SysTick.args" -MMD -MP -MF"$(@:%.o=%.d)" -o"Sources/MCL/ARM_SysTick.o"
+	"$(ARMSourceryDirEnv)/arm-none-eabi-gcc" "$<" @"Sources/mcl/ARM_SysTick.args" -MMD -MP -MF"$(@:%.o=%.d)" -o"Sources/mcl/ARM_SysTick.o"
 	@echo 'Finished building: $<'
 	@echo ' '
 
-Sources/MCL/CrystalClock.o: ../Sources/MCL/CrystalClock.c
+Sources/mcl/CrystalClock.o: ../Sources/mcl/CrystalClock.c
 	@echo 'Building file: $<'
-	@echo 'Executing target #22 $<'
+	@echo 'Executing target #5 $<'
 	@echo 'Invoking: ARM Ltd Windows GCC C Compiler'
-	"$(ARMSourceryDirEnv)/arm-none-eabi-gcc" "$<" @"Sources/MCL/CrystalClock.args" -MMD -MP -MF"$(@:%.o=%.d)" -o"Sources/MCL/CrystalClock.o"
+	"$(ARMSourceryDirEnv)/arm-none-eabi-gcc" "$<" @"Sources/mcl/CrystalClock.args" -MMD -MP -MF"$(@:%.o=%.d)" -o"Sources/mcl/CrystalClock.o"
 	@echo 'Finished building: $<'
 	@echo ' '
 
-Sources/MCL/arm_cm0.o: ../Sources/MCL/arm_cm0.c
+Sources/mcl/arm_cm0.o: ../Sources/mcl/arm_cm0.c
 	@echo 'Building file: $<'
-	@echo 'Executing target #23 $<'
+	@echo 'Executing target #6 $<'
 	@echo 'Invoking: ARM Ltd Windows GCC C Compiler'
-	"$(ARMSourceryDirEnv)/arm-none-eabi-gcc" "$<" @"Sources/MCL/arm_cm0.args" -MMD -MP -MF"$(@:%.o=%.d)" -o"Sources/MCL/arm_cm0.o"
+	"$(ARMSourceryDirEnv)/arm-none-eabi-gcc" "$<" @"Sources/mcl/arm_cm0.args" -MMD -MP -MF"$(@:%.o=%.d)" -o"Sources/mcl/arm_cm0.o"
 	@echo 'Finished building: $<'
 	@echo ' '
 

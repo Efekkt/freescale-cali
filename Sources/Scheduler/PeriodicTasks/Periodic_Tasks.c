@@ -63,7 +63,6 @@ void periodic_tasks_exec_100tks(void)
 {
 //Opcion1();
 //Opcion2();
-//Opcion3();
 //Opcion4();
 }
  

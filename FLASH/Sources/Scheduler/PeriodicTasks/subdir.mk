@@ -37,7 +37,7 @@ OBJS_OS_FORMAT += \
 # Each subdirectory must supply rules for building sources it contributes
 Sources/Scheduler/PeriodicTasks/Periodic_Tasks.o: ../Sources/Scheduler/PeriodicTasks/Periodic_Tasks.c
 	@echo 'Building file: $<'
-	@echo 'Executing target #4 $<'
+	@echo 'Executing target #7 $<'
 	@echo 'Invoking: ARM Ltd Windows GCC C Compiler'
 	"$(ARMSourceryDirEnv)/arm-none-eabi-gcc" "$<" @"Sources/Scheduler/PeriodicTasks/Periodic_Tasks.args" -MMD -MP -MF"$(@:%.o=%.d)" -o"Sources/Scheduler/PeriodicTasks/Periodic_Tasks.o"
 	@echo 'Finished building: $<'
@@ -45,7 +45,7 @@ Sources/Scheduler/PeriodicTasks/Periodic_Tasks.o: ../Sources/Scheduler/PeriodicT
 
 Sources/Scheduler/PeriodicTasks/Periodic_Tasks_Init.o: ../Sources/Scheduler/PeriodicTasks/Periodic_Tasks_Init.c
 	@echo 'Building file: $<'
-	@echo 'Executing target #5 $<'
+	@echo 'Executing target #8 $<'
 	@echo 'Invoking: ARM Ltd Windows GCC C Compiler'
 	"$(ARMSourceryDirEnv)/arm-none-eabi-gcc" "$<" @"Sources/Scheduler/PeriodicTasks/Periodic_Tasks_Init.args" -MMD -MP -MF"$(@:%.o=%.d)" -o"Sources/Scheduler/PeriodicTasks/Periodic_Tasks_Init.o"
 	@echo 'Finished building: $<'

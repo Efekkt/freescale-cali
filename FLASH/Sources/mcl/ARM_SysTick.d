@@ -1,8 +1,8 @@
-Sources/MCL/ARM_SysTick.o: ../Sources/MCL/ARM_SysTick.c \
+Sources/mcl/ARM_SysTick.o: ../Sources/mcl/ARM_SysTick.c \
  C:/Freescale/CW\ MCU\ v10.4/MCU/ARM_GCC_Support/ewl/EWL_C/include/lib_ewl.prefix \
  C:/Freescale/CW\ MCU\ v10.4/MCU/ARM_GCC_Support/ewl/EWL_C/include/common.prefix \
  C:/Freescale/CW\ MCU\ v10.4/MCU/ARM_GCC_Support/ewl/EWL_C/include/ewl_c_version.h \
- ../Sources/MCL/..\TFC.h \
+ ../Sources/mcl/..\TFC.h \
  C:/Freescale/CW\ MCU\ v10.4/MCU/ARM_GCC_Support/ewl/EWL_C/include/stdio.h \
  C:/Freescale/CW\ MCU\ v10.4/MCU/ARM_GCC_Support/ewl/EWL_C/include/ansi_parms.h \
  C:/Freescale/CW\ MCU\ v10.4/MCU/ARM_GCC_Support/ewl/EWL_C/include/ewlGlobals.h \
@@ -30,17 +30,17 @@ Sources/MCL/ARM_SysTick.o: ../Sources/MCL/ARM_SysTick.c \
  C:/Freescale/CW\ MCU\ v10.4/MCU/ARM_GCC_Support/ewl/EWL_C/include/limits_api.h \
  C:/Users/Cesar/Desktop/Freescale\ Cup\ 2013/Aplicaciones/GoogleCode/freescale-cali/Project_Headers/derivative.h \
  C:/Users/Cesar/Desktop/Freescale\ Cup\ 2013/Aplicaciones/GoogleCode/freescale-cali/Project_Headers/MKL25Z4.h \
- ../Sources/MCL/..\MCL\arm_cm0.h ../Sources/MCL/..\MCL\ARM_SysTick.h \
- ../Sources/MCL/..\MCL\..\TFC.h ../Sources/MCL/..\MCL\CrystalClock.h \
- ../Sources/MCL/..\SDL\ADC.h ../Sources/MCL/..\SDL\..\TFC.h \
- ../Sources/MCL/..\SDL\BoardSupport.h ../Sources/MCL/..\SDL\Motor.h \
- ../Sources/MCL/..\SDL\Potentiometer.h ../Sources/MCL/..\SDL\Servo.h \
- ../Sources/MCL/..\SDL\Led_RGB.h ../Sources/MCL/..\SDL\I2C.h \
- ../Sources/MCL/..\SDL\MMA8451.h ../Sources/MCL/..\SDL\LineScanCamera.h \
- ../Sources/MCL/..\Config.h ../Sources/MCL/..\SDL\Queue.h \
- ../Sources/MCL/..\SDL\UART.h ../Sources/MCL/..\SDL\Terminal.h \
- ../Sources/MCL/..\SDL\..\Config.h ../Sources/MCL/..\SDL\UART.h \
- ../Sources/MCL/..\APP\Coeficientes.h ../Sources/MCL/..\APP\Tasks.h
+ ../Sources/mcl/..\MCL\arm_cm0.h ../Sources/mcl/..\MCL\ARM_SysTick.h \
+ ../Sources/mcl/..\MCL\..\TFC.h ../Sources/mcl/..\MCL\CrystalClock.h \
+ ../Sources/mcl/..\SDL\ADC.h ../Sources/mcl/..\SDL\..\TFC.h \
+ ../Sources/mcl/..\SDL\BoardSupport.h ../Sources/mcl/..\SDL\Motor.h \
+ ../Sources/mcl/..\SDL\Potentiometer.h ../Sources/mcl/..\SDL\Servo.h \
+ ../Sources/mcl/..\SDL\Led_RGB.h ../Sources/mcl/..\SDL\I2C.h \
+ ../Sources/mcl/..\SDL\MMA8451.h ../Sources/mcl/..\SDL\LineScanCamera.h \
+ ../Sources/mcl/..\Config.h ../Sources/mcl/..\SDL\Queue.h \
+ ../Sources/mcl/..\SDL\UART.h ../Sources/mcl/..\SDL\Terminal.h \
+ ../Sources/mcl/..\SDL\..\Config.h ../Sources/mcl/..\SDL\UART.h \
+ ../Sources/mcl/..\APP\Coeficientes.h ../Sources/mcl/..\APP\Tasks.h
 
 C:/Freescale/CW\ MCU\ v10.4/MCU/ARM_GCC_Support/ewl/EWL_C/include/lib_ewl.prefix:
 
@@ -48,7 +48,7 @@ C:/Freescale/CW\ MCU\ v10.4/MCU/ARM_GCC_Support/ewl/EWL_C/include/common.prefix:
 
 C:/Freescale/CW\ MCU\ v10.4/MCU/ARM_GCC_Support/ewl/EWL_C/include/ewl_c_version.h:
 
-../Sources/MCL/..\TFC.h:
+../Sources/mcl/..\TFC.h:
 
 C:/Freescale/CW\ MCU\ v10.4/MCU/ARM_GCC_Support/ewl/EWL_C/include/stdio.h:
 
@@ -104,46 +104,46 @@ C:/Users/Cesar/Desktop/Freescale\ Cup\ 2013/Aplicaciones/GoogleCode/freescale-ca
 
 C:/Users/Cesar/Desktop/Freescale\ Cup\ 2013/Aplicaciones/GoogleCode/freescale-cali/Project_Headers/MKL25Z4.h:
 
-../Sources/MCL/..\MCL\arm_cm0.h:
+../Sources/mcl/..\MCL\arm_cm0.h:
 
-../Sources/MCL/..\MCL\ARM_SysTick.h:
+../Sources/mcl/..\MCL\ARM_SysTick.h:
 
-../Sources/MCL/..\MCL\..\TFC.h:
+../Sources/mcl/..\MCL\..\TFC.h:
 
-../Sources/MCL/..\MCL\CrystalClock.h:
+../Sources/mcl/..\MCL\CrystalClock.h:
 
-../Sources/MCL/..\SDL\ADC.h:
+../Sources/mcl/..\SDL\ADC.h:
 
-../Sources/MCL/..\SDL\..\TFC.h:
+../Sources/mcl/..\SDL\..\TFC.h:
 
-../Sources/MCL/..\SDL\BoardSupport.h:
+../Sources/mcl/..\SDL\BoardSupport.h:
 
-../Sources/MCL/..\SDL\Motor.h:
+../Sources/mcl/..\SDL\Motor.h:
 
-../Sources/MCL/..\SDL\Potentiometer.h:
+../Sources/mcl/..\SDL\Potentiometer.h:
 
-../Sources/MCL/..\SDL\Servo.h:
+../Sources/mcl/..\SDL\Servo.h:
 
-../Sources/MCL/..\SDL\Led_RGB.h:
+../Sources/mcl/..\SDL\Led_RGB.h:
 
-../Sources/MCL/..\SDL\I2C.h:
+../Sources/mcl/..\SDL\I2C.h:
 
-../Sources/MCL/..\SDL\MMA8451.h:
+../Sources/mcl/..\SDL\MMA8451.h:
 
-../Sources/MCL/..\SDL\LineScanCamera.h:
+../Sources/mcl/..\SDL\LineScanCamera.h:
 
-../Sources/MCL/..\Config.h:
+../Sources/mcl/..\Config.h:
 
-../Sources/MCL/..\SDL\Queue.h:
+../Sources/mcl/..\SDL\Queue.h:
 
-../Sources/MCL/..\SDL\UART.h:
+../Sources/mcl/..\SDL\UART.h:
 
-../Sources/MCL/..\SDL\Terminal.h:
+../Sources/mcl/..\SDL\Terminal.h:
 
-../Sources/MCL/..\SDL\..\Config.h:
+../Sources/mcl/..\SDL\..\Config.h:
 
-../Sources/MCL/..\SDL\UART.h:
+../Sources/mcl/..\SDL\UART.h:
 
-../Sources/MCL/..\APP\Coeficientes.h:
+../Sources/mcl/..\APP\Coeficientes.h:
 
-../Sources/MCL/..\APP\Tasks.h:
+../Sources/mcl/..\APP\Tasks.h:
