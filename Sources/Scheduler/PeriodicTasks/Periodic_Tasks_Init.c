@@ -11,119 +11,47 @@
 #include "Periodic_Tasks_Init.h"
 #include "Periodic_Tasks_Modules.h"
 
-
-/**************************************************************
- *  Name                 : periodic_tasks_init_MclDrvs
- *  Description          : Initialize needed microcontroller drivers (pheripherals) before start application
- *  Parameters           : none
- *  Return               : none
- *  Critical/explanation : no
- **************************************************************/
 void periodic_tasks_init_MclDrvs(void)
 {
 
 }
 
-/**************************************************************
- *  Name                 : periodic_tasks_init_SysDrvs
- *  Description          : Initialize needed system drivers (system elements) before start application
- *  Parameters           : none
- *  Return               : none
- *  Critical/explanation : no
- **************************************************************/
 void periodic_tasks_init_SysDrvs(void)
 {
 
 }
 
-/**************************************************************
- *  Name                 : periodic_tasks_init_task_5tks
- *  Description          : Container for initialization of functionality that is
-                           executed periodically
- *  Parameters           : none
- *  Return               : none
- *  Critical/explanation : no
- **************************************************************/
- void periodic_tasks_init_task_5tks(void)
- {
-	
- }
- 
- /**************************************************************
- *  Name                 : periodic_tasks_init_task_10tks
- *  Description          : Container for initialization of functionality that is
-                           executed periodically
- *  Parameters           : none
- *  Return               : none
- *  Critical/explanation : no
- **************************************************************/
- void periodic_tasks_init_task_10tks(void)
- {
-	
- }
- 
- /**************************************************************
- *  Name                 : periodic_tasks_init_task_20tks
- *  Description          : Container for initialization of functionality that is
-                           executed periodically
- *  Parameters           : none
- *  Return               : none
- *  Critical/explanation : no
- **************************************************************/
- void periodic_tasks_init_task_20tks(void)
- {
+void periodic_tasks_init_task_5tks(void)
+{
 
- }
- 
- /**************************************************************
- *  Name                 : periodic_tasks_init_task_50tks
- *  Description          : Container for initialization of functionality that is
-                           executed periodically
- *  Parameters           : none
- *  Return               : none
- *  Critical/explanation : no
- **************************************************************/
- void periodic_tasks_init_task_50tks(void)
- {
-	
- }
- 
- /**************************************************************
- *  Name                 : periodic_tasks_init_task_100tks
- *  Description          : Container for initialization of functionality that is
-                           executed periodically
- *  Parameters           : none
- *  Return               : none
- *  Critical/explanation : no
- **************************************************************/
- void periodic_tasks_init_task_100tks(void)
- {
+}
 
- }
- 
- /**************************************************************
- *  Name                 : periodic_tasks_init_task_500tks
- *  Description          : Container for initialization of functionality that is
-                           executed periodically
- *  Parameters           : none
- *  Return               : none
- *  Critical/explanation : no
- **************************************************************/
- void periodic_tasks_init_task_500tks(void)
- {
+void periodic_tasks_init_task_10tks(void)
+{
 
- }
- 
- /**************************************************************
- *  Name                 : periodic_tasks_init_task_1Mtks
- *  Description          : Container for initialization of functionality that is
-                           executed periodically
- *  Parameters           : none
- *  Return               : none
- *  Critical/explanation : no
- **************************************************************/
- void periodic_tasks_init_task_1Mtks(void)
- {
- 
- }
- 
+}
+
+void periodic_tasks_init_task_20tks(void)
+{
+
+}
+
+void periodic_tasks_init_task_50tks(void)
+{
+
+}
+
+void periodic_tasks_init_task_100tks(void)
+{
+
+}
+
+void periodic_tasks_init_task_500tks(void)
+{
+
+}
+
+void periodic_tasks_init_task_1Mtks(void)
+{
+
+}

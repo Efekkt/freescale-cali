@@ -5,13 +5,8 @@
  */
 
 #include "..\TFC.h"
-
-
-/****************************************************************************************************************
-*	Variables Globales. Usadas en las funciones
-****************************************************************************************************************/
-uint32_t t;
-int LineaBase[130];
+#define LIM_INICIO	15
+#define LIM_FIN 	112
 
 
 /*******************************************************************************************
@@ -19,9 +14,15 @@ int LineaBase[130];
 *  Description          : Esta funcion adquiere la primer imagen que captura la camara
 *  						  para poder ser comparada con las demas
 ********************************************************************************************/
+int LineaBase[130];
+int LineaBaseMinima[130];
+
 void CapturarLineaBase()
 {
-int i,j,muestras=10;
+int muestras = 10; //Total de imagenes promediadas usadas como base
+
+int i,j;
+TFC_SetBatteryLED_Level(1);
 while(!TFC_PUSH_BUTTON_1_PRESSED); //Retardo. Presionar Boton B
 for(i=0 ; i<muestras ; i++)
 	{
@@ -29,7 +30,20 @@ for(i=0 ; i<muestras ; i++)
 	for(j=0 ; j<128 ; j++) LineaBase[j]+=LineScanImage0[j];	
 	}
 for(j=0 ; j<128 ; j++) LineaBase[j]/=muestras;
-GREEN_ON;
+
+TFC_SetBatteryLED_Level(2);
+while(!TFC_PUSH_BUTTON_0_PRESSED); //Retardo. Presionar Boton A
+
+for(i=LIM_INICIO ; i<=LIM_FIN ; i++) LineaBaseMinima[i]=255;
+TFC_SetBatteryLED_Level(3);
+while(!TFC_PUSH_BUTTON_1_PRESSED) //Hasta presionar Boton B	
+	if(LineScanImageReady==1)
+		{
+		LineScanImageReady=0;
+		for(i=LIM_INICIO ; i<=LIM_FIN ; i++)
+			if(LineScanImage0[i]<LineaBaseMinima[i]) LineaBaseMinima[i]=LineScanImage0[i];
+		}
+TFC_SetBatteryLED_Level(4);
 }
 
 
@@ -39,25 +53,140 @@ GREEN_ON;
 *  						  y determina la maxima diferencia con respecto a 'LineaBase'
 ********************************************************************************************/
 int pos=63;
+int DIFERENCIA_MINIMA = 80; //Constante que establece a partir de cuanta diferencia se considera como linea
+int RANGO_SEPARACION = 80;  //Distancia maxima que puede detectarse la linea entre un punto actual y anterior
+int ANCHO_PROMEDIO = 4;     //Total de pixeles a considerar como promedio para la deteccion de la linea
+
 void DetectarLinea()
 {
-//int j,ancho=10;
-int rango=60;
-int i,suma,minimo=0;
-for(i=15 ; i<=112 ; i++)
+int i,k,suma,sumaTotal,minimo=0,select;
+
+for(i=LIM_INICIO ; i<=LIM_FIN ; i++) //Se eliminaron 15 pixeles al inicio y al final
 	{
-	if(LineaBase[i]>LineScanImage0[i])
-		suma=LineaBase[i]-LineScanImage0[i];
-	else
-		suma=0;
-	if(suma>minimo && suma>70)
+	/*Condicion que compara la posicion anterior de la linea con la actual*/
+	if(i<(pos-RANGO_SEPARACION) || i>(pos+RANGO_SEPARACION)) //Se encuentra la linea en el rango permitido?
+		continue;
+	
+	/*Ciclo que promedia un rango, donde i es el centro*/	
+	sumaTotal=0;
+	for(k=i-ANCHO_PROMEDIO ; k<=i+ANCHO_PROMEDIO ; k++)
 		{
-		if(i>=(pos-rango) && i<=(pos+rango))
+		if(LineaBase[k]>LineScanImage0[k]) //La linea nueva debe de tener valores menores a la base
+			suma=LineaBase[k]-LineScanImage0[k];
+		else
+			suma=0;
+		sumaTotal+=suma;
+		}
+
+	sumaTotal=sumaTotal/(ANCHO_PROMEDIO*2+1); //Promedio de la sumaTotal
+	
+	if(sumaTotal>minimo && sumaTotal>DIFERENCIA_MINIMA) //Es el mayor? Se cumple la diferencia maxima?
+		{
+		select=HayDepresion(i);
+		if(select==1) //Verifica que exista 1 maximo a cada lado de la supuesta linea
 			{
-			minimo=suma;
+			minimo=sumaTotal;
 			pos=i;
 			}
+		else if(select==2)
+			{
+			TFC_SetBatteryLED_Level(4);
+			TFC_HBRIDGE_DISABLE;
+			}
 		}
+	}
+}
+
+
+/*******************************************************************************************
+*  Name                 : HayDepresion
+*  Description          : Esta funcion comprueba que exista una depresion en la linea de valores
+*  						  capturada por la camara.
+********************************************************************************************/
+int HayDepresion(int x)
+{
+int j,v[130],InicioMeta=0;
+
+for(j=0 ; j<=127 ; j++) v[j]=0;
+
+for(j=LIM_INICIO ; j<=LIM_FIN ; j++)	
+	if(LineScanImage0[j] < ((LineaBase[j]+LineaBaseMinima[j])/2) )		
+		v[j]=1;
+
+if(v[x]==0) return 0;
+
+j=x;
+while(v[j]==1) 
+	{
+	j++;
+	if(j==LIM_FIN+1) return 0;
+	}
+
+while(v[j]==0) //InicioMeta
+	{
+	j++;
+	if(j==LIM_FIN+1) break;
+	}
+if(j!=LIM_FIN+1) InicioMeta++;
+
+j=x;
+while(v[j]==1) 
+	{	
+	j--;
+	if(j==LIM_INICIO-1) return 0;
+	}
+
+while(v[j]==0) //InicioMeta
+	{
+	j--;
+	if(j==LIM_INICIO-1) break;
+	}
+if(j!=LIM_INICIO-1) InicioMeta++;
+/*
+for(j=15 ; j<=112 ; j++)
+	TERMINAL_PRINTF("%d",v[j]);
+TERMINAL_PRINTF("\r\n");
+*/
+if(InicioMeta==2)
+	return 2;
+else
+	return 1;
+}
+
+
+/*******************************************************************************************
+*  Name                 : ControlDifuso
+*  Description          : Esta funcion contiene el control del carro
+********************************************************************************************/
+void ControlDifuso()
+{
+int indice_vector,p;
+float a,b;
+double val;
+
+if(LineScanImageReady==1)
+	{
+	LineScanImageReady=0;
+	
+	DetectarLinea(); //Se obtiene pos con valores de [15-112]
+	p=pos-LIM_INICIO; //Se ajusta pos a valores de [0-97]
+	
+	/* Si [0==0000 && 97==1000] then Se tienen aumentos de [1000/97=10.30927835], representa el indice del vector */
+	indice_vector=(int)((1000.0/97.0)*p);
+	
+	val=(servomotor[indice_vector]*1000/ServoValorMax)/1000.0;
+	TFC_SetServo(0,val);
+	
+	if(TFC_PUSH_BUTTON_0_PRESSED) TFC_HBRIDGE_ENABLE;
+	if(TFC_PUSH_BUTTON_1_PRESSED) TFC_HBRIDGE_DISABLE;
+	
+	a=motor_izquierdo[indice_vector]/1000.0;
+	b=motor_derecho[indice_vector]/1000.0;
+	
+	if(a>TFC_ReadPot1()) a=TFC_ReadPot1();
+	if(b>TFC_ReadPot1()) b=TFC_ReadPot1();
+	
+	TFC_SetMotorPWM(a,b);	
 	}
 }
 
@@ -67,7 +196,7 @@ for(i=15 ; i<=112 ; i++)
 *  Description          : Esta funcion obtiene los valores de la camara, recorre los valores
 *  						  y determina la maxima diferencia con respecto a 'LineaBase'
 ********************************************************************************************/
-void SeguirLineaCamara()
+void SinControl()
 {
 if(LineScanImageReady==1)
 	{
@@ -76,13 +205,13 @@ if(LineScanImageReady==1)
 	if(TFC_PUSH_BUTTON_1_PRESSED) TFC_HBRIDGE_DISABLE;	
 	
 	DetectarLinea();
-	TFC_SetServo(0,(float)((pos/63.5)-1.0));
-	//TFC_SetServo(0,(float)(((pos-15)/48.5)-1.0));		
+	//TFC_SetServo(0,(float)((pos/63.5)-1.0));
+	TFC_SetServo(0,(float)(((pos-15)/48.5)-1.0));		
 	
 	if(pos>44 && pos<83)
 		TFC_SetMotorPWM(TFC_ReadPot1(),TFC_ReadPot1());
 	else 
-		TFC_SetMotorPWM(TFC_ReadPot1()-0.1,TFC_ReadPot1()-0.1);
+		TFC_SetMotorPWM(TFC_ReadPot1()-0.15,TFC_ReadPot1()-0.15);
 	}
 }
 
@@ -111,59 +240,80 @@ TFC_SetBatteryLED_Level(nivel);
 }
 
 
-/*******************************************************************************************
-*  Name                 : Pruebas
-*  Description          : Esta funcion es para realizar pruebas
-********************************************************************************************/
-void Pruebas()
+void GraficarLabVIEW()
 {
-int indice_vector,p;
-float a,b;
+int i;
 if(LineScanImageReady==1)
 	{
-	LineScanImageReady=0;
-	
-	DetectarLinea(); //Se obtiene pos con valores de [15-112]
-	p=pos-15; //Se ajusta pos a valores de [0-97]
-	
-	////TERMINAL_PRINTF("*Pos:%d ",p);
-	
-	/* Si [0==0000 && 97==1000] then Se tienen aumentos de [1000/97=10.30927835], representa el indice del vector */
-	indice_vector=(int)((1000.0/97.0)*p);
-	
-	/*	Para el vector de 'servomotor', los rangos son [0.000,1.000], X es algun punto, PuntoMedio=0.500
-	Si X es menor a PM then izquierda: Val=X-PM
-	else derecha: Val=PM-X	*/
-	
-	////TERMINAL_PRINTF("Indice:%d  Servomotor:[%d]",indice_vector,servomotor[indice_vector]);
-	
-	TFC_SetServo(0,servomotor[indice_vector]/1000.0);
-	////TERMINAL_PRINTF(" : %d\n\r",(int)(((servomotor[indice_vector]/1000.0)-0.5)*1000));
-	
+	LineScanImageReady=0;					 										 		
 	if(TFC_PUSH_BUTTON_0_PRESSED) TFC_HBRIDGE_ENABLE;
 	if(TFC_PUSH_BUTTON_1_PRESSED) TFC_HBRIDGE_DISABLE;
+
+	DetectarLinea();
+	TFC_SetServo(0,(float)((pos/63.5)-1.0));	
+	TFC_SetMotorPWM(TFC_ReadPot1(),TFC_ReadPot1());	
 	
-	a=motor_izquierdo[indice_vector]/1000.0;
-	b=motor_derecho[indice_vector]/1000.0;	
+	TERMINAL_PRINTF("\r\n");
+	TERMINAL_PRINTF("L:");	
+	if(TFC_GetDIP_Switch()&0x08)
+		{		
+		for(i=0;i<128;i++)
+			{
+			if(i==0) 							 
+				TERMINAL_PRINTF("%X,",pos);
+			else
+				TERMINAL_PRINTF("%X,",LineaBaseMinima[i]);
+			}		
+		}
+	else
+		{
+		for(i=0;i<128;i++)
+			{
+			if(i==0) 							 
+				TERMINAL_PRINTF("%X,",pos);
+			else
+				TERMINAL_PRINTF("%X,",LineScanImage0[i]);
+			}		
+		}
 	
-	if(a>TFC_ReadPot1()) a=TFC_ReadPot1();
-	if(b>TFC_ReadPot1()) b=TFC_ReadPot1();
-	
-	TFC_SetMotorPWM(a,b);	
-	}
+	for(i=0;i<128;i++)
+		{	
+		TERMINAL_PRINTF("%X",LineaBase[i]);
+		if(i==127)
+			TERMINAL_PRINTF("\r\n",LineaBase[i]);
+		else
+			TERMINAL_PRINTF(",",LineaBase[i]);
+		}
+	}	
 }
 
 
-/* Funcion sin usar */
-void SeguirLineaQRD1114()
+
+
+
+/*void SeguirLineaQRD1114()
 {
 if(TFC_SENSOR_1 && TFC_SENSOR_2 && TFC_SENSOR_3 && TFC_SENSOR_4 && TFC_SENSOR_5 && TFC_SENSOR_6 && TFC_SENSOR_7)	
 	TFC_SetServo(0,0);			
-}
+}*/
 
+/* Move the servos with the potentiometers */ 
+/* NOTA: Tiempo minimo de 20mS
+void Opcion2()
+{
+//Every 20 mSeconds, update the Servos
+float x;
+x=TFC_ReadPot0();
+TFC_SetServo(0,x);
+////TERMINAL_PRINTF("Servomotor: %d\n\r",(int)(x*10000.0));
+
+//Make sure motors are off
+TFC_SetMotorPWM(0,0);
+TFC_HBRIDGE_DISABLE;
+}*/
 
 /* Tests the switches and LEDs */
-void Opcion1()
+/* void Opcion1()
 {
 if(TFC_PUSH_BUTTON_0_PRESSED)
 	TFC_BAT_LED0_ON;									
@@ -185,56 +335,34 @@ if(TFC_GetDIP_Switch()&0x08)
 else
 	TFC_BAT_LED2_OFF;					
 }
+*/
 
-
-/* Move the servos with the potentiometers */ 
-// NOTA: Tiempo minimo de 20mS
-void Opcion2()
+/*
+int pos=63;
+void DetectarLinea()
 {
-//Every 20 mSeconds, update the Servos
-float x;
-x=TFC_ReadPot0();
-TFC_SetServo(0,x);
-////TERMINAL_PRINTF("Servomotor: %d\n\r",(int)(x*10000.0));
+//int ANCHO_PROMEDIO = 10;  //Total de pixeles a considerar como promedio para la deteccion de la linea
+int RANGO_SEPARACION = 50;  //Distancia maxima que puede detectarse la linea entre un punto actual y anterior
+int DIFERENCIA_MINIMA = 60; //Constante que establece a partir de cuanta diferencia se considera como linea
 
-//Make sure motors are off
-TFC_SetMotorPWM(0,0);
-TFC_HBRIDGE_DISABLE;
-}
-
-
-void Opcion4()
-{
-//Demo Mode 3 will be in Freescale Garage Mode.  It will beam data from the Camera to the 
-//Labview Application				
-int i;
-if(LineScanImageReady==1)
-	{	
-	LineScanImageReady=0;					 										 		
-	if(TFC_PUSH_BUTTON_0_PRESSED) TFC_HBRIDGE_ENABLE;
-	if(TFC_PUSH_BUTTON_1_PRESSED) TFC_HBRIDGE_DISABLE;
-
-	DetectarLinea();
-	TFC_SetServo(0,(float)((pos/63.5)-1.0));	
-	TFC_SetMotorPWM(TFC_ReadPot1(),TFC_ReadPot1());	
+int i,suma,minimo=0;
+for(i=15 ; i<=112 ; i++) //Se eliminaron 15 pixeles al inicio y al final
+	{
 	
-	TERMINAL_PRINTF("\r\n");
-	TERMINAL_PRINTF("L:");	
-	for(i=0;i<128;i++)
+	En esta parte se debe de promediar cierto rango
+	
+	if(LineaBase[i]>LineScanImage0[i]) //La linea nueva debe de tener valores menores a la base
+		suma=LineaBase[i]-LineScanImage0[i];
+	else
+		suma=0;
+	if(suma>minimo && suma>DIFERENCIA_MINIMA) //Es el mayor? Se cumple la diferencia maxima?
 		{
-		if(i==0) 							 
-			TERMINAL_PRINTF("%X,",pos);
-		else
-			TERMINAL_PRINTF("%X,",LineScanImage0[i]);
+		if(i>=(pos-RANGO_SEPARACION) && i<=(pos+RANGO_SEPARACION)) //Se encuentra en el rango?
+			{
+			minimo=suma;
+			pos=i;
+			}
 		}
-	
-	for(i=0;i<128;i++)
-		{	
-		TERMINAL_PRINTF("%X",LineaBase[i]);
-		if(i==127)
-			TERMINAL_PRINTF("\r\n",LineaBase[i]);
-		else
-			TERMINAL_PRINTF(",",LineaBase[i]);
-		}
-	}	
-}
+	}
+} 
+*/
