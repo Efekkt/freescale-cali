@@ -11,4 +11,6 @@ extern short servomotor[1001];
 extern short motor_izquierdo[1001];
 extern short motor_derecho[1001];
 
+extern short ServoValorMax;
+
 #endif

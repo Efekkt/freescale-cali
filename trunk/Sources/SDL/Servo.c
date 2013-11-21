@@ -16,13 +16,13 @@
 /**********************************************************************************************/
 
 //Position is -1.0 to 1.0.	Use SERVO_X_MIN_DUTY_CYCLE and SERVO_MAX_DUTY_CYCLE to calibrate the extremes
-//#define Centro			0.0823
-#define Centro			0.0145
 #define LimIzquierda   -0.7800
 #define LimDerecha		0.5600
+//#define Centro		0.0823
+volatile float Centro = 0.0145;
+
 void TFC_SetServo(uint8_t ServoNumber, float Position)
 {
-//El centro es 0.0823
 if(Position<-1) Position=-1;
 else if(Position>1) Position=1;
 

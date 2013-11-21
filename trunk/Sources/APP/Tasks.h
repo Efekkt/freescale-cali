@@ -7,16 +7,15 @@
 #ifndef TFC_TASKS_H_
 #define TFC_TASKS_H_
 
-void CapturarLineaBase();
-void DetectarLinea();
-void SeguirLineaCamara();
-void VoltajeBateria();
+void CapturarLineaBase(void);
 
-void SeguirLineaQRD1114();
-void Opcion1(void);
-void Opcion2(void);
-void Opcion4(void);
+void DetectarLinea(void);
+int HayDepresion(int);
 
-void Pruebas();
+void ControlDifuso(void);
+void SinControl(void);
+
+void VoltajeBateria(void);
+void GraficarLabVIEW(void);
 
 #endif

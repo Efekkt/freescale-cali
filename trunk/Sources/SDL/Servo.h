@@ -11,4 +11,6 @@ void TFC_InitServos();
 void TFC_SetServo(uint8_t ServoNumber, float Position);
 void TFC_SetServoDutyCycle(uint8_t ServoNumber, float DutyCycle);
 
+extern volatile float Centro;
+
 #endif
