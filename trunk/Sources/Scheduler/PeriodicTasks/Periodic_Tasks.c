@@ -11,7 +11,8 @@
 
 void periodic_tasks_exec_5tks(void)
 {
-
+DetectarLinea();
+VelocidadMotor();
 }
 
 
@@ -34,9 +35,14 @@ if(TFC_GetDIP_Switch()&0x02) sel+=2;
 if(TFC_GetDIP_Switch()&0x04) sel+=4;
 if(TFC_GetDIP_Switch()&0x08) sel+=8;
 
+if(TFC_PUSH_BUTTON_0_PRESSED) TFC_HBRIDGE_ENABLE;
+if(TFC_PUSH_BUTTON_1_PRESSED) TFC_HBRIDGE_DISABLE;
+
 Centro=TFC_ReadPot0()/8.0;
-if(sel==1) ControlDifuso();
-if(sel==3) SinControl();
+
+//Controles para el servomotor
+ControlDifuso();
+if(sel==3) ControlLineal();
 }
  
 
@@ -65,7 +71,7 @@ if(sel==4 || sel==12) GraficarLabVIEW();
 
 void periodic_tasks_exec_500tks(void)
 {
-BLUE_TOGGLE;	 
+	 
 }
  
 

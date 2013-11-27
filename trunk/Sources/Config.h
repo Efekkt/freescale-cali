@@ -15,7 +15,7 @@ is just an array of 32-bit integers, use the Macro below to set how many tickers
 //#define NUM_TFC_TICKERS		4
 
 //This is what the exposure time for the Linescan will be set to out of bootup
-#define TFC_DEFAULT_LINESCAN_EXPOSURE_TIME_uS	20000
+#define TFC_DEFAULT_LINESCAN_EXPOSURE_TIME_uS	5000
 
 #define TFC_MOTOR_SWITCHING_FREQUENCY	((float)(4000.0))
 
