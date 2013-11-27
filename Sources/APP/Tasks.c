@@ -52,10 +52,10 @@ TFC_SetBatteryLED_Level(4);
 *  Description          : Esta funcion obtiene los valores de la camara, recorre los valores
 *  						  y determina la maxima diferencia con respecto a 'LineaBase'
 ********************************************************************************************/
-int pos=63;
-int DIFERENCIA_MINIMA = 80; //Constante que establece a partir de cuanta diferencia se considera como linea
-int RANGO_SEPARACION = 80;  //Distancia maxima que puede detectarse la linea entre un punto actual y anterior
-int ANCHO_PROMEDIO = 4;     //Total de pixeles a considerar como promedio para la deteccion de la linea
+int pos=48;
+int DIFERENCIA_MINIMA = 30;  //Constante que establece a partir de cuanta diferencia se considera como linea
+int RANGO_SEPARACION  = 80;  //Distancia maxima que puede detectarse la linea entre un punto actual y anterior
+int ANCHO_PROMEDIO    =  4;  //Total de pixeles a considerar como promedio para la deteccion de la linea
 
 void DetectarLinea()
 {
@@ -88,7 +88,7 @@ for(i=LIM_INICIO ; i<=LIM_FIN ; i++) //Se eliminaron 15 pixeles al inicio y al f
 			minimo=sumaTotal;
 			pos=i;
 			}
-		else if(select==2)
+		else if(select==2) //Detecta que es la meta
 			{
 			TFC_SetBatteryLED_Level(4);
 			TFC_HBRIDGE_DISABLE;
@@ -105,6 +105,7 @@ for(i=LIM_INICIO ; i<=LIM_FIN ; i++) //Se eliminaron 15 pixeles al inicio y al f
 ********************************************************************************************/
 int HayDepresion(int x)
 {
+int area1=0,area2=0,area3=0;
 int j,v[130],InicioMeta=0;
 
 for(j=0 ; j<=127 ; j++) v[j]=0;
@@ -115,37 +116,60 @@ for(j=LIM_INICIO ; j<=LIM_FIN ; j++)
 
 if(v[x]==0) return 0;
 
+//////////////////////////////////////////////////////////////////////
+//Checar hacia la IZQUIERDA y contar el area de la linea
 j=x;
-while(v[j]==1) 
+while(v[j]==1) //Se mueve a el lado izquierdo de la linea
 	{
-	j++;
-	if(j==LIM_FIN+1) return 0;
-	}
-
-while(v[j]==0) //InicioMeta
-	{
-	j++;
-	if(j==LIM_FIN+1) break;
-	}
-if(j!=LIM_FIN+1) InicioMeta++;
-
-j=x;
-while(v[j]==1) 
-	{	
 	j--;
 	if(j==LIM_INICIO-1) return 0;
 	}
+j++;
+while(v[j]==1) //Empezar a contar el area2 de la linea del lado izquierdo al derecho
+	{
+	area2++;
+	j++;
+	if(j==LIM_FIN+1) return 0;
+	}
+while(v[j]==0)
+	{	
+	j++;
+	if(j==LIM_FIN+1) break;
+	}
+while(v[j]==1) //Empezar a contar el area3 de la linea del lado izquierdo al derecho
+	{
+	area3++;
+	j++;	
+	}
 
-while(v[j]==0) //InicioMeta
+//Checar hacia la IZQUIERDA
+j=x;
+while(v[j]==1) j--;
+while(v[j]==0)
 	{
 	j--;
 	if(j==LIM_INICIO-1) break;
 	}
-if(j!=LIM_INICIO-1) InicioMeta++;
+while(v[j]==1) //Empezar a contar el area1 de la linea del lado derecho al izquierdo
+	{
+	area1++;
+	j--;
+	}
+
+///////////////////////////////////////////////////////////////////////
+
+int s=0;
+for(j=LIM_INICIO-1 ; j<=LIM_FIN ; j++)	
+	if(v[j]!=v[j+1]) s++;	
+if(s!=2 && s!=6) return 0;
+
+if(area2<=8 || area2>=24) return 0;  
+
+if(area1>20 && area3>20) InicioMeta=2;
 /*
-for(j=15 ; j<=112 ; j++)
+for(j=LIM_INICIO ; j<=LIM_FIN ; j++)
 	TERMINAL_PRINTF("%d",v[j]);
-TERMINAL_PRINTF("\r\n");
+TERMINAL_PRINTF("  %d %d %d . %d\r\n",area1,area2,area3,InicioMeta);
 */
 if(InicioMeta==2)
 	return 2;
@@ -156,63 +180,44 @@ else
 
 /*******************************************************************************************
 *  Name                 : ControlDifuso
-*  Description          : Esta funcion contiene el control del carro
+*  Description          : Esta funcion contiene el control del servomotor
 ********************************************************************************************/
 void ControlDifuso()
 {
-int indice_vector,p;
-float a,b;
+int indice_vector;
 double val;
 
-if(LineScanImageReady==1)
-	{
-	LineScanImageReady=0;
-	
-	DetectarLinea(); //Se obtiene pos con valores de [15-112]
-	p=pos-LIM_INICIO; //Se ajusta pos a valores de [0-97]
-	
-	/* Si [0==0000 && 97==1000] then Se tienen aumentos de [1000/97=10.30927835], representa el indice del vector */
-	indice_vector=(int)((1000.0/97.0)*p);
-	
-	val=(servomotor[indice_vector]*1000/ServoValorMax)/1000.0;
-	TFC_SetServo(0,val);
-	
-	if(TFC_PUSH_BUTTON_0_PRESSED) TFC_HBRIDGE_ENABLE;
-	if(TFC_PUSH_BUTTON_1_PRESSED) TFC_HBRIDGE_DISABLE;
-	
-	a=motor_izquierdo[indice_vector]/1000.0;
-	b=motor_derecho[indice_vector]/1000.0;
-	
-	if(a>TFC_ReadPot1()) a=TFC_ReadPot1();
-	if(b>TFC_ReadPot1()) b=TFC_ReadPot1();
-	
-	TFC_SetMotorPWM(a,b);	
-	}
+indice_vector=pos-LIM_INICIO; //Se ajusta pos a valores de [0-97]	
+val=(servomotor[indice_vector]*1000/ServoValorMax)/1000.0;
+TFC_SetServo(0,val);
 }
 
+
+/*******************************************************************************************
+*  Name                 : VelocidadMotor
+*  Description          : Esta funcion contiene el control de la velocidad
+********************************************************************************************/
+void VelocidadMotor()
+{
+int indice_vector;
+float a,b;
+
+indice_vector=pos-LIM_INICIO; //Se ajusta pos a valores de [0-97]
+a=motor_izquierdo[indice_vector]/1000.0;
+b=motor_derecho[indice_vector]/1000.0;
+if(a>TFC_ReadPot1()) a=TFC_ReadPot1();
+if(b>TFC_ReadPot1()) b=TFC_ReadPot1();
+TFC_SetMotorPWM(a,b);
+}
 
 /*******************************************************************************************
 *  Name                 : SeguirLineaCamara
 *  Description          : Esta funcion obtiene los valores de la camara, recorre los valores
 *  						  y determina la maxima diferencia con respecto a 'LineaBase'
 ********************************************************************************************/
-void SinControl()
+void ControlLineal()
 {
-if(LineScanImageReady==1)
-	{
-	LineScanImageReady=0;					 										 		
-	if(TFC_PUSH_BUTTON_0_PRESSED) TFC_HBRIDGE_ENABLE;
-	if(TFC_PUSH_BUTTON_1_PRESSED) TFC_HBRIDGE_DISABLE;	
-	
-	DetectarLinea();
-	//TFC_SetServo(0,(float)((pos/63.5)-1.0));
-	TFC_SetServo(0,(float)(((pos-15)/48.5)-1.0));		
-	
-	if(pos>44 && pos<83)
-		TFC_SetMotorPWM(TFC_ReadPot1(),TFC_ReadPot1());
-	else 
-		TFC_SetMotorPWM(TFC_ReadPot1()-0.15,TFC_ReadPot1()-0.15);
-	}
+TFC_SetServo(0,(float)(((pos-15)/48.5)-1.0));			
 }
 
 
@@ -245,13 +250,7 @@ void GraficarLabVIEW()
 int i;
 if(LineScanImageReady==1)
 	{
-	LineScanImageReady=0;					 										 		
-	if(TFC_PUSH_BUTTON_0_PRESSED) TFC_HBRIDGE_ENABLE;
-	if(TFC_PUSH_BUTTON_1_PRESSED) TFC_HBRIDGE_DISABLE;
-
-	DetectarLinea();
-	TFC_SetServo(0,(float)((pos/63.5)-1.0));	
-	TFC_SetMotorPWM(TFC_ReadPot1(),TFC_ReadPot1());	
+	LineScanImageReady=0;
 	
 	TERMINAL_PRINTF("\r\n");
 	TERMINAL_PRINTF("L:");	
@@ -297,46 +296,6 @@ if(TFC_SENSOR_1 && TFC_SENSOR_2 && TFC_SENSOR_3 && TFC_SENSOR_4 && TFC_SENSOR_5 
 	TFC_SetServo(0,0);			
 }*/
 
-/* Move the servos with the potentiometers */ 
-/* NOTA: Tiempo minimo de 20mS
-void Opcion2()
-{
-//Every 20 mSeconds, update the Servos
-float x;
-x=TFC_ReadPot0();
-TFC_SetServo(0,x);
-////TERMINAL_PRINTF("Servomotor: %d\n\r",(int)(x*10000.0));
-
-//Make sure motors are off
-TFC_SetMotorPWM(0,0);
-TFC_HBRIDGE_DISABLE;
-}*/
-
-/* Tests the switches and LEDs */
-/* void Opcion1()
-{
-if(TFC_PUSH_BUTTON_0_PRESSED)
-	TFC_BAT_LED0_ON;									
-else
-	TFC_BAT_LED0_OFF;
-
-if(TFC_PUSH_BUTTON_1_PRESSED)
-	TFC_BAT_LED3_ON;
-else
-	TFC_BAT_LED3_OFF;
-
-if(TFC_GetDIP_Switch()&0x01)
-	TFC_BAT_LED1_ON;
-else
-	TFC_BAT_LED1_OFF;
-
-if(TFC_GetDIP_Switch()&0x08)
-	TFC_BAT_LED2_ON;
-else
-	TFC_BAT_LED2_OFF;					
-}
-*/
-
 /*
 int pos=63;
 void DetectarLinea()
@@ -365,4 +324,60 @@ for(i=15 ; i<=112 ; i++) //Se eliminaron 15 pixeles al inicio y al final
 		}
 	}
 } 
+*/
+
+
+/*
+int HayDepresion(int x)
+{
+int area1=0,area2=0,area3=0;
+int j,v[130],InicioMeta=0;
+
+for(j=0 ; j<=127 ; j++) v[j]=0;
+
+for(j=LIM_INICIO ; j<=LIM_FIN ; j++)	
+	if(LineScanImage0[j] < ((LineaBase[j]+LineaBaseMinima[j])/2) )		
+		v[j]=1;
+
+if(v[x]==0) return 0;
+
+//Checar hacia la DERECHA
+j=x;
+while(v[j]==1) 
+	{
+	j++;
+	if(j==LIM_FIN+1) return 0;
+	}
+
+while(v[j]==0) //InicioMeta
+	{
+	j++;
+	if(j==LIM_FIN+1) break;
+	}
+if(j!=LIM_FIN+1) InicioMeta++;
+
+//Checar hacia la IZQUIERDA
+j=x;
+while(v[j]==1)
+	{	
+	j--;
+	if(j==LIM_INICIO-1) return 0;
+	}
+
+while(v[j]==0) //InicioMeta
+	{
+	j--;
+	if(j==LIM_INICIO-1) break;
+	}
+if(j!=LIM_INICIO-1) InicioMeta++;
+
+for(j=15 ; j<=112 ; j++)
+	TERMINAL_PRINTF("%d",v[j]);
+TERMINAL_PRINTF("  %d %d %d\r\n",area1,area2,area3);
+
+if(InicioMeta==2)
+	return 2;
+else
+	return 1;
+}
 */

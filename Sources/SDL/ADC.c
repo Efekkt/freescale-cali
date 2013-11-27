@@ -14,7 +14,7 @@
 
 volatile uint8_t PotADC_Value[2];
 volatile uint8_t BatSenseADC_Value;
-static   uint8_t CurrentADC_State =	ADC_STATE_INIT;	
+static   uint8_t CurrentADC_State =	ADC_STATE_INIT;
 
 volatile uint8_t CurrentLineScanPixel = 0;
 volatile uint8_t CurrentLineScanChannel = 0;

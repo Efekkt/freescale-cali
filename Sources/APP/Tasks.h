@@ -13,9 +13,13 @@ void DetectarLinea(void);
 int HayDepresion(int);
 
 void ControlDifuso(void);
-void SinControl(void);
+void VelocidadMotor(void);
+
+void ControlLineal(void);
 
 void VoltajeBateria(void);
 void GraficarLabVIEW(void);
+
+extern int pos;
 
 #endif
