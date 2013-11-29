@@ -149,6 +149,8 @@ Discarded input sections
  .text          0x00000000        0x0 ./Sources/APP/Tasks.o
  .data          0x00000000        0x0 ./Sources/APP/Tasks.o
  .bss           0x00000000        0x0 ./Sources/APP/Tasks.o
+ .text.ControlLineal
+                0x00000000       0x68 ./Sources/APP/Tasks.o
  .text          0x00000000        0x0 ./Sources/APP/Coeficientes.o
  .data          0x00000000        0x0 ./Sources/APP/Coeficientes.o
  .bss           0x00000000        0x0 ./Sources/APP/Coeficientes.o
@@ -439,8 +441,8 @@ LOAD ./Sources/mcl/ARM_SysTick.o
 LOAD ./Sources/sa_mtb.o
 LOAD ./Sources/main.o
 LOAD ./Sources/TFC.o
-                0x00006918                __pformatter = __pformatter_
-                [0x00006d40]                __sformatter = __sformatter
+                0x00006894                __pformatter = __pformatter_
+                [0x00006cbc]                __sformatter = __sformatter
 START GROUP
 LOAD C:/Freescale/CW MCU v10.4/MCU/ARM_GCC_Support/ewl/lib/armv6-m\libc.a
 LOAD C:/Freescale/CW MCU v10.4/MCU/ARM_GCC_Support/ewl/lib/armv6-m\libm.a
@@ -466,7 +468,7 @@ END GROUP
  *(.cfmconfig)
                 0x00000400                . = ALIGN (0x4)
 
-.text           0x00000800     0x7658
+.text           0x00000800     0x75d4
                 0x00000800                . = ALIGN (0x4)
  *(.text)
  .text          0x00000800       0x14 c:/freescale/cw mcu v10.4/cross_tools/arm-none-eabi-gcc-4_7_3/bin/../lib/gcc/arm-none-eabi/4.7.3/armv6-m\libgcc.a(_thumb1_case_sqi.o)
@@ -587,379 +589,377 @@ END GROUP
                 0x00003374      0x11c ./Sources/APP/Tasks.o
                 0x00003374                DetectarLinea
  .text.HayDepresion
-                0x00003490      0x3f0 ./Sources/APP/Tasks.o
+                0x00003490      0x3dc ./Sources/APP/Tasks.o
                 0x00003490                HayDepresion
+ *fill*         0x0000386c        0x4 00
  .text.ControlDifuso
-                0x00003880       0x80 ./Sources/APP/Tasks.o
-                0x00003880                ControlDifuso
+                0x00003870       0x80 ./Sources/APP/Tasks.o
+                0x00003870                ControlDifuso
  .text.VelocidadMotor
-                0x00003900       0xd0 ./Sources/APP/Tasks.o
-                0x00003900                VelocidadMotor
- .text.ControlLineal
-                0x000039d0       0x68 ./Sources/APP/Tasks.o
-                0x000039d0                ControlLineal
+                0x000038f0       0xd0 ./Sources/APP/Tasks.o
+                0x000038f0                VelocidadMotor
  .text.VoltajeBateria
-                0x00003a38       0x68 ./Sources/APP/Tasks.o
-                0x00003a38                VoltajeBateria
+                0x000039c0       0x68 ./Sources/APP/Tasks.o
+                0x000039c0                VoltajeBateria
  .text.GraficarLabVIEW
-                0x00003aa0      0x158 ./Sources/APP/Tasks.o
-                0x00003aa0                GraficarLabVIEW
+                0x00003a28      0x158 ./Sources/APP/Tasks.o
+                0x00003a28                GraficarLabVIEW
  .text.TFC_InitUARTs
-                0x00003bf8       0xd0 ./Sources/SDL/UART.o
-                0x00003bf8                TFC_InitUARTs
+                0x00003b80       0xd0 ./Sources/SDL/UART.o
+                0x00003b80                TFC_InitUARTs
  .text.TFC_UART_Process
-                0x00003cc8       0x40 ./Sources/SDL/UART.o
-                0x00003cc8                TFC_UART_Process
+                0x00003c50       0x40 ./Sources/SDL/UART.o
+                0x00003c50                TFC_UART_Process
  .text.UART0_IRQHandler
-                0x00003d08       0x78 ./Sources/SDL/UART.o
-                0x00003d08                UART0_IRQHandler
+                0x00003c90       0x78 ./Sources/SDL/UART.o
+                0x00003c90                UART0_IRQHandler
  .text.uart0_init
-                0x00003d80      0x22c ./Sources/SDL/UART.o
-                0x00003d80                uart0_init
+                0x00003d08      0x22c ./Sources/SDL/UART.o
+                0x00003d08                uart0_init
  .text.TerminalBootMsg
-                0x00003fac       0x5c ./Sources/SDL/Terminal.o
-                0x00003fac                TerminalBootMsg
+                0x00003f34       0x5c ./Sources/SDL/Terminal.o
+                0x00003f34                TerminalBootMsg
  .text.TFC_InitTerminal
-                0x00004008       0x20 ./Sources/SDL/Terminal.o
-                0x00004008                TFC_InitTerminal
+                0x00003f90       0x20 ./Sources/SDL/Terminal.o
+                0x00003f90                TFC_InitTerminal
  .text.TerminalCmd_Help
-                0x00004028       0xa4 ./Sources/SDL/Terminal.o
-                0x00004028                TerminalCmd_Help
+                0x00003fb0       0xa4 ./Sources/SDL/Terminal.o
+                0x00003fb0                TerminalCmd_Help
  .text.TerminalCmd_E
-                0x000040cc       0x30 ./Sources/SDL/Terminal.o
-                0x000040cc                TerminalCmd_E
+                0x00004054       0x30 ./Sources/SDL/Terminal.o
+                0x00004054                TerminalCmd_E
  .text.TerminalCmd_D
-                0x000040fc       0x3c ./Sources/SDL/Terminal.o
-                0x000040fc                TerminalCmd_D
+                0x00004084       0x3c ./Sources/SDL/Terminal.o
+                0x00004084                TerminalCmd_D
  .text.TerminalCmd_GetLineScan
-                0x00004138      0x114 ./Sources/SDL/Terminal.o
-                0x00004138                TerminalCmd_GetLineScan
+                0x000040c0      0x114 ./Sources/SDL/Terminal.o
+                0x000040c0                TerminalCmd_GetLineScan
  .text.TerminalCmd_S
-                0x0000424c       0xac ./Sources/SDL/Terminal.o
-                0x0000424c                TerminalCmd_S
+                0x000041d4       0xac ./Sources/SDL/Terminal.o
+                0x000041d4                TerminalCmd_S
  .text.TerminalCmd_H
-                0x000042f8       0xa8 ./Sources/SDL/Terminal.o
-                0x000042f8                TerminalCmd_H
+                0x00004280       0xa8 ./Sources/SDL/Terminal.o
+                0x00004280                TerminalCmd_H
  .text.TFC_ProcessTerminal
-                0x000043a0      0x2c0 ./Sources/SDL/Terminal.o
-                0x000043a0                TFC_ProcessTerminal
+                0x00004328      0x2c0 ./Sources/SDL/Terminal.o
+                0x00004328                TFC_ProcessTerminal
  .text.TFC_SetServo
-                0x00004660      0x1e0 ./Sources/SDL/Servo.o
-                0x00004660                TFC_SetServo
+                0x000045e8      0x1e0 ./Sources/SDL/Servo.o
+                0x000045e8                TFC_SetServo
  .text.TFC_SetServoDutyCycle
-                0x00004840       0x68 ./Sources/SDL/Servo.o
-                0x00004840                TFC_SetServoDutyCycle
+                0x000047c8       0x68 ./Sources/SDL/Servo.o
+                0x000047c8                TFC_SetServoDutyCycle
  .text.FTM1_IRQHandler
-                0x000048a8       0x40 ./Sources/SDL/Servo.o
-                0x000048a8                FTM1_IRQHandler
+                0x00004830       0x40 ./Sources/SDL/Servo.o
+                0x00004830                FTM1_IRQHandler
  .text.TFC_InitServos
-                0x000048e8       0xd4 ./Sources/SDL/Servo.o
-                0x000048e8                TFC_InitServos
+                0x00004870       0xd4 ./Sources/SDL/Servo.o
+                0x00004870                TFC_InitServos
  .text.InitByteQueue
-                0x000049bc       0x6c ./Sources/SDL/Queue.o
-                0x000049bc                InitByteQueue
+                0x00004944       0x6c ./Sources/SDL/Queue.o
+                0x00004944                InitByteQueue
  .text.BytesInQueue
-                0x00004a28       0x50 ./Sources/SDL/Queue.o
-                0x00004a28                BytesInQueue
+                0x000049b0       0x50 ./Sources/SDL/Queue.o
+                0x000049b0                BytesInQueue
  .text.ByteEnqueue
-                0x00004a78       0x64 ./Sources/SDL/Queue.o
-                0x00004a78                ByteEnqueue
+                0x00004a00       0x64 ./Sources/SDL/Queue.o
+                0x00004a00                ByteEnqueue
  .text.ByteArrayEnqueue
-                0x00004adc       0x58 ./Sources/SDL/Queue.o
-                0x00004adc                ByteArrayEnqueue
- .text.Qprintf  0x00004b34       0x50 ./Sources/SDL/Queue.o
-                0x00004b34                Qprintf
+                0x00004a64       0x58 ./Sources/SDL/Queue.o
+                0x00004a64                ByteArrayEnqueue
+ .text.Qprintf  0x00004abc       0x50 ./Sources/SDL/Queue.o
+                0x00004abc                Qprintf
  .text.ByteDequeue
-                0x00004b84       0x5c ./Sources/SDL/Queue.o
-                0x00004b84                ByteDequeue
+                0x00004b0c       0x5c ./Sources/SDL/Queue.o
+                0x00004b0c                ByteDequeue
  .text.ForcedByteDequeue
-                0x00004be0       0x58 ./Sources/SDL/Queue.o
-                0x00004be0                ForcedByteDequeue
+                0x00004b68       0x58 ./Sources/SDL/Queue.o
+                0x00004b68                ForcedByteDequeue
  .text.TFC_ReadPot0
-                0x00004c38       0x70 ./Sources/SDL/Potentiometer.o
-                0x00004c38                TFC_ReadPot0
+                0x00004bc0       0x70 ./Sources/SDL/Potentiometer.o
+                0x00004bc0                TFC_ReadPot0
  .text.TFC_ReadPot1
-                0x00004ca8       0x34 ./Sources/SDL/Potentiometer.o
-                0x00004ca8                TFC_ReadPot1
+                0x00004c30       0x34 ./Sources/SDL/Potentiometer.o
+                0x00004c30                TFC_ReadPot1
  .text.TFC_InitMotorPWM
-                0x00004cdc       0xd4 ./Sources/SDL/Motor.o
-                0x00004cdc                TFC_InitMotorPWM
+                0x00004c64       0xd4 ./Sources/SDL/Motor.o
+                0x00004c64                TFC_InitMotorPWM
  .text.TFC_SetMotorPWM
-                0x00004db0      0x140 ./Sources/SDL/Motor.o
-                0x00004db0                TFC_SetMotorPWM
+                0x00004d38      0x140 ./Sources/SDL/Motor.o
+                0x00004d38                TFC_SetMotorPWM
  .text.TFC_Accel_Init
-                0x00004ef0       0x30 ./Sources/SDL/MMA8451.o
-                0x00004ef0                TFC_Accel_Init
+                0x00004e78       0x30 ./Sources/SDL/MMA8451.o
+                0x00004e78                TFC_Accel_Init
  .text.hal_dev_mma8451_init
-                0x00004f20       0x14 ./Sources/SDL/MMA8451.o
-                0x00004f20                hal_dev_mma8451_init
- .text.pause    0x00004f34       0x20 ./Sources/SDL/MMA8451.o
+                0x00004ea8       0x14 ./Sources/SDL/MMA8451.o
+                0x00004ea8                hal_dev_mma8451_init
+ .text.pause    0x00004ebc       0x20 ./Sources/SDL/MMA8451.o
  .text.hal_dev_mma8451_read_reg
-                0x00004f54       0xc4 ./Sources/SDL/MMA8451.o
-                0x00004f54                hal_dev_mma8451_read_reg
+                0x00004edc       0xc4 ./Sources/SDL/MMA8451.o
+                0x00004edc                hal_dev_mma8451_read_reg
  .text.hal_dev_mma8451_write_reg
-                0x00005018       0x88 ./Sources/SDL/MMA8451.o
-                0x00005018                hal_dev_mma8451_write_reg
+                0x00004fa0       0x88 ./Sources/SDL/MMA8451.o
+                0x00004fa0                hal_dev_mma8451_write_reg
  .text.TFC_InitLineScanCamera
-                0x000050a0       0xc8 ./Sources/SDL/LineScanCamera.o
-                0x000050a0                TFC_InitLineScanCamera
+                0x00005028       0xc8 ./Sources/SDL/LineScanCamera.o
+                0x00005028                TFC_InitLineScanCamera
  .text.TFC_SetLineScanExposureTime
-                0x00005168       0x70 ./Sources/SDL/LineScanCamera.o
-                0x00005168                TFC_SetLineScanExposureTime
+                0x000050f0       0x70 ./Sources/SDL/LineScanCamera.o
+                0x000050f0                TFC_SetLineScanExposureTime
  .text.TFC_RGB_Init
-                0x000051d8       0xa0 ./Sources/SDL/Led_RGB.o
-                0x000051d8                TFC_RGB_Init
+                0x00005160       0xa0 ./Sources/SDL/Led_RGB.o
+                0x00005160                TFC_RGB_Init
  .text.i2c_set_tx_mode
-                0x00005278       0x20 ./Sources/SDL/I2C.o
-                0x00005278                i2c_set_tx_mode
+                0x00005200       0x20 ./Sources/SDL/I2C.o
+                0x00005200                i2c_set_tx_mode
  .text.i2c_set_rx_mode
-                0x00005298       0x20 ./Sources/SDL/I2C.o
-                0x00005298                i2c_set_rx_mode
+                0x00005220       0x20 ./Sources/SDL/I2C.o
+                0x00005220                i2c_set_rx_mode
  .text.i2c_set_slave_mode
-                0x000052b8       0x20 ./Sources/SDL/I2C.o
-                0x000052b8                i2c_set_slave_mode
+                0x00005240       0x20 ./Sources/SDL/I2C.o
+                0x00005240                i2c_set_slave_mode
  .text.i2c_set_master_mode
-                0x000052d8       0x20 ./Sources/SDL/I2C.o
-                0x000052d8                i2c_set_master_mode
+                0x00005260       0x20 ./Sources/SDL/I2C.o
+                0x00005260                i2c_set_master_mode
  .text.i2c_give_nack
-                0x000052f8       0x20 ./Sources/SDL/I2C.o
-                0x000052f8                i2c_give_nack
+                0x00005280       0x20 ./Sources/SDL/I2C.o
+                0x00005280                i2c_give_nack
  .text.i2c_repeated_start
-                0x00005318       0x20 ./Sources/SDL/I2C.o
-                0x00005318                i2c_repeated_start
+                0x000052a0       0x20 ./Sources/SDL/I2C.o
+                0x000052a0                i2c_repeated_start
  .text.i2c_write_byte
-                0x00005338       0x1c ./Sources/SDL/I2C.o
-                0x00005338                i2c_write_byte
+                0x000052c0       0x1c ./Sources/SDL/I2C.o
+                0x000052c0                i2c_write_byte
  .text.i2c_read_byte
-                0x00005354       0x18 ./Sources/SDL/I2C.o
-                0x00005354                i2c_read_byte
+                0x000052dc       0x18 ./Sources/SDL/I2C.o
+                0x000052dc                i2c_read_byte
  .text.i2c_start
-                0x0000536c       0x20 ./Sources/SDL/I2C.o
-                0x0000536c                i2c_start
+                0x000052f4       0x20 ./Sources/SDL/I2C.o
+                0x000052f4                i2c_start
  .text.i2c_stop
-                0x0000538c       0x20 ./Sources/SDL/I2C.o
-                0x0000538c                i2c_stop
+                0x00005314       0x20 ./Sources/SDL/I2C.o
+                0x00005314                i2c_stop
  .text.i2c_wait
-                0x000053ac       0x30 ./Sources/SDL/I2C.o
-                0x000053ac                i2c_wait
+                0x00005334       0x30 ./Sources/SDL/I2C.o
+                0x00005334                i2c_wait
  .text.i2c_get_ack
-                0x000053dc       0x24 ./Sources/SDL/I2C.o
-                0x000053dc                i2c_get_ack
+                0x00005364       0x24 ./Sources/SDL/I2C.o
+                0x00005364                i2c_get_ack
  .text.hal_i2c0_init
-                0x00005400       0x5c ./Sources/SDL/I2C.o
-                0x00005400                hal_i2c0_init
+                0x00005388       0x5c ./Sources/SDL/I2C.o
+                0x00005388                hal_i2c0_init
  .text.TFC_InitGPIO
-                0x0000545c      0x104 ./Sources/SDL/BoardSupport.o
-                0x0000545c                TFC_InitGPIO
+                0x000053e4      0x104 ./Sources/SDL/BoardSupport.o
+                0x000053e4                TFC_InitGPIO
  .text.TFC_SetBatteryLED_Level
-                0x00005560       0xf4 ./Sources/SDL/BoardSupport.o
-                0x00005560                TFC_SetBatteryLED_Level
+                0x000054e8       0xf4 ./Sources/SDL/BoardSupport.o
+                0x000054e8                TFC_SetBatteryLED_Level
  .text.EstadoLed
-                0x00005654       0x44 ./Sources/SDL/BoardSupport.o
-                0x00005654                EstadoLed
+                0x000055dc       0x44 ./Sources/SDL/BoardSupport.o
+                0x000055dc                EstadoLed
  .text.TFC_GetDIP_Switch
-                0x00005698       0x2c ./Sources/SDL/BoardSupport.o
-                0x00005698                TFC_GetDIP_Switch
- .text.ADC_Cal  0x000056c4      0x1b4 ./Sources/SDL/ADC.o
-                0x000056c4                ADC_Cal
+                0x00005620       0x2c ./Sources/SDL/BoardSupport.o
+                0x00005620                TFC_GetDIP_Switch
+ .text.ADC_Cal  0x0000564c      0x1b4 ./Sources/SDL/ADC.o
+                0x0000564c                ADC_Cal
  .text.ADC_Config_Alt
-                0x00005878       0x60 ./Sources/SDL/ADC.o
-                0x00005878                ADC_Config_Alt
+                0x00005800       0x60 ./Sources/SDL/ADC.o
+                0x00005800                ADC_Config_Alt
  .text.InitADC0
-                0x000058d8       0x90 ./Sources/SDL/ADC.o
-                0x000058d8                InitADC0
+                0x00005860       0x90 ./Sources/SDL/ADC.o
+                0x00005860                InitADC0
  .text.TFC_InitADCs
-                0x00005968       0x70 ./Sources/SDL/ADC.o
-                0x00005968                TFC_InitADCs
+                0x000058f0       0x70 ./Sources/SDL/ADC.o
+                0x000058f0                TFC_InitADCs
  .text.PIT_IRQHandler
-                0x000059d8       0x40 ./Sources/SDL/ADC.o
-                0x000059d8                PIT_IRQHandler
+                0x00005960       0x40 ./Sources/SDL/ADC.o
+                0x00005960                PIT_IRQHandler
  .text.ADC0_IRQHandler
-                0x00005a18      0x228 ./Sources/SDL/ADC.o
-                0x00005a18                ADC0_IRQHandler
+                0x000059a0      0x228 ./Sources/SDL/ADC.o
+                0x000059a0                ADC0_IRQHandler
  .text.gsc_sch_core_tick_isr
-                0x00005c40       0x14 ./Sources/Scheduler/Core/Core_Tick_ISR.o
-                0x00005c40                gsc_sch_core_tick_isr
+                0x00005bc8       0x14 ./Sources/Scheduler/Core/Core_Tick_ISR.o
+                0x00005bc8                gsc_sch_core_tick_isr
  .text.gsc_sch_core_Init
-                0x00005c54       0x60 ./Sources/Scheduler/Core/Core.o
-                0x00005c54                gsc_sch_core_Init
+                0x00005bdc       0x60 ./Sources/Scheduler/Core/Core.o
+                0x00005bdc                gsc_sch_core_Init
  .text.gsc_sch_core_exec
-                0x00005cb4      0x110 ./Sources/Scheduler/Core/Core.o
-                0x00005cb4                gsc_sch_core_exec
+                0x00005c3c      0x110 ./Sources/Scheduler/Core/Core.o
+                0x00005c3c                gsc_sch_core_exec
  .text.periodic_tasks_init_MclDrvs
-                0x00005dc4        0x8 ./Sources/Scheduler/PeriodicTasks/Periodic_Tasks_Init.o
-                0x00005dc4                periodic_tasks_init_MclDrvs
+                0x00005d4c        0x8 ./Sources/Scheduler/PeriodicTasks/Periodic_Tasks_Init.o
+                0x00005d4c                periodic_tasks_init_MclDrvs
  .text.periodic_tasks_init_SysDrvs
-                0x00005dcc        0x8 ./Sources/Scheduler/PeriodicTasks/Periodic_Tasks_Init.o
-                0x00005dcc                periodic_tasks_init_SysDrvs
+                0x00005d54        0x8 ./Sources/Scheduler/PeriodicTasks/Periodic_Tasks_Init.o
+                0x00005d54                periodic_tasks_init_SysDrvs
  .text.periodic_tasks_init_task_5tks
-                0x00005dd4        0x8 ./Sources/Scheduler/PeriodicTasks/Periodic_Tasks_Init.o
-                0x00005dd4                periodic_tasks_init_task_5tks
+                0x00005d5c        0x8 ./Sources/Scheduler/PeriodicTasks/Periodic_Tasks_Init.o
+                0x00005d5c                periodic_tasks_init_task_5tks
  .text.periodic_tasks_init_task_10tks
-                0x00005ddc        0x8 ./Sources/Scheduler/PeriodicTasks/Periodic_Tasks_Init.o
-                0x00005ddc                periodic_tasks_init_task_10tks
+                0x00005d64        0x8 ./Sources/Scheduler/PeriodicTasks/Periodic_Tasks_Init.o
+                0x00005d64                periodic_tasks_init_task_10tks
  .text.periodic_tasks_init_task_20tks
-                0x00005de4        0x8 ./Sources/Scheduler/PeriodicTasks/Periodic_Tasks_Init.o
-                0x00005de4                periodic_tasks_init_task_20tks
+                0x00005d6c        0x8 ./Sources/Scheduler/PeriodicTasks/Periodic_Tasks_Init.o
+                0x00005d6c                periodic_tasks_init_task_20tks
  .text.periodic_tasks_init_task_50tks
-                0x00005dec        0x8 ./Sources/Scheduler/PeriodicTasks/Periodic_Tasks_Init.o
-                0x00005dec                periodic_tasks_init_task_50tks
+                0x00005d74        0x8 ./Sources/Scheduler/PeriodicTasks/Periodic_Tasks_Init.o
+                0x00005d74                periodic_tasks_init_task_50tks
  .text.periodic_tasks_init_task_100tks
-                0x00005df4        0x8 ./Sources/Scheduler/PeriodicTasks/Periodic_Tasks_Init.o
-                0x00005df4                periodic_tasks_init_task_100tks
+                0x00005d7c        0x8 ./Sources/Scheduler/PeriodicTasks/Periodic_Tasks_Init.o
+                0x00005d7c                periodic_tasks_init_task_100tks
  .text.periodic_tasks_init_task_500tks
-                0x00005dfc        0x8 ./Sources/Scheduler/PeriodicTasks/Periodic_Tasks_Init.o
-                0x00005dfc                periodic_tasks_init_task_500tks
+                0x00005d84        0x8 ./Sources/Scheduler/PeriodicTasks/Periodic_Tasks_Init.o
+                0x00005d84                periodic_tasks_init_task_500tks
  .text.periodic_tasks_init_task_1Mtks
-                0x00005e04        0x8 ./Sources/Scheduler/PeriodicTasks/Periodic_Tasks_Init.o
-                0x00005e04                periodic_tasks_init_task_1Mtks
+                0x00005d8c        0x8 ./Sources/Scheduler/PeriodicTasks/Periodic_Tasks_Init.o
+                0x00005d8c                periodic_tasks_init_task_1Mtks
  .text.periodic_tasks_exec_5tks
-                0x00005e0c       0x10 ./Sources/Scheduler/PeriodicTasks/Periodic_Tasks.o
-                0x00005e0c                periodic_tasks_exec_5tks
+                0x00005d94       0x10 ./Sources/Scheduler/PeriodicTasks/Periodic_Tasks.o
+                0x00005d94                periodic_tasks_exec_5tks
  .text.periodic_tasks_exec_10tks
-                0x00005e1c        0x8 ./Sources/Scheduler/PeriodicTasks/Periodic_Tasks.o
-                0x00005e1c                periodic_tasks_exec_10tks
+                0x00005da4        0x8 ./Sources/Scheduler/PeriodicTasks/Periodic_Tasks.o
+                0x00005da4                periodic_tasks_exec_10tks
  .text.periodic_tasks_exec_20tks
-                0x00005e24       0xbc ./Sources/Scheduler/PeriodicTasks/Periodic_Tasks.o
-                0x00005e24                periodic_tasks_exec_20tks
+                0x00005dac       0xb0 ./Sources/Scheduler/PeriodicTasks/Periodic_Tasks.o
+                0x00005dac                periodic_tasks_exec_20tks
  .text.periodic_tasks_exec_50tks
-                0x00005ee0        0xc ./Sources/Scheduler/PeriodicTasks/Periodic_Tasks.o
-                0x00005ee0                periodic_tasks_exec_50tks
+                0x00005e5c        0xc ./Sources/Scheduler/PeriodicTasks/Periodic_Tasks.o
+                0x00005e5c                periodic_tasks_exec_50tks
  .text.periodic_tasks_exec_100tks
-                0x00005eec       0x70 ./Sources/Scheduler/PeriodicTasks/Periodic_Tasks.o
-                0x00005eec                periodic_tasks_exec_100tks
+                0x00005e68       0x70 ./Sources/Scheduler/PeriodicTasks/Periodic_Tasks.o
+                0x00005e68                periodic_tasks_exec_100tks
  .text.periodic_tasks_exec_500tks
-                0x00005f5c        0x8 ./Sources/Scheduler/PeriodicTasks/Periodic_Tasks.o
-                0x00005f5c                periodic_tasks_exec_500tks
+                0x00005ed8       0x14 ./Sources/Scheduler/PeriodicTasks/Periodic_Tasks.o
+                0x00005ed8                periodic_tasks_exec_500tks
  .text.periodic_tasks_exec_1Mtks
-                0x00005f64       0x18 ./Sources/Scheduler/PeriodicTasks/Periodic_Tasks.o
-                0x00005f64                periodic_tasks_exec_1Mtks
+                0x00005eec        0xc ./Sources/Scheduler/PeriodicTasks/Periodic_Tasks.o
+                0x00005eec                periodic_tasks_exec_1Mtks
  .text.enable_irq
-                0x00005f7c       0x6c ./Sources/mcl/arm_cm0.o
-                0x00005f7c                enable_irq
+                0x00005ef8       0x6c ./Sources/mcl/arm_cm0.o
+                0x00005ef8                enable_irq
  .text.disable_irq
-                0x00005fe8       0x40 ./Sources/mcl/arm_cm0.o
-                0x00005fe8                disable_irq
+                0x00005f64       0x40 ./Sources/mcl/arm_cm0.o
+                0x00005f64                disable_irq
  .text.InitClock
-                0x00006028       0x24 ./Sources/mcl/CrystalClock.o
-                0x00006028                InitClock
+                0x00005fa4       0x24 ./Sources/mcl/CrystalClock.o
+                0x00005fa4                InitClock
  .text.pll_init
-                0x0000604c      0x548 ./Sources/mcl/CrystalClock.o
-                0x0000604c                pll_init
+                0x00005fc8      0x548 ./Sources/mcl/CrystalClock.o
+                0x00005fc8                pll_init
  .text.InitSysTick
-                0x00006594       0x1c ./Sources/mcl/ARM_SysTick.o
-                0x00006594                InitSysTick
- .text.main     0x000065b0       0x20 ./Sources/main.o
-                0x000065b0                main
+                0x00006510       0x1c ./Sources/mcl/ARM_SysTick.o
+                0x00006510                InitSysTick
+ .text.main     0x0000652c       0x20 ./Sources/main.o
+                0x0000652c                main
  .text.WatchDog_cfg
-                0x000065d0       0x1c ./Sources/main.o
-                0x000065d0                WatchDog_cfg
+                0x0000654c       0x1c ./Sources/main.o
+                0x0000654c                WatchDog_cfg
  .text.SysTick_Handler
-                0x000065ec       0x1c ./Sources/main.o
-                0x000065ec                SysTick_Handler
+                0x00006568       0x1c ./Sources/main.o
+                0x00006568                SysTick_Handler
  .text.TFC_Init
-                0x00006608       0x4c ./Sources/TFC.o
-                0x00006608                TFC_Init
+                0x00006584       0x4c ./Sources/TFC.o
+                0x00006584                TFC_Init
  .text.TFC_Task
-                0x00006654       0x10 ./Sources/TFC.o
-                0x00006654                TFC_Task
- .text.sscanf   0x00006664       0x18 C:/Freescale/CW MCU v10.4/MCU/ARM_GCC_Support/ewl/lib/armv6-m\libc.a(sscanf.o)
-                0x00006664                sscanf
+                0x000065d0       0x10 ./Sources/TFC.o
+                0x000065d0                TFC_Task
+ .text.sscanf   0x000065e0       0x18 C:/Freescale/CW MCU v10.4/MCU/ARM_GCC_Support/ewl/lib/armv6-m\libc.a(sscanf.o)
+                0x000065e0                sscanf
  .text.vsprintf
-                0x0000667c       0x12 C:/Freescale/CW MCU v10.4/MCU/ARM_GCC_Support/ewl/lib/armv6-m\libc.a(vsprintf.o)
-                0x0000667c                vsprintf
+                0x000065f8       0x12 C:/Freescale/CW MCU v10.4/MCU/ARM_GCC_Support/ewl/lib/armv6-m\libc.a(vsprintf.o)
+                0x000065f8                vsprintf
  .text.__StringRead
-                0x0000668e       0x3c C:/Freescale/CW MCU v10.4/MCU/ARM_GCC_Support/ewl/lib/armv6-m\libc.a(vsscanf.o)
-                0x0000668e                __StringRead
- *fill*         0x000066ca        0x2 00
- .text.vsscanf  0x000066cc       0x30 C:/Freescale/CW MCU v10.4/MCU/ARM_GCC_Support/ewl/lib/armv6-m\libc.a(vsscanf.o)
-                0x000066cc                vsscanf
- .text.exit     0x000066fc       0x38 C:/Freescale/CW MCU v10.4/MCU/ARM_GCC_Support/ewl/lib/armv6-m\libc.a(exit.o)
-                0x000066fc                exit
- .text.memset   0x00006734        0xc C:/Freescale/CW MCU v10.4/MCU/ARM_GCC_Support/ewl/lib/armv6-m\libc.a(memset.o)
-                0x00006734                memset
- .text.strcmp   0x00006740       0x1c C:/Freescale/CW MCU v10.4/MCU/ARM_GCC_Support/ewl/lib/armv6-m\libc.a(strcmp.o)
-                0x00006740                strcmp
- .text.strcpy   0x0000675c       0x10 C:/Freescale/CW MCU v10.4/MCU/ARM_GCC_Support/ewl/lib/armv6-m\libc.a(strcpy.o)
-                0x0000675c                strcpy
- .text.strlen   0x0000676c       0x10 C:/Freescale/CW MCU v10.4/MCU/ARM_GCC_Support/ewl/lib/armv6-m\libc.a(strlen.o)
-                0x0000676c                strlen
+                0x0000660a       0x3c C:/Freescale/CW MCU v10.4/MCU/ARM_GCC_Support/ewl/lib/armv6-m\libc.a(vsscanf.o)
+                0x0000660a                __StringRead
+ *fill*         0x00006646        0x2 00
+ .text.vsscanf  0x00006648       0x30 C:/Freescale/CW MCU v10.4/MCU/ARM_GCC_Support/ewl/lib/armv6-m\libc.a(vsscanf.o)
+                0x00006648                vsscanf
+ .text.exit     0x00006678       0x38 C:/Freescale/CW MCU v10.4/MCU/ARM_GCC_Support/ewl/lib/armv6-m\libc.a(exit.o)
+                0x00006678                exit
+ .text.memset   0x000066b0        0xc C:/Freescale/CW MCU v10.4/MCU/ARM_GCC_Support/ewl/lib/armv6-m\libc.a(memset.o)
+                0x000066b0                memset
+ .text.strcmp   0x000066bc       0x1c C:/Freescale/CW MCU v10.4/MCU/ARM_GCC_Support/ewl/lib/armv6-m\libc.a(strcmp.o)
+                0x000066bc                strcmp
+ .text.strcpy   0x000066d8       0x10 C:/Freescale/CW MCU v10.4/MCU/ARM_GCC_Support/ewl/lib/armv6-m\libc.a(strcpy.o)
+                0x000066d8                strcpy
+ .text.strlen   0x000066e8       0x10 C:/Freescale/CW MCU v10.4/MCU/ARM_GCC_Support/ewl/lib/armv6-m\libc.a(strlen.o)
+                0x000066e8                strlen
  .text.long2str.isra.0
-                0x0000677c      0x19c C:/Freescale/CW MCU v10.4/MCU/ARM_GCC_Support/ewl/lib/armv6-m\libc.a(printformat_.o)
+                0x000066f8      0x19c C:/Freescale/CW MCU v10.4/MCU/ARM_GCC_Support/ewl/lib/armv6-m\libc.a(printformat_.o)
  .text.__pformatter_
-                0x00006918      0x428 C:/Freescale/CW MCU v10.4/MCU/ARM_GCC_Support/ewl/lib/armv6-m\libc.a(printformat_.o)
-                0x00006918                __pformatter_
+                0x00006894      0x428 C:/Freescale/CW MCU v10.4/MCU/ARM_GCC_Support/ewl/lib/armv6-m\libc.a(printformat_.o)
+                0x00006894                __pformatter_
  .text.__sformatter
-                0x00006d40      0x698 C:/Freescale/CW MCU v10.4/MCU/ARM_GCC_Support/ewl/lib/armv6-m\libc.a(scanformat_.o)
-                0x00006d40                __sformatter
- .text.isalpha  0x000073d8       0x20 C:/Freescale/CW MCU v10.4/MCU/ARM_GCC_Support/ewl/lib/armv6-m\libc.a(ctype_aeabi.o)
-                0x000073d8                isalpha
- .text.isspace  0x000073f8       0x20 C:/Freescale/CW MCU v10.4/MCU/ARM_GCC_Support/ewl/lib/armv6-m\libc.a(ctype_aeabi.o)
-                0x000073f8                isspace
- .text.toupper  0x00007418        0xe C:/Freescale/CW MCU v10.4/MCU/ARM_GCC_Support/ewl/lib/armv6-m\libc.a(ctype_aeabi.o)
-                0x00007418                toupper
+                0x00006cbc      0x698 C:/Freescale/CW MCU v10.4/MCU/ARM_GCC_Support/ewl/lib/armv6-m\libc.a(scanformat_.o)
+                0x00006cbc                __sformatter
+ .text.isalpha  0x00007354       0x20 C:/Freescale/CW MCU v10.4/MCU/ARM_GCC_Support/ewl/lib/armv6-m\libc.a(ctype_aeabi.o)
+                0x00007354                isalpha
+ .text.isspace  0x00007374       0x20 C:/Freescale/CW MCU v10.4/MCU/ARM_GCC_Support/ewl/lib/armv6-m\libc.a(ctype_aeabi.o)
+                0x00007374                isspace
+ .text.toupper  0x00007394        0xe C:/Freescale/CW MCU v10.4/MCU/ARM_GCC_Support/ewl/lib/armv6-m\libc.a(ctype_aeabi.o)
+                0x00007394                toupper
  .text.__StringWrite
-                0x00007426       0x26 C:/Freescale/CW MCU v10.4/MCU/ARM_GCC_Support/ewl/lib/armv6-m\libc.a(vsnprintf.o)
-                0x00007426                __StringWrite
+                0x000073a2       0x26 C:/Freescale/CW MCU v10.4/MCU/ARM_GCC_Support/ewl/lib/armv6-m\libc.a(vsnprintf.o)
+                0x000073a2                __StringWrite
  .text.vsnprintf
-                0x0000744c       0x38 C:/Freescale/CW MCU v10.4/MCU/ARM_GCC_Support/ewl/lib/armv6-m\libc.a(vsnprintf.o)
-                0x0000744c                vsnprintf
+                0x000073c8       0x38 C:/Freescale/CW MCU v10.4/MCU/ARM_GCC_Support/ewl/lib/armv6-m\libc.a(vsnprintf.o)
+                0x000073c8                vsnprintf
  .text.__strtoul
-                0x00007484      0x1ce C:/Freescale/CW MCU v10.4/MCU/ARM_GCC_Support/ewl/lib/armv6-m\libc.a(__strtoul.o)
-                0x00007484                __strtoul
+                0x00007400      0x1ce C:/Freescale/CW MCU v10.4/MCU/ARM_GCC_Support/ewl/lib/armv6-m\libc.a(__strtoul.o)
+                0x00007400                __strtoul
  .text.__fill_mem
-                0x00007652       0x7e C:/Freescale/CW MCU v10.4/MCU/ARM_GCC_Support/ewl/lib/armv6-m\libc.a(__filll_mem.o)
-                0x00007652                __fill_mem
- .text.memchr   0x000076d0       0x1a C:/Freescale/CW MCU v10.4/MCU/ARM_GCC_Support/ewl/lib/armv6-m\libc.a(memchr.o)
-                0x000076d0                memchr
- .text.memcpy   0x000076ea       0x12 C:/Freescale/CW MCU v10.4/MCU/ARM_GCC_Support/ewl/lib/armv6-m\libc.a(memcpy.o)
-                0x000076ea                memcpy
- .text.strchr   0x000076fc       0x1e C:/Freescale/CW MCU v10.4/MCU/ARM_GCC_Support/ewl/lib/armv6-m\libc.a(strchr.o)
-                0x000076fc                strchr
- *fill*         0x0000771a        0x2 00
+                0x000075ce       0x7e C:/Freescale/CW MCU v10.4/MCU/ARM_GCC_Support/ewl/lib/armv6-m\libc.a(__filll_mem.o)
+                0x000075ce                __fill_mem
+ .text.memchr   0x0000764c       0x1a C:/Freescale/CW MCU v10.4/MCU/ARM_GCC_Support/ewl/lib/armv6-m\libc.a(memchr.o)
+                0x0000764c                memchr
+ .text.memcpy   0x00007666       0x12 C:/Freescale/CW MCU v10.4/MCU/ARM_GCC_Support/ewl/lib/armv6-m\libc.a(memcpy.o)
+                0x00007666                memcpy
+ .text.strchr   0x00007678       0x1e C:/Freescale/CW MCU v10.4/MCU/ARM_GCC_Support/ewl/lib/armv6-m\libc.a(strchr.o)
+                0x00007678                strchr
+ *fill*         0x00007696        0x2 00
  .text.__init_cpp
-                0x0000771c       0x48 C:/Freescale/CW MCU v10.4/MCU/ARM_GCC_Support/ewl/lib/armv6-m\librt.a(gcc_ctor_dtor.o)
-                0x0000771c                __init_cpp
+                0x00007698       0x48 C:/Freescale/CW MCU v10.4/MCU/ARM_GCC_Support/ewl/lib/armv6-m\librt.a(gcc_ctor_dtor.o)
+                0x00007698                __init_cpp
  .text.__fini_cpp
-                0x00007764       0x34 C:/Freescale/CW MCU v10.4/MCU/ARM_GCC_Support/ewl/lib/armv6-m\librt.a(gcc_ctor_dtor.o)
-                0x00007764                __fini_cpp
+                0x000076e0       0x34 C:/Freescale/CW MCU v10.4/MCU/ARM_GCC_Support/ewl/lib/armv6-m\librt.a(gcc_ctor_dtor.o)
+                0x000076e0                __fini_cpp
  .text.__copy_rom_section
-                0x00007798       0x48 C:/Freescale/CW MCU v10.4/MCU/ARM_GCC_Support/ewl/lib/armv6-m\librt.a(ROMCopy.o)
-                0x00007798                __copy_rom_section
+                0x00007714       0x48 C:/Freescale/CW MCU v10.4/MCU/ARM_GCC_Support/ewl/lib/armv6-m\librt.a(ROMCopy.o)
+                0x00007714                __copy_rom_section
  .text.__copy_rom_sections_to_ram
-                0x000077e0       0x34 C:/Freescale/CW MCU v10.4/MCU/ARM_GCC_Support/ewl/lib/armv6-m\librt.a(ROMCopy.o)
-                0x000077e0                __copy_rom_sections_to_ram
+                0x0000775c       0x34 C:/Freescale/CW MCU v10.4/MCU/ARM_GCC_Support/ewl/lib/armv6-m\librt.a(ROMCopy.o)
+                0x0000775c                __copy_rom_sections_to_ram
  .text.__destroy_global_chain
-                0x00007814       0x1c C:/Freescale/CW MCU v10.4/MCU/ARM_GCC_Support/ewl/lib/armv6-m\librt.a(__arm_eabi_init.o)
-                0x00007814                __destroy_global_chain
+                0x00007790       0x1c C:/Freescale/CW MCU v10.4/MCU/ARM_GCC_Support/ewl/lib/armv6-m\librt.a(__arm_eabi_init.o)
+                0x00007790                __destroy_global_chain
  .text.__init_registers
-                0x00007830       0x1c C:/Freescale/CW MCU v10.4/MCU/ARM_GCC_Support/ewl/lib/armv6-m\librt.a(__arm_eabi_init.o)
-                0x00007830                __init_registers
+                0x000077ac       0x1c C:/Freescale/CW MCU v10.4/MCU/ARM_GCC_Support/ewl/lib/armv6-m\librt.a(__arm_eabi_init.o)
+                0x000077ac                __init_registers
  .text.__init_user
-                0x0000784c        0x4 C:/Freescale/CW MCU v10.4/MCU/ARM_GCC_Support/ewl/lib/armv6-m\librt.a(__arm_eabi_init.o)
-                0x0000784c                __init_user
+                0x000077c8        0x4 C:/Freescale/CW MCU v10.4/MCU/ARM_GCC_Support/ewl/lib/armv6-m\librt.a(__arm_eabi_init.o)
+                0x000077c8                __init_user
  *(.rodata)
- .rodata        0x00007850       0x14 ./Sources/APP/Tasks.o
- .rodata        0x00007864      0x340 ./Sources/SDL/Terminal.o
- .rodata        0x00007ba4       0x40 c:/freescale/cw mcu v10.4/cross_tools/arm-none-eabi-gcc-4_7_3/bin/../lib/gcc/arm-none-eabi/4.7.3/armv6-m\libgcc.a(divsf3.o)
- .rodata        0x00007be4       0x40 c:/freescale/cw mcu v10.4/cross_tools/arm-none-eabi-gcc-4_7_3/bin/../lib/gcc/arm-none-eabi/4.7.3/armv6-m\libgcc.a(mulsf3.o)
- .rodata        0x00007c24       0x40 c:/freescale/cw mcu v10.4/cross_tools/arm-none-eabi-gcc-4_7_3/bin/../lib/gcc/arm-none-eabi/4.7.3/armv6-m\libgcc.a(divdf3.o)
- .rodata        0x00007c64       0x40 c:/freescale/cw mcu v10.4/cross_tools/arm-none-eabi-gcc-4_7_3/bin/../lib/gcc/arm-none-eabi/4.7.3/armv6-m\libgcc.a(muldf3.o)
+ .rodata        0x000077cc       0x14 ./Sources/APP/Tasks.o
+ .rodata        0x000077e0      0x340 ./Sources/SDL/Terminal.o
+ .rodata        0x00007b20       0x40 c:/freescale/cw mcu v10.4/cross_tools/arm-none-eabi-gcc-4_7_3/bin/../lib/gcc/arm-none-eabi/4.7.3/armv6-m\libgcc.a(divsf3.o)
+ .rodata        0x00007b60       0x40 c:/freescale/cw mcu v10.4/cross_tools/arm-none-eabi-gcc-4_7_3/bin/../lib/gcc/arm-none-eabi/4.7.3/armv6-m\libgcc.a(mulsf3.o)
+ .rodata        0x00007ba0       0x40 c:/freescale/cw mcu v10.4/cross_tools/arm-none-eabi-gcc-4_7_3/bin/../lib/gcc/arm-none-eabi/4.7.3/armv6-m\libgcc.a(divdf3.o)
+ .rodata        0x00007be0       0x40 c:/freescale/cw mcu v10.4/cross_tools/arm-none-eabi-gcc-4_7_3/bin/../lib/gcc/arm-none-eabi/4.7.3/armv6-m\libgcc.a(muldf3.o)
  *(.rodata*)
  .rodata.TFC_SetBatteryLED_Level
-                0x00007ca4       0x18 ./Sources/SDL/BoardSupport.o
+                0x00007c20       0x18 ./Sources/SDL/BoardSupport.o
  .rodata.cps_mngTaskList
-                0x00007cbc       0x90 ./Sources/Scheduler/Core/Core_Config.o
-                0x00007cbc                cps_mngTaskList
+                0x00007c38       0x90 ./Sources/Scheduler/Core/Core_Config.o
+                0x00007c38                cps_mngTaskList
  .rodata.str1.1
-                0x00007d4c        0x1 C:/Freescale/CW MCU v10.4/MCU/ARM_GCC_Support/ewl/lib/armv6-m\libc.a(printformat_.o)
+                0x00007cc8        0x1 C:/Freescale/CW MCU v10.4/MCU/ARM_GCC_Support/ewl/lib/armv6-m\libc.a(printformat_.o)
  .rodata.CSWTCH.20
-                0x00007d4d        0x5 C:/Freescale/CW MCU v10.4/MCU/ARM_GCC_Support/ewl/lib/armv6-m\libc.a(printformat_.o)
+                0x00007cc9        0x5 C:/Freescale/CW MCU v10.4/MCU/ARM_GCC_Support/ewl/lib/armv6-m\libc.a(printformat_.o)
  .rodata.CSWTCH.21
-                0x00007d52        0x5 C:/Freescale/CW MCU v10.4/MCU/ARM_GCC_Support/ewl/lib/armv6-m\libc.a(printformat_.o)
+                0x00007cce        0x5 C:/Freescale/CW MCU v10.4/MCU/ARM_GCC_Support/ewl/lib/armv6-m\libc.a(printformat_.o)
  .rodata.__aeabi_ctype_table_C
-                0x00007d57      0x101 C:/Freescale/CW MCU v10.4/MCU/ARM_GCC_Support/ewl/lib/armv6-m\libc.a(ctype_aeabi.o)
-                0x00007d57                __aeabi_ctype_table_C
+                0x00007cd3      0x101 C:/Freescale/CW MCU v10.4/MCU/ARM_GCC_Support/ewl/lib/armv6-m\libc.a(ctype_aeabi.o)
+                0x00007cd3                __aeabi_ctype_table_C
  *(.glue_7)
  .glue_7        0x00000000        0x0 linker stubs
  *(.glue_7t)
@@ -967,62 +967,62 @@ END GROUP
  *(.eh_frame)
  *(.init)
  *(.fini)
-                0x00007e58                . = ALIGN (0x4)
-                0x00007e58                _etext = .
+                0x00007dd4                . = ALIGN (0x4)
+                0x00007dd4                _etext = .
 
-.vfp11_veneer   0x00007e58        0x0
+.vfp11_veneer   0x00007dd4        0x0
  .vfp11_veneer  0x00000000        0x0 linker stubs
 
-.v4_bx          0x00007e58        0x0
+.v4_bx          0x00007dd4        0x0
  .v4_bx         0x00000000        0x0 linker stubs
 
-.iplt           0x00007e58        0x0
+.iplt           0x00007dd4        0x0
  .iplt          0x00000000        0x0 ./Project_Settings/Startup_Code/kinetis_sysinit.o
 
-.rel.dyn        0x00007e58        0x0
+.rel.dyn        0x00007dd4        0x0
  .rel.iplt      0x00000000        0x0 ./Project_Settings/Startup_Code/kinetis_sysinit.o
 
 .ARM.extab
  *(.ARM.extab* .gnu.linkonce.armextab.*)
 
-.ARM            0x00007e58        0x0
-                0x00007e58                __exidx_start = .
+.ARM            0x00007dd4        0x0
+                0x00007dd4                __exidx_start = .
  *(.ARM.exidx*)
-                0x00007e58                __exidx_end = .
+                0x00007dd4                __exidx_end = .
 
-.ctors          0x00007e58        0x0
-                0x00007e58                __CTOR_LIST__ = .
+.ctors          0x00007dd4        0x0
+                0x00007dd4                __CTOR_LIST__ = .
  *crtbegin.o(.ctors)
  *(EXCLUDE_FILE(*crtend.o) .ctors)
  *(SORT(.ctors.*))
  *(.ctors)
-                0x00007e58                __CTOR_END__ = .
+                0x00007dd4                __CTOR_END__ = .
 
-.dtors          0x00007e58        0x0
-                0x00007e58                __DTOR_LIST__ = .
+.dtors          0x00007dd4        0x0
+                0x00007dd4                __DTOR_LIST__ = .
  *crtbegin.o(.dtors)
  *(EXCLUDE_FILE(*crtend.o) .dtors)
  *(SORT(.dtors.*))
  *(.dtors)
-                0x00007e58                __DTOR_END__ = .
+                0x00007dd4                __DTOR_END__ = .
 
-.preinit_array  0x00007e58        0x0
-                0x00007e58                PROVIDE (__preinit_array_start, .)
+.preinit_array  0x00007dd4        0x0
+                0x00007dd4                PROVIDE (__preinit_array_start, .)
  *(.preinit_array*)
-                0x00007e58                PROVIDE (__preinit_array_end, .)
+                0x00007dd4                PROVIDE (__preinit_array_end, .)
 
-.init_array     0x00007e58        0x0
-                0x00007e58                PROVIDE (__init_array_start, .)
+.init_array     0x00007dd4        0x0
+                0x00007dd4                PROVIDE (__init_array_start, .)
  *(SORT(.init_array.*))
  *(.init_array*)
-                0x00007e58                PROVIDE (__init_array_end, .)
+                0x00007dd4                PROVIDE (__init_array_end, .)
 
-.fini_array     0x00007e58        0x0
-                0x00007e58                PROVIDE (__fini_array_start, .)
+.fini_array     0x00007dd4        0x0
+                0x00007dd4                PROVIDE (__fini_array_start, .)
  *(SORT(.fini_array.*))
  *(.fini_array*)
-                0x00007e58                PROVIDE (__fini_array_end, .)
-                0x00007e58                ___ROM_AT = .
+                0x00007dd4                PROVIDE (__fini_array_end, .)
+                0x00007dd4                ___ROM_AT = .
 
 .mtb            0x1ffff000        0x0
                 0x1ffff000                . = ALIGN (0x8)
@@ -1031,7 +1031,7 @@ END GROUP
                 0x1ffff000                . = ALIGN (0x8)
                 0x1ffff000                _mtb_end = .
 
-.data           0x1ffff000     0x1fac load address 0x00007e58
+.data           0x1ffff000     0x1fac load address 0x00007dd4
                 0x1ffff000                . = ALIGN (0x4)
                 0x1ffff000                _sdata = .
  *(.data)
@@ -1068,11 +1068,11 @@ END GROUP
                 0x20000fac                _edata = .
                 0x00001fac                ___data_size = (_edata - _sdata)
 
-.igot.plt       0x20000fac        0x0 load address 0x00009e04
+.igot.plt       0x20000fac        0x0 load address 0x00009d80
  .igot.plt      0x00000000        0x0 ./Project_Settings/Startup_Code/kinetis_sysinit.o
                 0x20000fac                . = ALIGN (0x4)
 
-.bss            0x20000fac     0x1074 load address 0x00009e04
+.bss            0x20000fac     0x1074 load address 0x00009d80
                 0x20000fac                __START_BSS = .
                 0x20000fac                PROVIDE (__bss_start__, __START_BSS)
  *(.bss)
@@ -1145,11 +1145,11 @@ END GROUP
  *fill*         0x2000201e        0x2 00
                 0x20002020                __END_BSS = .
                 0x20002020                PROVIDE (__bss_end__, __END_BSS)
-                0x00009e04                _romp_at = (___ROM_AT + SIZEOF (.data))
+                0x00009d80                _romp_at = (___ROM_AT + SIZEOF (.data))
 
-.romp           0x20002020       0x18 load address 0x00009e04
-                0x00009e04                __S_romp = _romp_at
-                0x20002020        0x4 LONG 0x7e58 ___ROM_AT
+.romp           0x20002020       0x18 load address 0x00009d80
+                0x00009d80                __S_romp = _romp_at
+                0x20002020        0x4 LONG 0x7dd4 ___ROM_AT
                 0x20002024        0x4 LONG 0x1ffff000 _sdata
                 0x20002028        0x4 LONG 0x1fac ___data_size
                 0x2000202c        0x4 LONG 0x0
@@ -1157,7 +1157,7 @@ END GROUP
                 0x20002034        0x4 LONG 0x0
 
 ._user_heap_stack
-                0x20002038      0x800 load address 0x00009e1c
+                0x20002038      0x800 load address 0x00009d98
                 0x20002038                . = ALIGN (0x4)
                 0x20002038                PROVIDE (end, .)
                 0x20002038                PROVIDE (_end, .)
@@ -1317,54 +1317,54 @@ END GROUP
                 0x00000cb8       0x31 C:/Freescale/CW MCU v10.4/MCU/ARM_GCC_Support/ewl/lib/armv6-m\librt.a(__arm_eabi_init.o)
 OUTPUT(gsc_sch_MKL25Z128.elf elf32-littlearm)
 
-.debug_info     0x00000000     0x7db3
+.debug_info     0x00000000     0x7da5
  .debug_info    0x00000000      0x447 ./Project_Settings/Startup_Code/kinetis_sysinit.o
  .debug_info    0x00000447      0x12a ./Project_Settings/Startup_Code/__arm_start.o
  .debug_info    0x00000571       0x54 ./Project_Settings/Startup_Code/__arm_end.o
- .debug_info    0x000005c5      0x4a0 ./Sources/APP/Tasks.o
- .debug_info    0x00000a65       0xe7 ./Sources/APP/Coeficientes.o
- .debug_info    0x00000b4c      0x84b ./Sources/SDL/UART.o
- .debug_info    0x00001397      0x494 ./Sources/SDL/Terminal.o
- .debug_info    0x0000182b      0x62b ./Sources/SDL/Servo.o
- .debug_info    0x00001e56      0x302 ./Sources/SDL/Queue.o
- .debug_info    0x00002158      0x100 ./Sources/SDL/Potentiometer.o
- .debug_info    0x00002258      0x495 ./Sources/SDL/Motor.o
- .debug_info    0x000026ed      0x2b1 ./Sources/SDL/MMA8451.o
- .debug_info    0x0000299e      0x5b7 ./Sources/SDL/LineScanCamera.o
- .debug_info    0x00002f55      0x1b4 ./Sources/SDL/Led_RGB.o
- .debug_info    0x00003109      0x6c0 ./Sources/SDL/I2C.o
- .debug_info    0x000037c9      0x45c ./Sources/SDL/BoardSupport.o
- .debug_info    0x00003c25      0xad4 ./Sources/SDL/ADC.o
- .debug_info    0x000046f9       0x70 ./Sources/Scheduler/Core/Core_Tick_ISR.o
- .debug_info    0x00004769      0x124 ./Sources/Scheduler/Core/Core_Config.o
- .debug_info    0x0000488d      0x1e2 ./Sources/Scheduler/Core/Core.o
- .debug_info    0x00004a6f      0x133 ./Sources/Scheduler/PeriodicTasks/Periodic_Tasks_Init.o
- .debug_info    0x00004ba2      0x1d2 ./Sources/Scheduler/PeriodicTasks/Periodic_Tasks.o
- .debug_info    0x00004d74      0x3cb ./Sources/mcl/arm_cm0.o
- .debug_info    0x0000513f      0x27d ./Sources/mcl/CrystalClock.o
- .debug_info    0x000053bc       0xf6 ./Sources/mcl/ARM_SysTick.o
- .debug_info    0x000054b2      0x30a ./Sources/main.o
- .debug_info    0x000057bc      0x128 ./Sources/TFC.o
- .debug_info    0x000058e4      0x118 C:/Freescale/CW MCU v10.4/MCU/ARM_GCC_Support/ewl/lib/armv6-m\libc.a(sscanf.o)
- .debug_info    0x000059fc      0x12a C:/Freescale/CW MCU v10.4/MCU/ARM_GCC_Support/ewl/lib/armv6-m\libc.a(vsprintf.o)
- .debug_info    0x00005b26      0x253 C:/Freescale/CW MCU v10.4/MCU/ARM_GCC_Support/ewl/lib/armv6-m\libc.a(vsscanf.o)
- .debug_info    0x00005d79       0xe8 C:/Freescale/CW MCU v10.4/MCU/ARM_GCC_Support/ewl/lib/armv6-m\libc.a(exit.o)
- .debug_info    0x00005e61       0xec C:/Freescale/CW MCU v10.4/MCU/ARM_GCC_Support/ewl/lib/armv6-m\libc.a(memset.o)
- .debug_info    0x00005f4d      0x114 C:/Freescale/CW MCU v10.4/MCU/ARM_GCC_Support/ewl/lib/armv6-m\libc.a(strcmp.o)
- .debug_info    0x00006061      0x109 C:/Freescale/CW MCU v10.4/MCU/ARM_GCC_Support/ewl/lib/armv6-m\libc.a(strcpy.o)
- .debug_info    0x0000616a       0xea C:/Freescale/CW MCU v10.4/MCU/ARM_GCC_Support/ewl/lib/armv6-m\libc.a(strlen.o)
- .debug_info    0x00006254      0x50d C:/Freescale/CW MCU v10.4/MCU/ARM_GCC_Support/ewl/lib/armv6-m\libc.a(printformat_.o)
- .debug_info    0x00006761      0x568 C:/Freescale/CW MCU v10.4/MCU/ARM_GCC_Support/ewl/lib/armv6-m\libc.a(scanformat_.o)
- .debug_info    0x00006cc9      0x313 C:/Freescale/CW MCU v10.4/MCU/ARM_GCC_Support/ewl/lib/armv6-m\libc.a(ctype_aeabi.o)
- .debug_info    0x00006fdc      0x205 C:/Freescale/CW MCU v10.4/MCU/ARM_GCC_Support/ewl/lib/armv6-m\libc.a(vsnprintf.o)
- .debug_info    0x000071e1      0x1d6 C:/Freescale/CW MCU v10.4/MCU/ARM_GCC_Support/ewl/lib/armv6-m\libc.a(__strtoul.o)
- .debug_info    0x000073b7      0x137 C:/Freescale/CW MCU v10.4/MCU/ARM_GCC_Support/ewl/lib/armv6-m\libc.a(__filll_mem.o)
- .debug_info    0x000074ee      0x121 C:/Freescale/CW MCU v10.4/MCU/ARM_GCC_Support/ewl/lib/armv6-m\libc.a(memchr.o)
- .debug_info    0x0000760f      0x10f C:/Freescale/CW MCU v10.4/MCU/ARM_GCC_Support/ewl/lib/armv6-m\libc.a(memcpy.o)
- .debug_info    0x0000771e      0x10b C:/Freescale/CW MCU v10.4/MCU/ARM_GCC_Support/ewl/lib/armv6-m\libc.a(strchr.o)
- .debug_info    0x00007829      0x136 C:/Freescale/CW MCU v10.4/MCU/ARM_GCC_Support/ewl/lib/armv6-m\librt.a(gcc_ctor_dtor.o)
- .debug_info    0x0000795f      0x19b C:/Freescale/CW MCU v10.4/MCU/ARM_GCC_Support/ewl/lib/armv6-m\librt.a(ROMCopy.o)
- .debug_info    0x00007afa      0x2b9 C:/Freescale/CW MCU v10.4/MCU/ARM_GCC_Support/ewl/lib/armv6-m\librt.a(__arm_eabi_init.o)
+ .debug_info    0x000005c5      0x492 ./Sources/APP/Tasks.o
+ .debug_info    0x00000a57       0xe7 ./Sources/APP/Coeficientes.o
+ .debug_info    0x00000b3e      0x84b ./Sources/SDL/UART.o
+ .debug_info    0x00001389      0x494 ./Sources/SDL/Terminal.o
+ .debug_info    0x0000181d      0x62b ./Sources/SDL/Servo.o
+ .debug_info    0x00001e48      0x302 ./Sources/SDL/Queue.o
+ .debug_info    0x0000214a      0x100 ./Sources/SDL/Potentiometer.o
+ .debug_info    0x0000224a      0x495 ./Sources/SDL/Motor.o
+ .debug_info    0x000026df      0x2b1 ./Sources/SDL/MMA8451.o
+ .debug_info    0x00002990      0x5b7 ./Sources/SDL/LineScanCamera.o
+ .debug_info    0x00002f47      0x1b4 ./Sources/SDL/Led_RGB.o
+ .debug_info    0x000030fb      0x6c0 ./Sources/SDL/I2C.o
+ .debug_info    0x000037bb      0x45c ./Sources/SDL/BoardSupport.o
+ .debug_info    0x00003c17      0xad4 ./Sources/SDL/ADC.o
+ .debug_info    0x000046eb       0x70 ./Sources/Scheduler/Core/Core_Tick_ISR.o
+ .debug_info    0x0000475b      0x124 ./Sources/Scheduler/Core/Core_Config.o
+ .debug_info    0x0000487f      0x1e2 ./Sources/Scheduler/Core/Core.o
+ .debug_info    0x00004a61      0x133 ./Sources/Scheduler/PeriodicTasks/Periodic_Tasks_Init.o
+ .debug_info    0x00004b94      0x1d2 ./Sources/Scheduler/PeriodicTasks/Periodic_Tasks.o
+ .debug_info    0x00004d66      0x3cb ./Sources/mcl/arm_cm0.o
+ .debug_info    0x00005131      0x27d ./Sources/mcl/CrystalClock.o
+ .debug_info    0x000053ae       0xf6 ./Sources/mcl/ARM_SysTick.o
+ .debug_info    0x000054a4      0x30a ./Sources/main.o
+ .debug_info    0x000057ae      0x128 ./Sources/TFC.o
+ .debug_info    0x000058d6      0x118 C:/Freescale/CW MCU v10.4/MCU/ARM_GCC_Support/ewl/lib/armv6-m\libc.a(sscanf.o)
+ .debug_info    0x000059ee      0x12a C:/Freescale/CW MCU v10.4/MCU/ARM_GCC_Support/ewl/lib/armv6-m\libc.a(vsprintf.o)
+ .debug_info    0x00005b18      0x253 C:/Freescale/CW MCU v10.4/MCU/ARM_GCC_Support/ewl/lib/armv6-m\libc.a(vsscanf.o)
+ .debug_info    0x00005d6b       0xe8 C:/Freescale/CW MCU v10.4/MCU/ARM_GCC_Support/ewl/lib/armv6-m\libc.a(exit.o)
+ .debug_info    0x00005e53       0xec C:/Freescale/CW MCU v10.4/MCU/ARM_GCC_Support/ewl/lib/armv6-m\libc.a(memset.o)
+ .debug_info    0x00005f3f      0x114 C:/Freescale/CW MCU v10.4/MCU/ARM_GCC_Support/ewl/lib/armv6-m\libc.a(strcmp.o)
+ .debug_info    0x00006053      0x109 C:/Freescale/CW MCU v10.4/MCU/ARM_GCC_Support/ewl/lib/armv6-m\libc.a(strcpy.o)
+ .debug_info    0x0000615c       0xea C:/Freescale/CW MCU v10.4/MCU/ARM_GCC_Support/ewl/lib/armv6-m\libc.a(strlen.o)
+ .debug_info    0x00006246      0x50d C:/Freescale/CW MCU v10.4/MCU/ARM_GCC_Support/ewl/lib/armv6-m\libc.a(printformat_.o)
+ .debug_info    0x00006753      0x568 C:/Freescale/CW MCU v10.4/MCU/ARM_GCC_Support/ewl/lib/armv6-m\libc.a(scanformat_.o)
+ .debug_info    0x00006cbb      0x313 C:/Freescale/CW MCU v10.4/MCU/ARM_GCC_Support/ewl/lib/armv6-m\libc.a(ctype_aeabi.o)
+ .debug_info    0x00006fce      0x205 C:/Freescale/CW MCU v10.4/MCU/ARM_GCC_Support/ewl/lib/armv6-m\libc.a(vsnprintf.o)
+ .debug_info    0x000071d3      0x1d6 C:/Freescale/CW MCU v10.4/MCU/ARM_GCC_Support/ewl/lib/armv6-m\libc.a(__strtoul.o)
+ .debug_info    0x000073a9      0x137 C:/Freescale/CW MCU v10.4/MCU/ARM_GCC_Support/ewl/lib/armv6-m\libc.a(__filll_mem.o)
+ .debug_info    0x000074e0      0x121 C:/Freescale/CW MCU v10.4/MCU/ARM_GCC_Support/ewl/lib/armv6-m\libc.a(memchr.o)
+ .debug_info    0x00007601      0x10f C:/Freescale/CW MCU v10.4/MCU/ARM_GCC_Support/ewl/lib/armv6-m\libc.a(memcpy.o)
+ .debug_info    0x00007710      0x10b C:/Freescale/CW MCU v10.4/MCU/ARM_GCC_Support/ewl/lib/armv6-m\libc.a(strchr.o)
+ .debug_info    0x0000781b      0x136 C:/Freescale/CW MCU v10.4/MCU/ARM_GCC_Support/ewl/lib/armv6-m\librt.a(gcc_ctor_dtor.o)
+ .debug_info    0x00007951      0x19b C:/Freescale/CW MCU v10.4/MCU/ARM_GCC_Support/ewl/lib/armv6-m\librt.a(ROMCopy.o)
+ .debug_info    0x00007aec      0x2b9 C:/Freescale/CW MCU v10.4/MCU/ARM_GCC_Support/ewl/lib/armv6-m\librt.a(__arm_eabi_init.o)
 
 .debug_abbrev   0x00000000     0x27ab
  .debug_abbrev  0x00000000       0xe7 ./Project_Settings/Startup_Code/kinetis_sysinit.o
@@ -1614,149 +1614,149 @@ OUTPUT(gsc_sch_MKL25Z128.elf elf32-littlearm)
  .debug_macinfo
                 0x00356fc5    0x28332 ./Sources/TFC.o
 
-.debug_line     0x00000000     0x84a8
+.debug_line     0x00000000     0x84a3
  .debug_line    0x00000000      0x23e ./Project_Settings/Startup_Code/kinetis_sysinit.o
  .debug_line    0x0000023e      0x2c1 ./Project_Settings/Startup_Code/__arm_start.o
  .debug_line    0x000004ff      0x266 ./Project_Settings/Startup_Code/__arm_end.o
- .debug_line    0x00000765      0x5f4 ./Sources/APP/Tasks.o
- .debug_line    0x00000d59      0x46c ./Sources/APP/Coeficientes.o
- .debug_line    0x000011c5      0x536 ./Sources/SDL/UART.o
- .debug_line    0x000016fb      0x5a4 ./Sources/SDL/Terminal.o
- .debug_line    0x00001c9f      0x4da ./Sources/SDL/Servo.o
- .debug_line    0x00002179      0x518 ./Sources/SDL/Queue.o
- .debug_line    0x00002691      0x493 ./Sources/SDL/Potentiometer.o
- .debug_line    0x00002b24      0x4ae ./Sources/SDL/Motor.o
- .debug_line    0x00002fd2      0x506 ./Sources/SDL/MMA8451.o
- .debug_line    0x000034d8      0x49f ./Sources/SDL/LineScanCamera.o
- .debug_line    0x00003977      0x483 ./Sources/SDL/Led_RGB.o
- .debug_line    0x00003dfa      0x591 ./Sources/SDL/I2C.o
- .debug_line    0x0000438b      0x4f5 ./Sources/SDL/BoardSupport.o
- .debug_line    0x00004880      0x57c ./Sources/SDL/ADC.o
- .debug_line    0x00004dfc       0xee ./Sources/Scheduler/Core/Core_Tick_ISR.o
- .debug_line    0x00004eea      0x131 ./Sources/Scheduler/Core/Core_Config.o
- .debug_line    0x0000501b      0x12d ./Sources/Scheduler/Core/Core.o
- .debug_line    0x00005148      0x5d6 ./Sources/Scheduler/PeriodicTasks/Periodic_Tasks_Init.o
- .debug_line    0x0000571e      0x5e8 ./Sources/Scheduler/PeriodicTasks/Periodic_Tasks.o
- .debug_line    0x00005d06      0x274 ./Sources/mcl/arm_cm0.o
- .debug_line    0x00005f7a      0x52d ./Sources/mcl/CrystalClock.o
- .debug_line    0x000064a7      0x47d ./Sources/mcl/ARM_SysTick.o
- .debug_line    0x00006924      0x48d ./Sources/main.o
- .debug_line    0x00006db1      0x459 ./Sources/TFC.o
- .debug_line    0x0000720a       0x92 C:/Freescale/CW MCU v10.4/MCU/ARM_GCC_Support/ewl/lib/armv6-m\libc.a(sscanf.o)
- .debug_line    0x0000729c       0x94 C:/Freescale/CW MCU v10.4/MCU/ARM_GCC_Support/ewl/lib/armv6-m\libc.a(vsprintf.o)
- .debug_line    0x00007330       0xc8 C:/Freescale/CW MCU v10.4/MCU/ARM_GCC_Support/ewl/lib/armv6-m\libc.a(vsscanf.o)
- .debug_line    0x000073f8       0x8d C:/Freescale/CW MCU v10.4/MCU/ARM_GCC_Support/ewl/lib/armv6-m\libc.a(exit.o)
- .debug_line    0x00007485       0x90 C:/Freescale/CW MCU v10.4/MCU/ARM_GCC_Support/ewl/lib/armv6-m\libc.a(memset.o)
- .debug_line    0x00007515       0x83 C:/Freescale/CW MCU v10.4/MCU/ARM_GCC_Support/ewl/lib/armv6-m\libc.a(strcmp.o)
- .debug_line    0x00007598       0x7d C:/Freescale/CW MCU v10.4/MCU/ARM_GCC_Support/ewl/lib/armv6-m\libc.a(strcpy.o)
- .debug_line    0x00007615       0x85 C:/Freescale/CW MCU v10.4/MCU/ARM_GCC_Support/ewl/lib/armv6-m\libc.a(strlen.o)
- .debug_line    0x0000769a      0x2c3 C:/Freescale/CW MCU v10.4/MCU/ARM_GCC_Support/ewl/lib/armv6-m\libc.a(printformat_.o)
- .debug_line    0x0000795d      0x2be C:/Freescale/CW MCU v10.4/MCU/ARM_GCC_Support/ewl/lib/armv6-m\libc.a(scanformat_.o)
- .debug_line    0x00007c1b      0x1be C:/Freescale/CW MCU v10.4/MCU/ARM_GCC_Support/ewl/lib/armv6-m\libc.a(ctype_aeabi.o)
- .debug_line    0x00007dd9       0xd4 C:/Freescale/CW MCU v10.4/MCU/ARM_GCC_Support/ewl/lib/armv6-m\libc.a(vsnprintf.o)
- .debug_line    0x00007ead      0x11e C:/Freescale/CW MCU v10.4/MCU/ARM_GCC_Support/ewl/lib/armv6-m\libc.a(__strtoul.o)
- .debug_line    0x00007fcb       0xf6 C:/Freescale/CW MCU v10.4/MCU/ARM_GCC_Support/ewl/lib/armv6-m\libc.a(__filll_mem.o)
- .debug_line    0x000080c1       0x9f C:/Freescale/CW MCU v10.4/MCU/ARM_GCC_Support/ewl/lib/armv6-m\libc.a(memchr.o)
- .debug_line    0x00008160       0x8b C:/Freescale/CW MCU v10.4/MCU/ARM_GCC_Support/ewl/lib/armv6-m\libc.a(memcpy.o)
- .debug_line    0x000081eb       0x7d C:/Freescale/CW MCU v10.4/MCU/ARM_GCC_Support/ewl/lib/armv6-m\libc.a(strchr.o)
- .debug_line    0x00008268       0x6c C:/Freescale/CW MCU v10.4/MCU/ARM_GCC_Support/ewl/lib/armv6-m\librt.a(gcc_ctor_dtor.o)
- .debug_line    0x000082d4       0xbd C:/Freescale/CW MCU v10.4/MCU/ARM_GCC_Support/ewl/lib/armv6-m\librt.a(ROMCopy.o)
- .debug_line    0x00008391      0x117 C:/Freescale/CW MCU v10.4/MCU/ARM_GCC_Support/ewl/lib/armv6-m\librt.a(__arm_eabi_init.o)
+ .debug_line    0x00000765      0x5f3 ./Sources/APP/Tasks.o
+ .debug_line    0x00000d58      0x46c ./Sources/APP/Coeficientes.o
+ .debug_line    0x000011c4      0x536 ./Sources/SDL/UART.o
+ .debug_line    0x000016fa      0x5a4 ./Sources/SDL/Terminal.o
+ .debug_line    0x00001c9e      0x4da ./Sources/SDL/Servo.o
+ .debug_line    0x00002178      0x518 ./Sources/SDL/Queue.o
+ .debug_line    0x00002690      0x493 ./Sources/SDL/Potentiometer.o
+ .debug_line    0x00002b23      0x4ae ./Sources/SDL/Motor.o
+ .debug_line    0x00002fd1      0x506 ./Sources/SDL/MMA8451.o
+ .debug_line    0x000034d7      0x49f ./Sources/SDL/LineScanCamera.o
+ .debug_line    0x00003976      0x483 ./Sources/SDL/Led_RGB.o
+ .debug_line    0x00003df9      0x591 ./Sources/SDL/I2C.o
+ .debug_line    0x0000438a      0x4f5 ./Sources/SDL/BoardSupport.o
+ .debug_line    0x0000487f      0x57c ./Sources/SDL/ADC.o
+ .debug_line    0x00004dfb       0xee ./Sources/Scheduler/Core/Core_Tick_ISR.o
+ .debug_line    0x00004ee9      0x131 ./Sources/Scheduler/Core/Core_Config.o
+ .debug_line    0x0000501a      0x12d ./Sources/Scheduler/Core/Core.o
+ .debug_line    0x00005147      0x5d6 ./Sources/Scheduler/PeriodicTasks/Periodic_Tasks_Init.o
+ .debug_line    0x0000571d      0x5e4 ./Sources/Scheduler/PeriodicTasks/Periodic_Tasks.o
+ .debug_line    0x00005d01      0x274 ./Sources/mcl/arm_cm0.o
+ .debug_line    0x00005f75      0x52d ./Sources/mcl/CrystalClock.o
+ .debug_line    0x000064a2      0x47d ./Sources/mcl/ARM_SysTick.o
+ .debug_line    0x0000691f      0x48d ./Sources/main.o
+ .debug_line    0x00006dac      0x459 ./Sources/TFC.o
+ .debug_line    0x00007205       0x92 C:/Freescale/CW MCU v10.4/MCU/ARM_GCC_Support/ewl/lib/armv6-m\libc.a(sscanf.o)
+ .debug_line    0x00007297       0x94 C:/Freescale/CW MCU v10.4/MCU/ARM_GCC_Support/ewl/lib/armv6-m\libc.a(vsprintf.o)
+ .debug_line    0x0000732b       0xc8 C:/Freescale/CW MCU v10.4/MCU/ARM_GCC_Support/ewl/lib/armv6-m\libc.a(vsscanf.o)
+ .debug_line    0x000073f3       0x8d C:/Freescale/CW MCU v10.4/MCU/ARM_GCC_Support/ewl/lib/armv6-m\libc.a(exit.o)
+ .debug_line    0x00007480       0x90 C:/Freescale/CW MCU v10.4/MCU/ARM_GCC_Support/ewl/lib/armv6-m\libc.a(memset.o)
+ .debug_line    0x00007510       0x83 C:/Freescale/CW MCU v10.4/MCU/ARM_GCC_Support/ewl/lib/armv6-m\libc.a(strcmp.o)
+ .debug_line    0x00007593       0x7d C:/Freescale/CW MCU v10.4/MCU/ARM_GCC_Support/ewl/lib/armv6-m\libc.a(strcpy.o)
+ .debug_line    0x00007610       0x85 C:/Freescale/CW MCU v10.4/MCU/ARM_GCC_Support/ewl/lib/armv6-m\libc.a(strlen.o)
+ .debug_line    0x00007695      0x2c3 C:/Freescale/CW MCU v10.4/MCU/ARM_GCC_Support/ewl/lib/armv6-m\libc.a(printformat_.o)
+ .debug_line    0x00007958      0x2be C:/Freescale/CW MCU v10.4/MCU/ARM_GCC_Support/ewl/lib/armv6-m\libc.a(scanformat_.o)
+ .debug_line    0x00007c16      0x1be C:/Freescale/CW MCU v10.4/MCU/ARM_GCC_Support/ewl/lib/armv6-m\libc.a(ctype_aeabi.o)
+ .debug_line    0x00007dd4       0xd4 C:/Freescale/CW MCU v10.4/MCU/ARM_GCC_Support/ewl/lib/armv6-m\libc.a(vsnprintf.o)
+ .debug_line    0x00007ea8      0x11e C:/Freescale/CW MCU v10.4/MCU/ARM_GCC_Support/ewl/lib/armv6-m\libc.a(__strtoul.o)
+ .debug_line    0x00007fc6       0xf6 C:/Freescale/CW MCU v10.4/MCU/ARM_GCC_Support/ewl/lib/armv6-m\libc.a(__filll_mem.o)
+ .debug_line    0x000080bc       0x9f C:/Freescale/CW MCU v10.4/MCU/ARM_GCC_Support/ewl/lib/armv6-m\libc.a(memchr.o)
+ .debug_line    0x0000815b       0x8b C:/Freescale/CW MCU v10.4/MCU/ARM_GCC_Support/ewl/lib/armv6-m\libc.a(memcpy.o)
+ .debug_line    0x000081e6       0x7d C:/Freescale/CW MCU v10.4/MCU/ARM_GCC_Support/ewl/lib/armv6-m\libc.a(strchr.o)
+ .debug_line    0x00008263       0x6c C:/Freescale/CW MCU v10.4/MCU/ARM_GCC_Support/ewl/lib/armv6-m\librt.a(gcc_ctor_dtor.o)
+ .debug_line    0x000082cf       0xbd C:/Freescale/CW MCU v10.4/MCU/ARM_GCC_Support/ewl/lib/armv6-m\librt.a(ROMCopy.o)
+ .debug_line    0x0000838c      0x117 C:/Freescale/CW MCU v10.4/MCU/ARM_GCC_Support/ewl/lib/armv6-m\librt.a(__arm_eabi_init.o)
 
-.debug_str      0x00000000     0x22cc
+.debug_str      0x00000000     0x22c1
  .debug_str     0x00000000      0x2bf ./Project_Settings/Startup_Code/kinetis_sysinit.o
                                 0x2e6 (size before relaxing)
  .debug_str     0x000002bf       0x85 ./Project_Settings/Startup_Code/__arm_start.o
                                 0x1c0 (size before relaxing)
  .debug_str     0x00000344       0x41 ./Project_Settings/Startup_Code/__arm_end.o
                                  0xf7 (size before relaxing)
- .debug_str     0x00000385      0x21d ./Sources/APP/Tasks.o
-                                0x38b (size before relaxing)
- .debug_str     0x000005a2       0x1e ./Sources/APP/Coeficientes.o
+ .debug_str     0x00000385      0x212 ./Sources/APP/Tasks.o
+                                0x380 (size before relaxing)
+ .debug_str     0x00000597       0x1e ./Sources/APP/Coeficientes.o
                                 0x196 (size before relaxing)
- .debug_str     0x000005c0      0x3e1 ./Sources/SDL/UART.o
+ .debug_str     0x000005b5      0x3e1 ./Sources/SDL/UART.o
                                 0x672 (size before relaxing)
- .debug_str     0x000009a1      0x19d ./Sources/SDL/Terminal.o
+ .debug_str     0x00000996      0x19d ./Sources/SDL/Terminal.o
                                 0x3a9 (size before relaxing)
- .debug_str     0x00000b3e       0xb5 ./Sources/SDL/Servo.o
+ .debug_str     0x00000b33       0xb5 ./Sources/SDL/Servo.o
                                 0x55b (size before relaxing)
- .debug_str     0x00000bf3       0xa0 ./Sources/SDL/Queue.o
+ .debug_str     0x00000be8       0xa0 ./Sources/SDL/Queue.o
                                 0x247 (size before relaxing)
- .debug_str     0x00000c93       0x46 ./Sources/SDL/Potentiometer.o
+ .debug_str     0x00000c88       0x46 ./Sources/SDL/Potentiometer.o
                                 0x196 (size before relaxing)
- .debug_str     0x00000cd9       0x46 ./Sources/SDL/Motor.o
+ .debug_str     0x00000cce       0x46 ./Sources/SDL/Motor.o
                                 0x2e6 (size before relaxing)
- .debug_str     0x00000d1f       0xe9 ./Sources/SDL/MMA8451.o
+ .debug_str     0x00000d14       0xe9 ./Sources/SDL/MMA8451.o
                                 0x232 (size before relaxing)
- .debug_str     0x00000e08      0x11c ./Sources/SDL/LineScanCamera.o
+ .debug_str     0x00000dfd      0x11c ./Sources/SDL/LineScanCamera.o
                                 0x3ea (size before relaxing)
- .debug_str     0x00000f24       0x26 ./Sources/SDL/Led_RGB.o
+ .debug_str     0x00000f19       0x26 ./Sources/SDL/Led_RGB.o
                                 0x1e2 (size before relaxing)
- .debug_str     0x00000f4a      0x112 ./Sources/SDL/I2C.o
+ .debug_str     0x00000f3f      0x112 ./Sources/SDL/I2C.o
                                 0x39e (size before relaxing)
- .debug_str     0x0000105c       0x78 ./Sources/SDL/BoardSupport.o
+ .debug_str     0x00001051       0x78 ./Sources/SDL/BoardSupport.o
                                 0x30f (size before relaxing)
- .debug_str     0x000010d4      0x1be ./Sources/SDL/ADC.o
+ .debug_str     0x000010c9      0x1be ./Sources/SDL/ADC.o
                                 0x783 (size before relaxing)
- .debug_str     0x00001292       0x72 ./Sources/Scheduler/Core/Core_Tick_ISR.o
+ .debug_str     0x00001287       0x72 ./Sources/Scheduler/Core/Core_Tick_ISR.o
                                 0x12e (size before relaxing)
- .debug_str     0x00001304      0x13e ./Sources/Scheduler/Core/Core_Config.o
+ .debug_str     0x000012f9      0x13e ./Sources/Scheduler/Core/Core_Config.o
                                 0x203 (size before relaxing)
- .debug_str     0x00001442       0x90 ./Sources/Scheduler/Core/Core.o
+ .debug_str     0x00001437       0x90 ./Sources/Scheduler/Core/Core.o
                                 0x29d (size before relaxing)
- .debug_str     0x000014d2      0x14b ./Sources/Scheduler/PeriodicTasks/Periodic_Tasks_Init.o
+ .debug_str     0x000014c7      0x14b ./Sources/Scheduler/PeriodicTasks/Periodic_Tasks_Init.o
                                 0x286 (size before relaxing)
- .debug_str     0x0000161d       0xeb ./Sources/Scheduler/PeriodicTasks/Periodic_Tasks.o
+ .debug_str     0x00001612       0xeb ./Sources/Scheduler/PeriodicTasks/Periodic_Tasks.o
                                 0x275 (size before relaxing)
- .debug_str     0x00001708       0x89 ./Sources/mcl/arm_cm0.o
+ .debug_str     0x000016fd       0x89 ./Sources/mcl/arm_cm0.o
                                 0x25c (size before relaxing)
- .debug_str     0x00001791       0xc5 ./Sources/mcl/CrystalClock.o
+ .debug_str     0x00001786       0xc5 ./Sources/mcl/CrystalClock.o
                                 0x21e (size before relaxing)
- .debug_str     0x00001856       0x50 ./Sources/mcl/ARM_SysTick.o
+ .debug_str     0x0000184b       0x50 ./Sources/mcl/ARM_SysTick.o
                                 0x194 (size before relaxing)
- .debug_str     0x000018a6       0x45 ./Sources/main.o
+ .debug_str     0x0000189b       0x45 ./Sources/main.o
                                 0x277 (size before relaxing)
- .debug_str     0x000018eb       0x23 ./Sources/TFC.o
+ .debug_str     0x000018e0       0x23 ./Sources/TFC.o
                                 0x1a0 (size before relaxing)
- .debug_str     0x0000190e       0x3e C:/Freescale/CW MCU v10.4/MCU/ARM_GCC_Support/ewl/lib/armv6-m\libc.a(sscanf.o)
+ .debug_str     0x00001903       0x3e C:/Freescale/CW MCU v10.4/MCU/ARM_GCC_Support/ewl/lib/armv6-m\libc.a(sscanf.o)
                                 0x161 (size before relaxing)
- .debug_str     0x0000194c       0x25 C:/Freescale/CW MCU v10.4/MCU/ARM_GCC_Support/ewl/lib/armv6-m\libc.a(vsprintf.o)
+ .debug_str     0x00001941       0x25 C:/Freescale/CW MCU v10.4/MCU/ARM_GCC_Support/ewl/lib/armv6-m\libc.a(vsprintf.o)
                                 0x167 (size before relaxing)
- .debug_str     0x00001971       0x9c C:/Freescale/CW MCU v10.4/MCU/ARM_GCC_Support/ewl/lib/armv6-m\libc.a(vsscanf.o)
+ .debug_str     0x00001966       0x9c C:/Freescale/CW MCU v10.4/MCU/ARM_GCC_Support/ewl/lib/armv6-m\libc.a(vsscanf.o)
                                 0x1e5 (size before relaxing)
- .debug_str     0x00001a0d       0x2e C:/Freescale/CW MCU v10.4/MCU/ARM_GCC_Support/ewl/lib/armv6-m\libc.a(exit.o)
+ .debug_str     0x00001a02       0x2e C:/Freescale/CW MCU v10.4/MCU/ARM_GCC_Support/ewl/lib/armv6-m\libc.a(exit.o)
                                 0x157 (size before relaxing)
- .debug_str     0x00001a3b       0x23 C:/Freescale/CW MCU v10.4/MCU/ARM_GCC_Support/ewl/lib/armv6-m\libc.a(memset.o)
+ .debug_str     0x00001a30       0x23 C:/Freescale/CW MCU v10.4/MCU/ARM_GCC_Support/ewl/lib/armv6-m\libc.a(memset.o)
                                 0x140 (size before relaxing)
- .debug_str     0x00001a5e       0x26 C:/Freescale/CW MCU v10.4/MCU/ARM_GCC_Support/ewl/lib/armv6-m\libc.a(strcmp.o)
+ .debug_str     0x00001a53       0x26 C:/Freescale/CW MCU v10.4/MCU/ARM_GCC_Support/ewl/lib/armv6-m\libc.a(strcmp.o)
                                 0x152 (size before relaxing)
- .debug_str     0x00001a84       0x1c C:/Freescale/CW MCU v10.4/MCU/ARM_GCC_Support/ewl/lib/armv6-m\libc.a(strcpy.o)
+ .debug_str     0x00001a79       0x1c C:/Freescale/CW MCU v10.4/MCU/ARM_GCC_Support/ewl/lib/armv6-m\libc.a(strcpy.o)
                                 0x142 (size before relaxing)
- .debug_str     0x00001aa0       0x1c C:/Freescale/CW MCU v10.4/MCU/ARM_GCC_Support/ewl/lib/armv6-m\libc.a(strlen.o)
+ .debug_str     0x00001a95       0x1c C:/Freescale/CW MCU v10.4/MCU/ARM_GCC_Support/ewl/lib/armv6-m\libc.a(strlen.o)
                                 0x140 (size before relaxing)
- .debug_str     0x00001abc      0x21d C:/Freescale/CW MCU v10.4/MCU/ARM_GCC_Support/ewl/lib/armv6-m\libc.a(printformat_.o)
+ .debug_str     0x00001ab1      0x21d C:/Freescale/CW MCU v10.4/MCU/ARM_GCC_Support/ewl/lib/armv6-m\libc.a(printformat_.o)
                                 0x3b3 (size before relaxing)
- .debug_str     0x00001cd9      0x14b C:/Freescale/CW MCU v10.4/MCU/ARM_GCC_Support/ewl/lib/armv6-m\libc.a(scanformat_.o)
+ .debug_str     0x00001cce      0x14b C:/Freescale/CW MCU v10.4/MCU/ARM_GCC_Support/ewl/lib/armv6-m\libc.a(scanformat_.o)
                                 0x3f9 (size before relaxing)
- .debug_str     0x00001e24       0x9d C:/Freescale/CW MCU v10.4/MCU/ARM_GCC_Support/ewl/lib/armv6-m\libc.a(ctype_aeabi.o)
+ .debug_str     0x00001e19       0x9d C:/Freescale/CW MCU v10.4/MCU/ARM_GCC_Support/ewl/lib/armv6-m\libc.a(ctype_aeabi.o)
                                 0x1bc (size before relaxing)
- .debug_str     0x00001ec1       0x7c C:/Freescale/CW MCU v10.4/MCU/ARM_GCC_Support/ewl/lib/armv6-m\libc.a(vsnprintf.o)
+ .debug_str     0x00001eb6       0x7c C:/Freescale/CW MCU v10.4/MCU/ARM_GCC_Support/ewl/lib/armv6-m\libc.a(vsnprintf.o)
                                 0x1cc (size before relaxing)
- .debug_str     0x00001f3d       0x61 C:/Freescale/CW MCU v10.4/MCU/ARM_GCC_Support/ewl/lib/armv6-m\libc.a(__strtoul.o)
+ .debug_str     0x00001f32       0x61 C:/Freescale/CW MCU v10.4/MCU/ARM_GCC_Support/ewl/lib/armv6-m\libc.a(__strtoul.o)
                                 0x1fb (size before relaxing)
- .debug_str     0x00001f9e       0x25 C:/Freescale/CW MCU v10.4/MCU/ARM_GCC_Support/ewl/lib/armv6-m\libc.a(__filll_mem.o)
+ .debug_str     0x00001f93       0x25 C:/Freescale/CW MCU v10.4/MCU/ARM_GCC_Support/ewl/lib/armv6-m\libc.a(__filll_mem.o)
                                 0x152 (size before relaxing)
- .debug_str     0x00001fc3       0x1c C:/Freescale/CW MCU v10.4/MCU/ARM_GCC_Support/ewl/lib/armv6-m\libc.a(memchr.o)
+ .debug_str     0x00001fb8       0x1c C:/Freescale/CW MCU v10.4/MCU/ARM_GCC_Support/ewl/lib/armv6-m\libc.a(memchr.o)
                                 0x148 (size before relaxing)
- .debug_str     0x00001fdf       0x1c C:/Freescale/CW MCU v10.4/MCU/ARM_GCC_Support/ewl/lib/armv6-m\libc.a(memcpy.o)
+ .debug_str     0x00001fd4       0x1c C:/Freescale/CW MCU v10.4/MCU/ARM_GCC_Support/ewl/lib/armv6-m\libc.a(memcpy.o)
                                 0x138 (size before relaxing)
- .debug_str     0x00001ffb       0x1c C:/Freescale/CW MCU v10.4/MCU/ARM_GCC_Support/ewl/lib/armv6-m\libc.a(strchr.o)
+ .debug_str     0x00001ff0       0x1c C:/Freescale/CW MCU v10.4/MCU/ARM_GCC_Support/ewl/lib/armv6-m\libc.a(strchr.o)
                                 0x137 (size before relaxing)
- .debug_str     0x00002017      0x126 C:/Freescale/CW MCU v10.4/MCU/ARM_GCC_Support/ewl/lib/armv6-m\librt.a(gcc_ctor_dtor.o)
+ .debug_str     0x0000200c      0x126 C:/Freescale/CW MCU v10.4/MCU/ARM_GCC_Support/ewl/lib/armv6-m\librt.a(gcc_ctor_dtor.o)
                                 0x181 (size before relaxing)
- .debug_str     0x0000213d       0x9c C:/Freescale/CW MCU v10.4/MCU/ARM_GCC_Support/ewl/lib/armv6-m\librt.a(ROMCopy.o)
+ .debug_str     0x00002132       0x9c C:/Freescale/CW MCU v10.4/MCU/ARM_GCC_Support/ewl/lib/armv6-m\librt.a(ROMCopy.o)
                                 0x13c (size before relaxing)
- .debug_str     0x000021d9       0xf3 C:/Freescale/CW MCU v10.4/MCU/ARM_GCC_Support/ewl/lib/armv6-m\librt.a(__arm_eabi_init.o)
+ .debug_str     0x000021ce       0xf3 C:/Freescale/CW MCU v10.4/MCU/ARM_GCC_Support/ewl/lib/armv6-m\librt.a(__arm_eabi_init.o)
                                 0x1b5 (size before relaxing)
 
 .comment        0x00000000       0x79
