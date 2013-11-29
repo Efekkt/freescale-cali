@@ -106,7 +106,7 @@ for(i=LIM_INICIO ; i<=LIM_FIN ; i++) //Se eliminaron 15 pixeles al inicio y al f
 int HayDepresion(int x)
 {
 int area1=0,area2=0,area3=0;
-int j,v[130],InicioMeta=0;
+int j,v[130];
 
 for(j=0 ; j<=127 ; j++) v[j]=0;
 
@@ -132,14 +132,14 @@ while(v[j]==1) //Empezar a contar el area2 de la linea del lado izquierdo al der
 	if(j==LIM_FIN+1) return 0;
 	}
 while(v[j]==0)
-	{	
+	{
 	j++;
 	if(j==LIM_FIN+1) break;
 	}
 while(v[j]==1) //Empezar a contar el area3 de la linea del lado izquierdo al derecho
 	{
 	area3++;
-	j++;	
+	j++;
 	}
 
 //Checar hacia la IZQUIERDA
@@ -165,16 +165,17 @@ if(s!=2 && s!=6) return 0;
 
 if(area2<=8 || area2>=24) return 0;  
 
-if(area1>20 && area3>20) InicioMeta=2;
+if(area1>20 && area3>20)
+	{
+	TFC_SetBatteryLED_Level(4);
+	TFC_HBRIDGE_DISABLE;
+	}
 /*
 for(j=LIM_INICIO ; j<=LIM_FIN ; j++)
 	TERMINAL_PRINTF("%d",v[j]);
 TERMINAL_PRINTF("  %d %d %d . %d\r\n",area1,area2,area3,InicioMeta);
 */
-if(InicioMeta==2)
-	return 2;
-else
-	return 1;
+return 1;
 }
 
 
@@ -207,7 +208,7 @@ a=motor_izquierdo[indice_vector]/1000.0;
 b=motor_derecho[indice_vector]/1000.0;
 if(a>TFC_ReadPot1()) a=TFC_ReadPot1();
 if(b>TFC_ReadPot1()) b=TFC_ReadPot1();
-TFC_SetMotorPWM(a,b);
+TFC_SetMotorPWM(b,a);
 }
 
 /*******************************************************************************************

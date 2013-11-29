@@ -42,7 +42,7 @@ Centro=TFC_ReadPot0()/8.0;
 
 //Controles para el servomotor
 ControlDifuso();
-if(sel==3) ControlLineal();
+//if(sel==3) ControlLineal();
 }
  
 
@@ -71,12 +71,11 @@ if(sel==4 || sel==12) GraficarLabVIEW();
 
 void periodic_tasks_exec_500tks(void)
 {
-	 
+RED_TOGGLE;
 }
- 
+
 
 void periodic_tasks_exec_1Mtks(void)
 {	 	 
 VoltajeBateria();
-RED_TOGGLE;
 }

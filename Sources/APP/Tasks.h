@@ -21,5 +21,6 @@ void VoltajeBateria(void);
 void GraficarLabVIEW(void);
 
 extern int pos;
+extern int META1,META3;
 
 #endif
