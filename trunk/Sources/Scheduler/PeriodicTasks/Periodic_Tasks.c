@@ -11,7 +11,9 @@
 
 void periodic_tasks_exec_5tks(void)
 {
+INDICADOR_ON;
 DetectarLinea();
+INDICADOR_OFF;
 VelocidadMotor();
 }
 
@@ -77,5 +79,5 @@ RED_TOGGLE;
 
 void periodic_tasks_exec_1Mtks(void)
 {	 	 
-VoltajeBateria();
+//VoltajeBateria();
 }
