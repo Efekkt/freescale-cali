@@ -16,6 +16,7 @@
 ********************************************************************************************/
 int LineaBase[130];
 int LineaBaseMinima[130];
+int v[130],temp[130],cambios;
 
 void CapturarLineaBase()
 {
@@ -52,49 +53,62 @@ TFC_SetBatteryLED_Level(4);
 *  Description          : Esta funcion obtiene los valores de la camara, recorre los valores
 *  						  y determina la maxima diferencia con respecto a 'LineaBase'
 ********************************************************************************************/
-int pos=48;
+int pos=48,lim_izk=47,lim_der=49;
 int DIFERENCIA_MINIMA = 30;  //Constante que establece a partir de cuanta diferencia se considera como linea
 int RANGO_SEPARACION  = 80;  //Distancia maxima que puede detectarse la linea entre un punto actual y anterior
-int ANCHO_PROMEDIO    =  4;  //Total de pixeles a considerar como promedio para la deteccion de la linea
+int ANCHO_PROMEDIO    =  5;  //Total de pixeles a considerar como promedio para la deteccion de la linea
 
 void DetectarLinea()
 {
-int i,k,suma,sumaTotal,minimo=0,select;
+int i,k,suma,sumaTotal,minimo=0,lineas;
 
-for(i=LIM_INICIO ; i<=LIM_FIN ; i++) //Se eliminaron 15 pixeles al inicio y al final
-	{
-	/*Condicion que compara la posicion anterior de la linea con la actual*/
-	if(i<(pos-RANGO_SEPARACION) || i>(pos+RANGO_SEPARACION)) //Se encuentra la linea en el rango permitido?
-		continue;
-	
-	/*Ciclo que promedia un rango, donde i es el centro*/	
-	sumaTotal=0;
-	for(k=i-ANCHO_PROMEDIO ; k<=i+ANCHO_PROMEDIO ; k++)
-		{
-		if(LineaBase[k]>LineScanImage0[k]) //La linea nueva debe de tener valores menores a la base
-			suma=LineaBase[k]-LineScanImage0[k];
-		else
-			suma=0;
-		sumaTotal+=suma;
-		}
+cambios=0;
+BinarizarImagen();
 
-	sumaTotal=sumaTotal/(ANCHO_PROMEDIO*2+1); //Promedio de la sumaTotal
-	
-	if(sumaTotal>minimo && sumaTotal>DIFERENCIA_MINIMA) //Es el mayor? Se cumple la diferencia maxima?
+if(cambios==2 || cambios==6)
+	for(i=LIM_INICIO ; i<=LIM_FIN ; i++) //Se eliminaron 15 pixeles al inicio y al final
 		{
-		select=HayDepresion(i);
-		if(select==1) //Verifica que exista 1 maximo a cada lado de la supuesta linea
+		/*Condicion que compara la posicion anterior de la linea con la actual*/
+		if(i<(pos-RANGO_SEPARACION) || i>(pos+RANGO_SEPARACION)) //Se encuentra la linea en el rango permitido?
+			continue;
+		
+		/*Ciclo que promedia un rango, donde i es el centro*/
+		sumaTotal=0;
+		for(k=i-ANCHO_PROMEDIO ; k<=i+ANCHO_PROMEDIO ; k++)
 			{
-			minimo=sumaTotal;
-			pos=i;
+			if(LineaBase[k]>LineScanImage0[k]) //La linea nueva debe de tener valores menores a la base
+				suma=LineaBase[k]-LineScanImage0[k];
+			else
+				suma=0;
+			sumaTotal+=suma;
 			}
-		else if(select==2) //Detecta que es la meta
+	
+		sumaTotal=sumaTotal/(ANCHO_PROMEDIO*2+1); //Promedio de la sumaTotal
+		
+		if(sumaTotal>minimo && sumaTotal>DIFERENCIA_MINIMA) //Es el mayor? Se cumple la diferencia maxima?
 			{
-			TFC_SetBatteryLED_Level(4);
-			TFC_HBRIDGE_DISABLE;
+			lineas=HayLinea(i);
+			if(lineas==1) //Verifica que exista 1 maximo a cada lado de la supuesta linea
+				{
+				minimo=sumaTotal;
+				pos=(int)((lim_der-lim_izk)/2.0)+lim_izk;
+				//TERMINAL_PRINTF("*%d*",pos-15);
+				}
 			}
 		}
-	}
+}
+
+
+void BinarizarImagen()
+{
+int j;
+
+for(j=0 ; j<=127 ; j++) v[j]=temp[j]=0; //Reinicia vector en ceros
+for(j=LIM_INICIO ; j<=LIM_FIN ; j++)	
+	if(LineScanImage0[j] < ((LineaBase[j]+LineaBaseMinima[j])/2) )		
+		v[j]=temp[j]=1;
+for(j=LIM_INICIO-1 ; j<=LIM_FIN ; j++)	
+	if(v[j]!=v[j+1]) cambios++;
 }
 
 
@@ -103,18 +117,12 @@ for(i=LIM_INICIO ; i<=LIM_FIN ; i++) //Se eliminaron 15 pixeles al inicio y al f
 *  Description          : Esta funcion comprueba que exista una depresion en la linea de valores
 *  						  capturada por la camara.
 ********************************************************************************************/
-int HayDepresion(int x)
+int HayLinea(int x)
 {
 int area1=0,area2=0,area3=0;
-int j,v[130];
+int j;
 
-for(j=0 ; j<=127 ; j++) v[j]=0;
-
-for(j=LIM_INICIO ; j<=LIM_FIN ; j++)	
-	if(LineScanImage0[j] < ((LineaBase[j]+LineaBaseMinima[j])/2) )		
-		v[j]=1;
-
-if(v[x]==0) return 0;
+if(temp[x]==0) return 0;
 
 //////////////////////////////////////////////////////////////////////
 //Checar hacia la IZQUIERDA y contar el area de la linea
@@ -125,12 +133,15 @@ while(v[j]==1) //Se mueve a el lado izquierdo de la linea
 	if(j==LIM_INICIO-1) return 0;
 	}
 j++;
+lim_izk=j;
 while(v[j]==1) //Empezar a contar el area2 de la linea del lado izquierdo al derecho
 	{
+	temp[j]=0;
 	area2++;
 	j++;
 	if(j==LIM_FIN+1) return 0;
 	}
+lim_der=j-1;
 while(v[j]==0)
 	{
 	j++;
@@ -138,6 +149,7 @@ while(v[j]==0)
 	}
 while(v[j]==1) //Empezar a contar el area3 de la linea del lado izquierdo al derecho
 	{
+	temp[j]=0;
 	area3++;
 	j++;
 	}
@@ -152,30 +164,31 @@ while(v[j]==0)
 	}
 while(v[j]==1) //Empezar a contar el area1 de la linea del lado derecho al izquierdo
 	{
+	temp[j]=0;
 	area1++;
 	j--;
 	}
 
 ///////////////////////////////////////////////////////////////////////
 
-int s=0;
-for(j=LIM_INICIO-1 ; j<=LIM_FIN ; j++)	
-	if(v[j]!=v[j+1]) s++;	
-if(s!=2 && s!=6) return 0;
+//if(area2<=8 || area2>=24) return 0;  
 
-if(area2<=8 || area2>=24) return 0;  
-
-if(area1>20 && area3>20)
+if(cambios==6 && area1>20 && area3>20)
 	{
 	TFC_SetBatteryLED_Level(4);
 	TFC_HBRIDGE_DISABLE;
 	}
-/*
-for(j=LIM_INICIO ; j<=LIM_FIN ; j++)
-	TERMINAL_PRINTF("%d",v[j]);
-TERMINAL_PRINTF("  %d %d %d . %d\r\n",area1,area2,area3,InicioMeta);
-*/
+
+//for(j=LIM_INICIO ; j<=LIM_FIN ; j++) TERMINAL_PRINTF("%d",v[j]); 
+//TERMINAL_PRINTF("  %d %d %d . v[%d]=%d  %d %d\r\n",area1,area2,area3,pos-15,(int)(servomotor[pos-15]),lim_izk,lim_der);
+
 return 1;
+}
+
+
+void Cesar()
+{
+
 }
 
 

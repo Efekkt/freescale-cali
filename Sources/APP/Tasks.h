@@ -10,7 +10,8 @@
 void CapturarLineaBase(void);
 
 void DetectarLinea(void);
-int HayDepresion(int);
+void BinarizarImagen(void);
+int HayLinea(int);
 
 void ControlDifuso(void);
 void VelocidadMotor(void);
@@ -21,6 +22,5 @@ void VoltajeBateria(void);
 void GraficarLabVIEW(void);
 
 extern int pos;
-extern int META1,META3;
 
 #endif
