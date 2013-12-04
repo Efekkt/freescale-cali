@@ -12,11 +12,10 @@ void CapturarLineaBase(void);
 void DetectarLinea(void);
 void BinarizarImagen(void);
 int HayLinea(int);
+void Cesar(void);
 
 void ControlDifuso(void);
 void VelocidadMotor(void);
-
-void ControlLineal(void);
 
 void VoltajeBateria(void);
 void GraficarLabVIEW(void);

@@ -16,7 +16,7 @@
 ********************************************************************************************/
 int LineaBase[130];
 int LineaBaseMinima[130];
-int v[130],temp[130],cambios;
+int v[130],temp[130],cambios,FrenarMotor=0;
 
 void CapturarLineaBase()
 {
@@ -99,16 +99,41 @@ if(cambios==2 || cambios==6)
 }
 
 
+/*******************************************************************************************
+*  Name                 : BinarizarImagen
+*  Description          : Esta funcion...
+********************************************************************************************/
 void BinarizarImagen()
 {
 int j;
+int minimo=256,maximo=0;
 
 for(j=0 ; j<=127 ; j++) v[j]=temp[j]=0; //Reinicia vector en ceros
-for(j=LIM_INICIO ; j<=LIM_FIN ; j++)	
-	if(LineScanImage0[j] < ((LineaBase[j]+LineaBaseMinima[j])/2) )		
+
+for(j=LIM_INICIO ; j<=LIM_FIN ; j++)
+	{
+	if(LineScanImage0[j]>maximo) maximo=LineScanImage0[j];
+	if(LineScanImage0[j]<minimo) minimo=LineScanImage0[j];
+	}
+
+for(j=LIM_INICIO ; j<=LIM_FIN ; j++)
+	if(LineScanImage0[j] < (maximo-minimo)/4+minimo )		
 		v[j]=temp[j]=1;
 for(j=LIM_INICIO-1 ; j<=LIM_FIN ; j++)	
 	if(v[j]!=v[j+1]) cambios++;
+
+if(v[LIM_INICIO]==1 && v[LIM_FIN]==1) FrenarMotor=1;
+else FrenarMotor=0;
+/*
+for(j=0 ; j<=127; j++)
+	{
+	if(j==LIM_INICIO || j==LIM_FIN) TERMINAL_PRINTF(" ");
+	TERMINAL_PRINTF("%d",v[j]);
+	}
+TERMINAL_PRINTF("    v[%d]=%d",pos-15,(int)(servomotor[pos-15]));
+if(v[LIM_INICIO]==1 && v[LIM_FIN]==1) TERMINAL_PRINTF("  Blanco\n\r");
+else TERMINAL_PRINTF("  Linea Negra\n\r");
+*/
 }
 
 
@@ -171,7 +196,7 @@ while(v[j]==1) //Empezar a contar el area1 de la linea del lado derecho al izqui
 
 ///////////////////////////////////////////////////////////////////////
 
-//if(area2<=8 || area2>=24) return 0;  
+if(area2<=5) return 0;  
 
 if(cambios==6 && area1>20 && area3>20)
 	{
@@ -221,17 +246,16 @@ a=motor_izquierdo[indice_vector]/1000.0;
 b=motor_derecho[indice_vector]/1000.0;
 if(a>TFC_ReadPot1()) a=TFC_ReadPot1();
 if(b>TFC_ReadPot1()) b=TFC_ReadPot1();
-TFC_SetMotorPWM(b,a);
-}
-
-/*******************************************************************************************
-*  Name                 : SeguirLineaCamara
-*  Description          : Esta funcion obtiene los valores de la camara, recorre los valores
-*  						  y determina la maxima diferencia con respecto a 'LineaBase'
-********************************************************************************************/
-void ControlLineal()
-{
-TFC_SetServo(0,(float)(((pos-15)/48.5)-1.0));			
+	
+if(FrenarMotor==0)
+	{
+	TFC_SetMotorPWM(b,a);
+	}
+else
+	{
+	if(indice_vector<22) TFC_SetMotorPWM(b,-0.07);
+	if(indice_vector>75) TFC_SetMotorPWM(-0.07,a);
+	}
 }
 
 
@@ -249,9 +273,6 @@ else if(bateria>=121)	nivel=3;	//Mayor de 7.8 volts
 else if(bateria>=117)	nivel=2;	//Mayor de 7.6 volts 
 else if(bateria>=114)	nivel=1;	//Mayor de 7.4 volts
 else if(bateria>=99)	nivel=0;	//Mayor de 6.7 volts
-//else if(bateria>=92) 	nivel=0;	//Mayor de 6.2 volts
-//else if(bateria>=85) 	nivel=0;	//Mayor de 5.7 volts
-//else if(bateria>=77) 	nivel=0;	//Mayor de 5.2 volts
 else					nivel=5;	//Menor de 5.2 volts
 
 //TERMINAL_PRINTF("Bat:%d  Nivel:%d\r\n",bateria,nivel);
@@ -302,8 +323,6 @@ if(LineScanImageReady==1)
 
 
 
-
-
 /*void SeguirLineaQRD1114()
 {
 if(TFC_SENSOR_1 && TFC_SENSOR_2 && TFC_SENSOR_3 && TFC_SENSOR_4 && TFC_SENSOR_5 && TFC_SENSOR_6 && TFC_SENSOR_7)	
@@ -338,60 +357,4 @@ for(i=15 ; i<=112 ; i++) //Se eliminaron 15 pixeles al inicio y al final
 		}
 	}
 } 
-*/
-
-
-/*
-int HayDepresion(int x)
-{
-int area1=0,area2=0,area3=0;
-int j,v[130],InicioMeta=0;
-
-for(j=0 ; j<=127 ; j++) v[j]=0;
-
-for(j=LIM_INICIO ; j<=LIM_FIN ; j++)	
-	if(LineScanImage0[j] < ((LineaBase[j]+LineaBaseMinima[j])/2) )		
-		v[j]=1;
-
-if(v[x]==0) return 0;
-
-//Checar hacia la DERECHA
-j=x;
-while(v[j]==1) 
-	{
-	j++;
-	if(j==LIM_FIN+1) return 0;
-	}
-
-while(v[j]==0) //InicioMeta
-	{
-	j++;
-	if(j==LIM_FIN+1) break;
-	}
-if(j!=LIM_FIN+1) InicioMeta++;
-
-//Checar hacia la IZQUIERDA
-j=x;
-while(v[j]==1)
-	{	
-	j--;
-	if(j==LIM_INICIO-1) return 0;
-	}
-
-while(v[j]==0) //InicioMeta
-	{
-	j--;
-	if(j==LIM_INICIO-1) break;
-	}
-if(j!=LIM_INICIO-1) InicioMeta++;
-
-for(j=15 ; j<=112 ; j++)
-	TERMINAL_PRINTF("%d",v[j]);
-TERMINAL_PRINTF("  %d %d %d\r\n",area1,area2,area3);
-
-if(InicioMeta==2)
-	return 2;
-else
-	return 1;
-}
 */
