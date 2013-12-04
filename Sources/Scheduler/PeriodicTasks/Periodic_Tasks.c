@@ -42,9 +42,7 @@ if(TFC_PUSH_BUTTON_1_PRESSED) TFC_HBRIDGE_DISABLE;
 
 Centro=TFC_ReadPot0()/8.0;
 
-//Controles para el servomotor
-ControlDifuso();
-//if(sel==3) ControlLineal();
+ControlDifuso(); //Control para el servomotor
 }
  
 
@@ -79,5 +77,5 @@ RED_TOGGLE;
 
 void periodic_tasks_exec_1Mtks(void)
 {	 	 
-//VoltajeBateria();
+VoltajeBateria();
 }
